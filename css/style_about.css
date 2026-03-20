@@ -141,7 +141,9 @@ div#hero_text p {
 setting the max-width to 100% and height to 100%.*/
 section#hero img {
     max-width: 100%;
-    height: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 
 /*Mission Statement Styles */
