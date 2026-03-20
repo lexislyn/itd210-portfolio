@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="css/style_about.css" rel="stylesheet">
+    <!--These links connect to the two Google Fonts I'm using on this page-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Mate:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Limelight&family=Mate:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--Header with name of organization and navigation list-->
+    <header>
+        <p>Coastal Protection Initiative</p>
+        <!--Navigation List with links that work-->
+        <nav>
+            <ul>
+                <li><a href=index.html>Home</a></li>
+                <li><a href=mission.html class="active">About Us</a></li>
+                <li><a href=events.html>Events</a></li>
+                <li><a href=donation.html>Giving</a></li>
+                <li><a href=contact.html>Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--Hero Section that contains an image and a brief description of the purpose of the nonprofit organization-->
+    <section id="hero">
+        <div id="hero_img">
+            <!-- Image citation (web source)
+            file/page: about.html
+            image file: images/hero_image.png
+            Original creator: Yan Krukau
+            Website: Found on Canva but originated from Pexels
+            Title/description: Office Team Standing in the Room
+            link to photo: https://www.canva.com/photos/MAEdprPzw2A-office-team-standing-in-the-room/
+            License: Has a free content license for a wide range of personal and commercial uses as long as I 
+            don't resell, take credit for, or trademark this image
+            Accessed: 2026-03-08 -->
+            <img src="images/hero_image.png" alt="Office Team" />
+        </div>
+        <div id="hero_text">
+            <h1>Our Work</h1>
+            <p>Help us protect and restore our coastal ecosystems!</p>
+        </div>
+    </section>
+    <!--Mission Statement Section where the mission statement is stated giving it its own space-->
+    <section id="mission">
+        <h2>Our Mission</h2>
+        <p>Our organization strives to help protect our local biological diversity and to restore our local coastal ecosystems so that all members of our community can enjoy the natural landscapes around us.</p>
+    </section>
+    <!--Team Section that lists out 6 team members using a grid layout.
+        Each image is in its own div class so that a zoom transition can be used on it for a fun effect
+        The grid container class holds the grid items, so that the section element is used as more of a background and spacing tool-->
+    <section id="team">
+        <h2>Our Team</h2>
+        <div class="grid_container">
+            <div class="team_member">
+                <div class="image">
+                    <img src="images/alexis_w.JPG" alt="Photo of Alexis">
+                    <!--Image I took of myself-->
+                </div>
+                <h3>Alexis W</h3>
+                <p>Founder</p>
+            </div>
+            <div class="team_member">
+                <div class="image">
+                    <!-- Image citation (web source)
+                    file/page: about.html
+                    image file: images/clara_m.png
+                    Original creator: Lucretius Mooka
+                    Website: Found on Canva but originated from Pexels
+                    Title/description: Professional Woman in Black Suit Smiling
+                    link to photo: https://www.canva.com/photos/MAGwtWTtT9o-professional-woman-in-black-suit-smiling/
+                    License: Has a free content license for a wide range of personal and commercial uses as long as I 
+                    don't resell, take credit for, or trademark this image
+                    Accessed: 2026-03-09 -->
+                    <img src="images/clara_m.png" alt="Photo of Clara" />
+                </div>
+                <h3>Clara M</h3>
+                <p>Youth Educator</p>
+            </div>
+            <div class="team_member">
+                <div class="image">
+                <img src="images/ben_j.JPG" alt="Photo of Ben">
+                <!--Image I took of my boyfriend Ben-->
+                </div>
+                <h3>Ben J</h3>
+                <p>Grants Coordinator</p>
+            </div>
+            <div class="team_member">
+                <div class="image">
+                     <!-- Image citation (web source)
+                    file/page: about.html
+                    image file: images/stephen_h.png
+                    Original creator: Tran Nhu Tuan
+                    Website: Found on Canva but originated from Pexels
+                    Title/description: Professional Business Portrait of a Young Man
+                    link to photo: https://www.canva.com/photos/MAGsHo2mAjA-professional-business-portrait-of-a-young-man/
+                    License: Has a free content license for a wide range of personal and commercial uses as long as I 
+                    don't resell, take credit for, or trademark this image
+                    Accessed: 2026-03-09 -->
+                    <img src="images/stephen_h.png" alt="Photo of Stephen" >
+                </div>
+                <h3>Stephen H</h3>
+                <p>Accountant</p>
+            </div>
+            <div class="team_member">
+                <div class="image">
+                    <!-- Image citation (web source)
+                    file/page: about.html
+                    image file: images/kayla_b.png
+                    Original creator: Daniel & Hannah Snipes
+                    Website: Found on Canva but originated from Pexels
+                    Title/description: Stylish Modern Headshot of Woman Entrepreneur
+                    link to photo: https://www.canva.com/photos/MAGytDWZ6HQ-stylish-modern-headshot-of-woman-entrepreneur/
+                    License: Has a free content license for a wide range of personal and commercial uses as long as I 
+                    don't resell, take credit for, or trademark this image
+                    Accessed: 2026-03-09 -->
+                    <img src="images/kayla_b.png" alt="Photo of Kayla" >
+                </div>
+                <h3>Kayla B</h3>
+                <p>Operations Manager</p>
+            </div>
+            <div class="team_member">
+                <div class="image">
+                    <!-- Image citation (web source)
+                    file/page: about.html
+                    image file: images/louis_f.png
+                    Original creator: baseimage
+                    Website: Found on Canva
+                    Title/description: Updated Classics Headshots Portrait of Male Professional
+                    link to photo: https://www.canva.com/photos/MAFZ9I1W82w-updated-classics-headshots-portrait-of-male-professional/
+                    License: Has a free content license for a wide range of personal and commercial uses as long as I 
+                    don't resell, take credit for, or trademark this image
+                    Accessed: 2026-03-09 -->
+                    <img src="images/louis_f.png" alt="Photo of Louis" >
+                </div>
+                <h3>Louis F</h3>
+                <p>Outreach Specialist</p>
+            </div>
+        </div>
+    </section>
+    <!--Values Section defined using flexbox
+        There are 5 values cards listing the 5 most important organizational values
+        The text is in it's own div element so that I could use flexbox to make the card text perfectly centered
+        There's two different paragraph elements in each card which allows for a fun interactive hover effect on the website. -->
+    <section id="values">
+        <h2>Our Values</h2>
+        <div id="value_container">
+            <div class="card">
+                <img src="images/noun-accountability.png" alt="Accountability" >
+                <!--accountability by Faridah from <a href="https://thenounproject.com/browse/icons/term/accountability/" target="_blank" title="accountability Icons">Noun Project</a> (CC BY 3.0)-->
+                <div class="card_text">
+                    <p class="icon">&#9432;</p>
+                    <h3>Responsibility</h3>
+                    <p class="instructions">Hover here</p>
+                    <p>We take accountability of our actions and strive to
+                    do the right thing each and every day. </p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/noun-love.png" alt="Heart" >
+                <!--Love by zaenul yahya from <a href="https://thenounproject.com/browse/icons/term/love/" target="_blank" title="Love Icons">Noun Project</a> (CC BY 3.0)-->
+                <div class="card_text">
+                    <p class="icon">&#9432;</p>
+                    <h3>Heart</h3>
+                    <p class="instructions">Hover here</p>
+                    <p>We give our all every day knowing that we're 
+                    making a positive impact on the world.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/noun-transparency.png" alt="Transparency" >
+                <!--Transparency by Nursila from <a href="https://thenounproject.com/browse/icons/term/transparency/" target="_blank" title="Transparency Icons">Noun Project</a> (CC BY 3.0)-->
+                <div class="card_text">
+                    <p class="icon">&#9432;</p>
+                    <h3>Transparency</h3>
+                    <p class="instructions">Hover here</p>
+                    <p>We will always be open and transparent about the actions we take and why we take them.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/noun-inclusion.png" alt="Inclusion" >
+                <!--inclusion by syafii5758 from <a href="https://thenounproject.com/browse/icons/term/inclusion/" target="_blank" title="inclusion Icons">Noun Project</a> (CC BY 3.0)-->
+                <div class="card_text">
+                    <p class="icon">&#9432;</p>
+                    <h3>Inclusion</h3>
+                    <p class="instructions">Hover here</p>
+                    <p>We want to celebrate the diversity and 
+                    inclusion that makes our organization stronger.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/noun-teamwork.png" alt="Teamwork" >
+                <!--teamwork by Ferdian Mauladi Riziq from <a href="https://thenounproject.com/browse/icons/term/teamwork/" target="_blank" title="teamwork Icons">Noun Project</a> (CC BY 3.0)-->
+                <div class="card_text">
+                    <p class="icon">&#9432;</p>
+                    <h3>Teamwork</h3>
+                    <p class="instructions">Hover here</p>
+                    <p>We strive to establish a supportive, collaborative environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--The Call to Action Section which contains three button elements that are surrounded by links so that they take you
+    to the relevant page. The buttons are grouped together in a button container class which is defined using flexbox
+    so that the buttons can be spaced out evenly.-->
+    <section id="call_to_action">
+          <h4>Explore Our Organization</h4>
+          <div class="button_container">
+            <a href=events.html><button type="submit">
+                <p>Look at our upcoming events</p>
+            </button></a>
+            <a href=donation.html><button type="submit">
+                <p>Make a donation</p>
+            </button></a>
+            <a href=contact.html><button type="submit">
+                <p>Contact Us</p>
+            </button></a>
+        </div>
+    </section>
+    <!--Footer Section -->
+    <footer>
+        <p> &copy; Alexis Warren | ITD 210 Midterm Exam </p>
+    </footer>
+</body>
+</html>

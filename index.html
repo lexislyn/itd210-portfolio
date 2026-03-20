@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coastal Protection Initiative</title>
+    <link href="css/style.css" rel="stylesheet" >
+    <!--These links connect to the two Google Fonts I'm using on this page-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Mate:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Limelight&family=Mate:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <p>Coastal Protection Initiative</p>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="mission.html">About Us</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="donation.html">Giving</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header> 
+    <main> 
+        <!--This section is only for hero content (video and text)-->
+        <section class="hero_content">
+            <div class="hero_video">
+                <video autoplay muted loop>
+                    <!--I took three 3-4 second videos I had in my phone and combined them into one 
+                    long video using iMovie on my phone. -->
+                   <source src="images/hero_video.mov" type= "video/mp4" >
+                </video>
+            </div>
+            <div class="hero_text">
+                <h1>Help Protect Our Coastal Wetlands</h1>
+                <p>Come join one of our volunteer events and be a part of our community!</p>
+            </div>
+        </section> 
+        <article>
+            <h2>Learn more about our organization: </h2>
+            <p>Feel free to explore our page and read about our work.</p>
+        </article>
+            <!--This section is to make the four card elements (where the image also serve as a navigation link)-->
+        <section class="card_content">
+            <div id="card1" class="flip-card">
+                <a href="mission.html">
+                <div class="flip-card-inner">
+                    <!--This is an image I took of a heron back in November near my house-->
+                    <div class="flip-card-front">
+                        <img src="images/heron.jpg" alt="image of a heron under an autumn tree" >
+                        <div class="hover_effect">
+                            <p id="title">Our Mission</p>
+                            <p id="icon">&#9432;</p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <!--<h3>Our Mission</h3> -->
+                        <p>Come learn about what we do and why we do it!</p>
+                    </div>
+                </div>
+                </a>
+            </div>
+            <div id="card2" class="flip-card">
+                <a href="events.html">
+                <div class="flip-card-inner"> 
+                    <!--Image citation (web source)
+                        file/page: index.html card 2
+                        image file: images/volunteering2.jpg
+                        Original creator: Anna Shvets 
+                        Website: Pexels.com
+                        Title/description: Group of people planting a tree
+                        link to photo: https://www.pexels.com/photo/people-planting-plant-together-5029923/
+                        Photo created by Anna Shvets
+                        License: Pexels says that all photos and videos on Pexels can be downloaded and used for free.
+                        Accessed: 2026-02-03 -->
+                    <div class="flip-card-front">
+                        <img src="images/volunteering2.jpg" alt="image of 5 people helping to plant a tree" >
+                        <div class="hover_effect">
+                            <p id="title">Our Events</p>
+                            <p id="icon">&#9432;</p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <!--<h3>Our Events</h3>-->
+                        <p>Find out about future opportunities to volunteer with us.</p>
+                    </div>
+                </div>
+                </a>
+            </div>
+            <div id="card3" class="flip-card">
+                <a href="donation.html"> 
+                <div class="flip-card-inner">
+                    <!--Image citation (web source)
+                        file/page: index.html card 3
+                        image file: images/sea_turtle.jpg
+                        Original creator: Tyler Robins 
+                        Website: Unsplash.com
+                        Title/description: A sea turtle swimming in water
+                        link to photo: https://unsplash.com/photos/a-sea-turtle-swims-in-clear-green-water-qUeZxpCiL3g 
+                        License:  This photo is free to use under the Unsplash License
+                        Accessed: 2026-02-03 -->
+                    <div class="flip-card-front">
+                        <img src="images/sea_turtle.jpg" alt="image of sea turtle" >
+                        <div class="hover_effect">
+                            <p id="title">Giving</p>
+                            <p id="icon">&#9432;</p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <!--<h3>Giving</h3>-->
+                        <p>Find out about our current fundraisers here. </p>
+                    </div>
+                </div>
+                </a>
+            </div>
+            <div id="card4" class="flip-card">
+                <a href="contact.html"> 
+                <div class="flip-card-inner">
+                    <!--Image citation (web source)
+                        file/page: index.html card 4
+                        image file: images/together.jpg
+                        Original creator: Anna Shvets 
+                        Website: Pexels.com
+                        Title/description: Group of hands holding a plant.
+                        link to photo: https://www.pexels.com/photo/green-plant-on-people-s-hands-5029919/
+                        License: Pexels says that all photos and videos on Pexels can be downloaded and used for free.
+                        Accessed: 2026-02-03 -->
+                    <div class="flip-card-front">
+                        <img src="images/together.jpg" alt="image of people with their hands in a circle holding a plant" >
+                        <div class="hover_effect">
+                            <p id="title">Contact Us</p>
+                            <p id="icon">&#9432;</p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                       <!-- <h3>Contact Us</h3> -->
+                        <p>Message us with any questions or concerns you have.</p>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p> &copy; Alexis Warren | ITD 210 Capstone Project </p>
+    </footer>    
+</body>
+</html> 

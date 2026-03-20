@@ -1,0 +1,171 @@
+/*
+Author: Alexis Warren
+Date: 2/2/2026
+*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* html and body styles */
+html {
+    background-color: whitesmoke;
+}
+
+body {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ebf4d9;
+    overflow-x: hidden;
+}
+
+/*Header + Nav design 
+  Making the header a grid so that the 
+  organization name + nav menu are next to each other. 
+  Plus the grid is responsive. */
+header {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: #7e988b;
+    /*
+    grid-template-columns: 40% 60%;
+    */
+}
+
+header > p {
+    color: white;
+    flex-basis: 35%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+}
+
+nav{
+    flex-basis: 65%;
+    flex-grow: 1;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+nav ul {
+    display: flex;
+    flex: 1 1 60%;
+    flex-flow: row nowrap;
+}
+
+nav li {
+    display: flex;
+    flex: 1 1 auto;
+    list-style-type: none;
+}
+
+nav a {
+    color: white;
+    background-color: #7e988b;
+    text-decoration: none;
+    text-align: center;
+    flex: 1 1 auto;
+    padding: 15px 2px;
+}
+
+nav a:hover, nav a:active {
+    background-color: #215a36;
+    color: rgba(255,255,255,0.7);
+}
+
+nav a.active {
+    background-color: #ebf4d9;
+    color: #215a36;
+    /*background-color: rgb(60, 121, 118);*/
+    
+}
+
+section#hero {
+    display: flex;
+    position: relative;
+    align-items: end;
+    justify-content: center;
+    max-width: 100%;
+    height: 30vw; 
+    text-align: center;
+}
+
+div.hero_image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;  
+    z-index: 0;
+    overflow: hidden;
+    inset: 0;
+    object-fit: cover;
+}
+
+
+section#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.2);
+  z-index: 1;
+}   
+
+div.hero_text {
+  color: rgb(251, 226, 194);
+  text-shadow: 2px 2px 5px black;
+  padding: 0px 10px;
+  z-index: 2;
+  font-size: clamp(10pt, 2vw, 25pt);
+} 
+
+section#countdown_timer {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section#countdown_timer h2 {
+    padding-top: 20px;
+}
+
+section#countdown_timer h3 {
+    padding: 20px;
+}
+
+p#today_date {
+    padding: 10px;
+}
+
+p#timer {
+    padding-bottom: 20px
+}
+
+/* assigning the Google fonts to text elements */
+h1, h2, h3 {
+    font-family: Cardo, "Times New Roman";
+}
+
+p {
+    font-family: Mate, "Times New Roman";
+}
+
+/* footer styles */ 
+footer {
+    background-color: #7e988b;
+    width: 100%;
+    text-align: center;
+    line-height: 2em;
+    color: white;
+    padding: 30px;
+}
+
+footer > p {
+    margin-top: 0;
+}
