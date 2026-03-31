@@ -9,9 +9,9 @@ setInterval("runClock()",1000);
 
 function runClock() {
     var thisDay = new Date();
-    var fundraiserEndDate = new Date("April 22, 2026");
+    var fundraiserEndDate = new Date("May 22, 2026");
 
-document.getElementById("today_date").innerHTML = thisDay.toLocaleDateString();
+document.getElementById("fundraiser_end_date").innerHTML = fundraiserEndDate.toLocaleDateString();
 
     var days = document.getElementById("days");
     var hours = document.getElementById("hours");
