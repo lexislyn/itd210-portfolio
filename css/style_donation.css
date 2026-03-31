@@ -3,6 +3,7 @@ Author: Alexis Warren
 Date: 2/2/2026
 */
 
+/* reset styles */
 * {
     margin: 0px;
     padding: 0px;
@@ -22,17 +23,10 @@ body {
     overflow-x: hidden;
 }
 
-/*Header + Nav design 
-  Making the header a grid so that the 
-  organization name + nav menu are next to each other. 
-  Plus the grid is responsive. */
 header {
     display: flex;
     flex-flow: row nowrap;
     background-color: #7e988b;
-    /*
-    grid-template-columns: 40% 60%;
-    */
 }
 
 header > p {
@@ -105,7 +99,7 @@ div.hero_image img {
     object-fit: cover;
 }
 
-
+/* gray overlay to slightly darken the hero image */
 section#hero::before {
   content: "";
   position: absolute;
@@ -114,6 +108,7 @@ section#hero::before {
   z-index: 1;
 }   
 
+/* responsive text on top layer of hero container */
 div.hero_text {
   color: rgb(251, 226, 194);
   text-shadow: 2px 2px 5px black;
@@ -132,19 +127,15 @@ section#countdown_timer {
 }
 
 section#countdown_timer h2 {
-    padding-top: 20px;
+    padding: 20px 0px 10px;
 }
 
 section#countdown_timer h3 {
-    padding: 20px;
+    padding: 20px 0px 10px;
 }
 
-p#today_date {
-    padding: 10px;
-}
-
-p#timer {
-    padding-bottom: 20px
+p {
+    padding: 10px 50px;
 }
 
 /* assigning the Google fonts to text elements */
@@ -154,6 +145,78 @@ h1, h2, h3 {
 
 p {
     font-family: Mate, "Times New Roman";
+}
+
+/* displaying this container as a flex item so that the quote, author, and button are centered */
+#quote-container {
+    width: 80%;
+    padding: 10px;
+    background-color: rgb(250, 211, 125);
+    margin: 10px auto 30px;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+/* displaying this container as a flex item so the loading animation is centered */
+#inspirational-quote {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+/* inserting curly quotation marks before and after the quote */
+blockquote {
+    quotes: "\201C" "\201D";
+    color: #393b3a;
+    padding: 0px 30px 10px;
+}
+
+blockquote::before {
+    content: open-quote;
+    font-size: 1.5em;
+}
+
+blockquote::after {
+    content: close-quote;
+    font-size: 1.5em;
+}
+
+cite {
+    color: black;
+    padding: 0px 30px;
+}
+
+/* styles for the loading animation */
+@keyframes dualRing {
+  to {transform: rotate(360deg); }
+}
+
+.dual-ring {
+  width: 50px;
+  height: 50px;
+  margin-top: 20px;
+  border: 4px solid transparent;
+  border-top-color: #7e988b;
+  border-bottom-color: #7e988b;
+  border-radius: 50%;
+  animation: dualRing 2s linear infinite;
+}
+
+/* button styles */
+button {
+    background-color: rgb(130, 131, 133);
+    border-radius: 30px;
+    border: none;
+    padding: 5px 10px;
+    font-family: Mate, "Times New Roman";
+    font-size: 0.9em;
+    color: #f7f1d3;
+    margin: 15px 0px 0px;
 }
 
 /* footer styles */ 

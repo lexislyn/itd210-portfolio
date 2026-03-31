@@ -14,7 +14,7 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="mission.html">About Us</a></li>
-                <li><a href="events.html">Our Events</a></li>
+                <li><a href="events.html">Events</a></li>
                 <li><a href="donation.html" class="active">Giving</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
@@ -23,6 +23,15 @@
     <main>
         <section id="hero">
             <div class="hero_image">
+                <!--Image citation (web source)
+                    file/page: donation.html
+                    image file: images/sea_turtle_nesting.png
+                    Original creator: Marcus Lange
+                    Website: Pexels.com
+                    Title/description: Sea Turtle on the beach
+                    link to photo: https://www.canva.com/photos/MAG-jz1Ej0A-sea-turtle-on-sandy-beach-shoreline/
+                    License: Pexels says that all photos and videos on Pexels can be downloaded and used for free.
+                    Accessed: 2026-03-15 -->
                 <img src="images/sea_turtle_nesting.png" alt="Baby Turtle On a Beach" >
             </div>
             <div class="hero_text">
@@ -31,7 +40,7 @@
         </section>
         <section id="countdown_timer">
             <h2>Donate Now!</h2> 
-            <p id="today_date"></p>
+            <p> Our Fundraiser Ends On <span id="fundraiser_end_date"></span>
             <p> You can get involved with our fundraiser to
                 help get plastic off the beach in 
                 time for sea turtle nesting season</p>
@@ -44,9 +53,47 @@
         <section id="donation_form">
             
         </section>
+        <section id="quote-container">
+            <!--Loading state for the API -->
+            <div id="inspirational-quote">
+                Loading quote... 
+                <div class="dual-ring"></div>
+            </div>
+        <!--creates a button for user interactivity-->
+        <button id="quote-btn">Click for new quote</button>
+        </section>
     </main>
     <footer>
         <p> &copy; Alexis Warren | ITD 210 Capstone Project </p>
-    </footer>    
+    </footer>  
+    <script>
+        /* Used the QuoteSlate API by Musheer360 */
+        /* selecting the elements that will be used */
+        var quote = document.getElementById("inspirational-quote");
+        var btn = document.getElementById("quote-btn");
+        
+        /*the asynchronous reusable function */
+        async function getData() {
+            /*try catch block for error handling */
+            try {
+                /* initial fetch statement to connect to the API */
+                const response = await fetch("https://quoteslate.vercel.app/api/quotes/random?tags=inspiration,motivation");
+                /* parsing the response into a json file */
+                const data = await response.json();
+                /* getting rid of the loading ... once we have data from the API */
+                quote.textContent = "";
+                /* inserting a blockquote element for the quote and a cite element for the author */
+                quote.innerHTML = "<blockquote>" + data.quote + "</blockquote><cite>" + "- " +data.author + "</cite>";
+            } catch (error) {
+                /* writes an error message on the screen for the user */
+                quote.textContent = "Sorry, we couldn't load a quote at this time.";
+                console.error("Error fetching quote:", error);
+            }
+        }
+        getData();
+
+        /* allows users to click the button to fetch another quote from the API */
+        btn.addEventListener("click", getData);
+    </script>  
 </body>
 </html>
