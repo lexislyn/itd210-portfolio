@@ -11,7 +11,7 @@ function runClock() {
     var thisDay = new Date();
     var fundraiserEndDate = new Date("May 22, 2026");
 
-document.getElementById("fundraiser_end_date").innerHTML = fundraiserEndDate.toLocaleDateString();
+    document.getElementById("fundraiser_end_date").innerHTML = fundraiserEndDate.toLocaleDateString();
 
     var days = document.getElementById("days");
     var hours = document.getElementById("hours");
