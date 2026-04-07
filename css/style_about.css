@@ -121,9 +121,10 @@ div.grid_container {
     grid-template-columns: repeat(auto-fit, minmax(240px, 280px));
     grid-auto-rows: minmax(100px, auto);
     gap: 15px;
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
     justify-content: center;
+ 
 }
 
 /* sets the heading to span across the grid container and centers
@@ -131,7 +132,7 @@ it on the page. Also adds padding to add space. */
 section#team h2 {
     grid-column: -1/1;
     text-align: center;
-    padding: 20px;
+    padding: 50px 0px 30px;
 }
 
 /* the content inside the team cards is displayed as a flexbox
@@ -186,7 +187,7 @@ so that text doesn't run too close to the edge. */
 
 section#values h2 {
     text-align: center;
-    padding: 30px 0px;
+    padding: 50px 0px 10px;
 }
 
 /* displays the values section as a grid 

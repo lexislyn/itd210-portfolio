@@ -208,7 +208,7 @@ footer > p {
 }
 
 /* Laptop designs (min-width: 1020px) */
-@media only screen and (min-width: 1020px) {
+@media only screen and (min-width: 900px) {
     
     div.flip-card {
         grid-column: span 1;
@@ -218,14 +218,6 @@ footer > p {
     text strings don't get too long. */
     section#mission {
         width: 60%;
-    }
-
-    /* lowers the width of the grid container so that the 
-    team member grid can be 3 by 2 on a large desktop screen 
-    without making the cards overwhelmingly large */
-    
-    div.grid_container {
-        width: 90%;
     }
 
     .button {
