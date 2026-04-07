@@ -205,10 +205,6 @@ footer > p {
     table#calendar {
         width: 90%;
     }
-
-    td.calendar_dates, td#active {
-        font-size: 0.9em;
-    }
 }
 
 /* Laptop designs (min-width: 1020px) */
@@ -234,18 +230,6 @@ footer > p {
 
     .button {
         flex-basis: 50%;
-    }
-
-    td.calendar_dates, td#active {
-        font-size: 1.1em;
-    }
-
-    table#calendar caption {
-        font-size: 1.3em;
-    }
-
-    th {
-        font-size: 1.1em;
     }
 }
 

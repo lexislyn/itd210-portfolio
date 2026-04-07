@@ -22,7 +22,7 @@ table#calendar caption {
     border-left: 4px solid #7e988b;
     border-right: 4px solid #7e988b;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: clamp(1.1em, 2vw, 1.3em);
     padding: 3px 0px;
 }
 
@@ -35,11 +35,15 @@ td.calendar_dates, th {
     background-color: white;
 }
 
+th {
+    font-size: clamp(0.8em, 1vw, 1.2em);
+}
+
 td.calendar_dates {
     text-align: left;
     vertical-align: top;
     height: 80px;
-    font-size: 0.7em;
+    font-size: clamp(0.7em, 1vw, 1.1em);
     padding: 3px;
 }
 
