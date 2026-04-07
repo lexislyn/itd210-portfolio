@@ -185,11 +185,6 @@ footer > p {
 
 /* Styles for tablets */
 @media only screen and (min-width: 600px) {
-    
-    div.flip-card {
-        grid-column: span 2;
-    }
-    
     /* On larger screens, this allows the hero image to take up 76.2% of
     the screen and is a weird number, but on a full laptop page it perfectly aligns with
     one of the nav list borders which looked nice. */
