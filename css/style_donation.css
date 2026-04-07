@@ -3,82 +3,6 @@ Author: Alexis Warren
 Date: 2/2/2026
 */
 
-/* reset styles */
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-
-/* html and body styles */
-html {
-    background-color: whitesmoke;
-}
-
-body {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #ebf4d9;
-    overflow-x: hidden;
-}
-
-header {
-    display: flex;
-    flex-flow: row nowrap;
-    background-color: #7e988b;
-}
-
-header > p {
-    color: white;
-    flex-basis: 35%;
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 10px;
-}
-
-nav{
-    flex-basis: 65%;
-    flex-grow: 1;
-    display: flex;
-    flex-flow: row nowrap;
-}
-
-nav ul {
-    display: flex;
-    flex: 1 1 60%;
-    flex-flow: row nowrap;
-}
-
-nav li {
-    display: flex;
-    flex: 1 1 auto;
-    list-style-type: none;
-}
-
-nav a {
-    color: white;
-    background-color: #7e988b;
-    text-decoration: none;
-    text-align: center;
-    flex: 1 1 auto;
-    padding: 15px 2px;
-}
-
-nav a:hover, nav a:active {
-    background-color: #215a36;
-    color: rgba(255,255,255,0.7);
-}
-
-nav a.active {
-    background-color: #ebf4d9;
-    color: #215a36;
-    /*background-color: rgb(60, 121, 118);*/
-    
-}
-
 section#hero {
     display: flex;
     position: relative;
@@ -134,16 +58,8 @@ section#countdown_timer h3 {
     padding: 20px 0px 10px;
 }
 
-p {
-    padding: 10px 50px;
-}
-
 /* assigning the Google fonts to text elements */
-h1, h2, h3 {
-    font-family: Cardo, "Times New Roman";
-}
-
-p {
+blockquote, cite {
     font-family: Mate, "Times New Roman";
 }
 
@@ -219,16 +135,3 @@ button {
     margin: 15px 0px 0px;
 }
 
-/* footer styles */ 
-footer {
-    background-color: #7e988b;
-    width: 100%;
-    text-align: center;
-    line-height: 2em;
-    color: white;
-    padding: 30px;
-}
-
-footer > p {
-    margin-top: 0;
-}

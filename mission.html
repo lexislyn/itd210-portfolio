@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
+    <link href="css/style.css" rel="stylesheet">
     <link href="css/style_about.css" rel="stylesheet">
     <!--These links connect to the two Google Fonts I'm using on this page-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Limelight&family=Mate:ital@0;1&display=swap" rel="stylesheet">
+    <script src = "js/script.js" defer></script>
 </head>
 <body>
     <!--Header with name of organization and navigation list-->
@@ -30,7 +32,7 @@
     </header>
     <!--Hero Section that contains an image and a brief description of the purpose of the nonprofit organization-->
     <section id="hero">
-        <div id="hero_img">
+        <div id="hero_img" class="load-in">
             <!-- Image citation (web source)
             file/page: about.html
             image file: images/hero_image.png
@@ -44,15 +46,17 @@
             <img src="images/hero_image.png" alt="Office Team" />
         </div>
         <div id="hero_text">
-            <h1>Our Work</h1>
-            <p>Help us protect and restore our coastal ecosystems!</p>
+            <h1 class="load-in-2">Our Work</h1>
+            <p class="load-in-3">Help us protect and restore our coastal ecosystems!</p>
         </div>
     </section>
+    <hr>
     <!--Mission Statement Section where the mission statement is stated giving it its own space-->
     <section id="mission">
         <h2>Our Mission</h2>
         <p>Our organization strives to help protect our local biological diversity and to restore our local coastal ecosystems so that all members of our community can enjoy the natural landscapes around us.</p>
     </section>
+    <hr>
     <!--Team Section that lists out 6 team members using a grid layout.
         Each image is in its own div class so that a zoom transition can be used on it for a fun effect
         The grid container class holds the grid items, so that the section element is used as more of a background and spacing tool-->
@@ -145,6 +149,7 @@
             </div>
         </div>
     </section>
+    <hr>
     <!--Values Section defined using flexbox
         There are 5 values cards listing the 5 most important organizational values
         The text is in it's own div element so that I could use flexbox to make the card text perfectly centered
@@ -207,26 +212,23 @@
             </div>
         </div>
     </section>
+    <hr>
     <!--The Call to Action Section which contains three button elements that are surrounded by links so that they take you
     to the relevant page. The buttons are grouped together in a button container class which is defined using flexbox
     so that the buttons can be spaced out evenly.-->
     <section id="call_to_action">
-          <h4>Explore Our Organization</h4>
+          <h4>Sign Up for Email Updates</h4>
           <div class="button_container">
-            <a href=events.html><button type="submit">
-                <p>Look at our upcoming events</p>
-            </button></a>
-            <a href=donation.html><button type="submit">
-                <p>Make a donation</p>
-            </button></a>
-            <a href=contact.html><button type="submit">
-                <p>Contact Us</p>
-            </button></a>
+            <form class="button">
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+                <input type="submit" id="sub" value="Click to Subscribe!">
+            </form>
         </div>
+           <p id="message"></p>
     </section>
     <!--Footer Section -->
     <footer>
-        <p> &copy; Alexis Warren | ITD 210 Midterm Exam </p>
-    </footer>
+        <p> &copy; Alexis Warren | ITD 210 Capstone Project </p>
+    </footer>   
 </body>
 </html>

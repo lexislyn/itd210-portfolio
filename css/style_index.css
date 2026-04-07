@@ -1,0 +1,215 @@
+/*
+Author: Alexis Warren
+Date: 2/2/2026
+*/
+
+
+/*Hero video styles: Portions of this section were developed
+with assistance from Chat GPT to support layering the text over 
+the hero_video. 
+
+AI Assistance Citation: 
+Date: 2/2/2026
+Where used: section.hero_content, div.hero_video, and div.hero_video video
+What AI did: Suggested to make height 40vw and to add a min-height and max-height so that
+the hero video wouldn't take up the whole page and would be responsive. It also suggested adding height: 100% to the
+div.hero_video when I was having trouble with the hero_video covering the rest of the body elements. This makes sure it only 
+takes up the space allocated in the container.
+It also helped with deciding which positions should be relative or absolute. It helped me see that 
+the div.hero_video needed to be placed with absolute positioning if I wanted it to act as a background layer. 
+What I did: I did the z-index stacking, centering items, and testing responsiveness. 
+Prompt summary: How do I get my video to shrink in height so that it doesn't take over the
+whole page? & How do I get the text to go over the video? */
+
+section.hero_content {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40vw; 
+    max-height: 400px; 
+    min-height: 200px; 
+    text-align: center;
+}
+
+div.hero_video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;  
+    z-index: 0;
+}
+
+div.hero_video video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} 
+
+/* Adds a dark semi-transparent overlay over the hero video 
+using absolute positioning so that it covers the whole video. Also 
+uses the pseudo-element before so that it is treated as a 
+sibling element so that the z-index will work and that the overlay 
+will go over the video. */
+section.hero_content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.2);
+  z-index: 1;
+}   
+
+div.hero_text {
+  color: white;
+  padding: 0px 10px;
+  z-index: 2;
+}
+
+/* Card layout in a grid */
+/* Makes four grid columns of equal size so that on a normal laptop screen 
+   it creates a 4 by 1 row of cards. */
+section.card_content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px; 
+    padding: 20px 15px 30px;
+    text-align: center; 
+}
+
+/* padding rules for non-card text elements */
+article h2 {
+    padding-top: 20px;
+    padding-left: 20px;
+    margin-bottom: 5px;
+}
+
+article p {
+    margin-top: 0px;
+    padding-left: 20px;
+}
+
+/* This makes the images in the cards have rounded corners. Also it 
+   prevents some taller images from using more space than the shorter
+   images by limiting the height based on the width. */
+.card_content img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    border-radius: 15px;
+}
+
+/* card styling rules. The span allows the cards to align in a row. */
+.flip-card {
+    background-color: transparent;
+    perspective: 1000px;
+    aspect-ratio: 4/3;
+    width: 100%;
+    grid-column: span 1;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.hover_effect {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s ease-in-out;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+
+.flip-card-back {
+    background-color: #d4e1ef;
+    transform: rotateY(180deg);
+    border-radius: 15px;
+    padding: 0px 5px;
+    color: black;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+div.flip-card-back:hover {
+    box-shadow: gray 5px 5px 5px;
+}
+
+div.flip-card a {
+    text-decoration: none;
+    color: black;
+}
+
+/*
+AI Assistance Citation: 
+Date: 3/14/2026
+Where used: .flip-card-front
+What AI did: Suggested to use transform: rotateY(0deg) to prevent the text from appearing backwards on the flip side
+of the flip card.
+What I did: Did the rest of the flip cards and positioned all the text elements using absolute positioning and flex properties like space around.
+Prompt summary: How would I get the text not to display backwards on the back side of the flip card?
+*/
+.flip-card-front {
+    transform: rotateY(0deg);
+}
+
+
+.flip-card-front div.hover_effect{
+    position: absolute;
+    opacity: 1;
+    z-index: 3;
+    bottom: 0px;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0,0,0,0.4);
+    font-size: 1.1em;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.flip-card-front img, .flip-card-back {
+    position: relative;
+    z-index: 1;
+    inset: 0px;
+}
+
+
+/* Mobile styles for phones */
+/* This makes the grid a 2 by 2 size for mobile phones, so that the cards 
+   don't look too small on phone screens. Also changes the image size so that the
+   images maintain a decent aspect ratio. */ 
+@media only screen and (max-width: 480px) {
+    section.card_content img {
+        width: 100%;
+    }
+    
+    div.flip-card {
+        grid-column: span 2;
+        min-height: 30vw;
+    }
+}
+

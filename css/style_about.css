@@ -1,110 +1,4 @@
-/*reset styles 
-sets all margin and padding to 0 pixels 
-and sets the sizing to border-box*/
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
 
-html {
-    background-color: whitesmoke;
-}
-
-/*sets the background color of the body, sets the width to 100%
-of the viewport, horizontally centers the page body and hides any overflow in the x direction
-so that there's no horizontal scrolling.*/
-body {
-    width: 100%;
-    margin: 0 auto;
-    background-color: #ebf4d9;
-    overflow-x: hidden;
-}
-
-/*sets the header width and background color while displaying it as flexbox
-so that the flex items inside are arranged in a row*/
-header {
-    width: 100%;
-    background-color: #7e988b;
-    display: flex;
-    flex-flow: row nowrap;
-}
-
-/*makes it so that the organization name is displayed as a flex item
-taking up 35% of the available space in the header. The display is also flex
-so that the text is horizontally and vertically centered. */
-header > p {
-    flex-basis: 35%;
-    flex-grow: 1;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 10px;
-}
-
-/*Navigation List Styles:
-each part of the navigation list is displayed as a flexbox
-so that the hypertext links can take up the full height of the header. 
-The flex direction is always row so that it looks like a horizontal list.
-*/
-
-/*want the navigation list to take up the other 65% of the header*/
-nav {
-    flex-basis: 65%;
-    flex-grow: 1;
-    display: flex;
-    flex-flow: row nowrap;
-}
-
-nav ul {
-    display: flex;
-    flex-flow: row nowrap;
-    flex: 1 1 auto;
-}
-
-nav li {
-    list-style-type: none; /*gets rid of the bullet points that are originally there*/
-    display: flex;
-    flex-basis: auto;
-    flex-grow: 1;
-}
-
-nav a {
-    width: 100%;
-    color: white; /*text color is white for header */
-    text-decoration: none; /*gets rid of the underlining of the links*/
-    text-align: center;
-    display: flex;
-    justify-content: center; /*horizontally and vertically centers the text*/
-    align-items: center;
-    padding: 15px 2px;
-}
-
-/*this sets a different font color and background color 
-for the nav list item of the current page so users won't be
-confused about what page they're on*/
-nav a.active {
-    background-color: #ebf4d9;
-    color: #215a36;
-}
-
-/*for any links being hovered over or clicked on the
-font color and background color also change*/
-nav a:hover, nav a:active {
-    background-color: #215a36;
-    color: rgba(255,255,255,0.7);
-}
-
-/*sets the font for the h1-h4 headings and paragraph elements
-to use fonts from Google fonts */
-h1, h2, h3, h4 {
-    font-family: Cardo, "Times New Roman";
-}
-
-p {
-    font-family: Mate, "Times New Roman";
-}
 
 /*Hero Section Styles */
 /*displays the hero section as a flexbox with the list items 
@@ -116,9 +10,39 @@ section#hero {
     flex-flow: row nowrap;
 }
 
+/* loads the hero image and text with a staggered animation */
+.load-in {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: load-in 1s ease-in forwards;
+}
+
+.load-in-2 {
+    opacity: 0;
+    transform: translateX(30px);
+    animation: load-in 1s ease-in forwards;
+    animation-delay: 1s;
+}
+
+.load-in-3 {
+    opacity: 0;
+    transform: translateX(30px);
+    animation: load-in 1s ease-in forwards;
+    animation-delay: 2s;
+}
+
+/* the animation lets the elements slide in from either the left or right side 
+and slowly makes it visible*/
+@keyframes load-in {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 /*for mobile styles the image in the hero section takes up 50% of the body width */
 div#hero_img {
-    flex-basis: 50%;
+    flex-basis: 60%;
 }
 
 /*for mobile styles the text in the hero section takes up 50% of the body width*/
@@ -152,7 +76,7 @@ section#hero img {
   comfortable padding so it doesn't feel squeezed. 
 */
 section#mission {
-    padding: 30px;
+    padding: 50px 20px;
     margin: 0 auto;
     width: 90%;
 }
@@ -170,7 +94,7 @@ has a nice alternating green and white background.
 Again adds padding to the bottom so that there's plenty of space */
 section#team {
      background-color: white;
-     padding-bottom: 20px;
+     padding-bottom: 60px;
 }
 
 /*the team is organized as a grid.
@@ -303,10 +227,16 @@ div#value_container > .card {
     padding: 7px;
     margin: 0 auto;
     transform-style: preserve-3d;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 5px 10px 20px 5px rgba(41, 40, 40, 0.2);
     transition: transform 0.5s cubic-bezier(.25,.8,1,1),
-                box-shadow 0.5s ease;
+                box-shadow 0.5s ease,
+                scale 0.5s ease;
     position: relative;
+}
+
+.card:hover {
+    transform: translateZ(30px) scale(1.025);
+    box-shadow: 5px 10px 20px 5px rgba(0, 0, 0, 1);
 }
 
 /* value card images are responsive with a max-width of 100%
@@ -352,10 +282,6 @@ with extra padding on the top for space. */
     opacity: 1;
 }
 
-.card:hover {
-    transform: translateZ(30px);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-}
 
 /* a separate class of paragraph elements are defined in the html code
 so they can act as instructions to hover over the card. This is
@@ -375,54 +301,6 @@ so they disappear */
     opacity: 0;
 }
 
-/* Call to action styles */
-/*sets the background color of the section to white 
-and centers the h4 heading. */
-section#call_to_action {
-    background-color: white;
-    text-align: center;
-}
-
-/* the button container acts as a flexbox
-with a width of 90% and the flex items horizontally centered using 
-the space around feature so that there's space between them */
-.button_container {
-    display: flex;
-    padding: 10px 0px 20px; /*top padding of 10 pixels and bottom padding of 20 pixels */
-    justify-content:space-around;
-    width: 90%;
-    margin: 0 auto; /*horizontally centered */
-}
-
-/*increases the font size for the h4 heading and adds more padding to add more space */
-h4 {
-    padding: 20px;
-    font-size: 1.4em;
-}
-
-/* sets the background color and border for the button links.
-sets the flex-basis size to 18% so they all show up in the same row. 
-Rounds the edges of the buttons with border-radius. */
-section#call_to_action a {
-    background-color: #ebf4d9;
-    padding: 8px;
-    border: 2px solid #7e988b;
-    border-radius: 5px;
-    flex-basis: 18%;
-}
-
-/* button styles that set the font size and the background color 
-(which matches above so that they blend in together)  */
-/*Width and height are 100% so that the button text is centered. 
-The button border is removed too. */
-section#call_to_action button {
-    font-size: 0.95em;
-    width: 100%;
-    height: 100%;
-    background-color: #ebf4d9;
-    border: 0px;
-}
-
 /*tablet designs (min-width:600px) */
 @media only screen and (min-width: 600px) {
     /* On larger screens, this allows the hero image to take up 76.2% of
@@ -436,6 +314,10 @@ section#call_to_action button {
     text strings don't get too long. */
     section#mission {
         width: 70%;
+    }
+
+    .button {
+        flex-basis: 70%;
     }
 }
 
@@ -454,15 +336,20 @@ section#call_to_action button {
     div.grid_container {
         width: 90%;
     }
+
+    .button {
+        flex-basis: 50%;
+    }
 }
 
-/*footer design styles that make the background color and font color 
-the same as the header. Sets the padding to 30 pixels to allow it to take up more space. */
-footer {
-    background-color: #7e988b;
-    width: 100%;
-    text-align: center;
-    line-height: 2em;
-    color: white;
-    padding: 30px;
+
+/* This block runs ONLY when the user has enabled Reduce Motion */
+@media (prefers-reduced-motion: reduce) {
+
+/* Remove all CSS animations */
+*, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+}
 }
