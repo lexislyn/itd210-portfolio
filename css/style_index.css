@@ -28,8 +28,7 @@ section.hero_content {
     justify-content: center;
     width: 100%;
     height: 40vw; 
-    max-height: 400px; 
-    min-height: 200px; 
+    min-height: 300px;
     text-align: center;
 }
 
@@ -74,20 +73,21 @@ section.card_content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px; 
-    padding: 20px 15px 30px;
+    padding: 20px 15px 40px;
     text-align: center; 
 }
 
 /* padding rules for non-card text elements */
-article h2 {
-    padding-top: 20px;
-    padding-left: 20px;
-    margin-bottom: 5px;
+article > * {
+    text-align: center;
 }
 
-article p {
-    margin-top: 0px;
-    padding-left: 20px;
+article > h2 {
+    padding: 40px 0px 10px;
+}
+
+article > p {
+     padding-bottom: 20px;
 }
 
 /* This makes the images in the cards have rounded corners. Also it 
@@ -106,11 +106,11 @@ article p {
     perspective: 1000px;
     aspect-ratio: 4/3;
     width: 100%;
-    grid-column: span 1;
     border-radius: 15px;
     margin-top: 10px;
     margin-bottom: 10px;
     overflow: hidden;
+    grid-column: span 4;
 }
 
 .hover_effect {
@@ -182,7 +182,7 @@ Prompt summary: How would I get the text not to display backwards on the back si
     bottom: 0px;
     color: rgb(255, 255, 255);
     background-color: rgba(0,0,0,0.4);
-    font-size: 1.1em;
+    font-size: 1.05em;
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
@@ -197,19 +197,4 @@ Prompt summary: How would I get the text not to display backwards on the back si
     inset: 0px;
 }
 
-
-/* Mobile styles for phones */
-/* This makes the grid a 2 by 2 size for mobile phones, so that the cards 
-   don't look too small on phone screens. Also changes the image size so that the
-   images maintain a decent aspect ratio. */ 
-@media only screen and (max-width: 480px) {
-    section.card_content img {
-        width: 100%;
-    }
-    
-    div.flip-card {
-        grid-column: span 2;
-        min-height: 30vw;
-    }
-}
 

@@ -1,0 +1,76 @@
+/* assigning the Google fonts to text elements */
+blockquote, cite {
+    font-family: Mate, "Times New Roman";
+}
+
+/* displaying this container as a flex item so that the quote, author, and button are centered */
+#quote-container {
+    width: 80%;
+    padding: 10px;
+    background-color: rgb(250, 211, 125);
+    margin: 10px auto 30px;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+/* displaying this container as a flex item so the loading animation is centered */
+#inspirational-quote {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+/* inserting curly quotation marks before and after the quote */
+blockquote {
+    quotes: "\201C" "\201D";
+    color: #393b3a;
+    padding: 0px 30px 10px;
+}
+
+blockquote::before {
+    content: open-quote;
+    font-size: 1.5em;
+}
+
+blockquote::after {
+    content: close-quote;
+    font-size: 1.5em;
+}
+
+cite {
+    color: black;
+    padding: 0px 30px;
+}
+
+/* styles for the loading animation */
+@keyframes dualRing {
+  to {transform: rotate(360deg); }
+}
+
+.dual-ring {
+  width: 50px;
+  height: 50px;
+  margin-top: 20px;
+  border: 4px solid transparent;
+  border-top-color: #7e988b;
+  border-bottom-color: #7e988b;
+  border-radius: 50%;
+  animation: dualRing 2s linear infinite;
+}
+
+/* button styles */
+button {
+    background-color: rgb(130, 131, 133);
+    border-radius: 30px;
+    border: none;
+    padding: 5px 10px;
+    font-family: Mate, "Times New Roman";
+    font-size: 0.9em;
+    color: #f7f1d3;
+    margin: 15px 0px 0px;
+}

@@ -48,28 +48,3 @@ td#active {
     font-weight: bold;
 }
 
-@media only screen and (min-width: 600px) {
-    table#calendar {
-        width: 90%;
-    }
-
-    td.calendar_dates, td#active {
-        font-size: 0.9em;
-        word-wrap: break-word;
-    }
-}
-
-@media screen and (min-width: 900px) {
-    td.calendar_dates, td#active {
-        font-size: 1.1em;
-    }
-
-    table#calendar caption {
-        font-size: 1.3em;
-    }
-
-    th {
-        font-size: 1.1em;
-    }
-    
-}

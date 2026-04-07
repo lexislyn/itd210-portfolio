@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coastal Protection Initiative</title>
     <link href="css/style.css" rel="stylesheet" >
+    <link href="css/style_contact.css" rel="stylesheet" />
     <!--These links connect to the two Google Fonts I'm using on this page-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Limelight&family=Mate:ital@0;1&display=swap" rel="stylesheet">
-    <script src = "js/script.js" defer></script>
+    <script src="js/script-api.js" defer></script>
 </head>
 <body>
     <header>
@@ -29,7 +30,15 @@
     </header> 
     <main>
         
-
+        <section id="quote-container">
+            <!--Loading state for the API -->
+            <div id="inspirational-quote">
+                Loading quote... 
+                <div class="dual-ring"></div>
+            </div>
+        <!--creates a button for user interactivity-->
+        <button id="quote-btn">Click for new quote</button>
+        </section>
     </main>
     <footer>
         <p> &copy; Alexis Warren | ITD 210 Capstone Project </p>

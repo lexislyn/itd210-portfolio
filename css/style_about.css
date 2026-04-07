@@ -155,7 +155,7 @@ Adds a transition so that when you hover, the image zooms in. */
     border-top-right-radius: 4%;
     height: auto;
     object-fit: cover;
-    transition: transform 0.5s;
+    transition: transform 0.5s ease-in-out;
 }
 
 .team_member img:hover {
@@ -301,55 +301,7 @@ so they disappear */
     opacity: 0;
 }
 
-/*tablet designs (min-width:600px) */
-@media only screen and (min-width: 600px) {
-    /* On larger screens, this allows the hero image to take up 76.2% of
-    the screen and is a weird number, but on a full laptop page it perfectly aligns with
-    one of the nav list borders which looked nice. */
-    div#hero_img {
-        flex-basis: 77.6%;
-    }
-    
-    /* lowers the width of the mission section element so that the 
-    text strings don't get too long. */
-    section#mission {
-        width: 70%;
-    }
-
-    .button {
-        flex-basis: 70%;
-    }
-}
-
-/*laptop designs (min-width: 1020px) */
-@media only screen and (min-width: 1020px) {
-    /* lowers the width of the mission section element so that the 
-    text strings don't get too long. */
-    section#mission {
-        width: 60%;
-    }
-
-    /* lowers the width of the grid container so that the 
-    team member grid can be 3 by 2 on a large desktop screen 
-    without making the cards overwhelmingly large */
-    
-    div.grid_container {
-        width: 90%;
-    }
-
-    .button {
-        flex-basis: 50%;
-    }
-}
 
 
-/* This block runs ONLY when the user has enabled Reduce Motion */
-@media (prefers-reduced-motion: reduce) {
 
-/* Remove all CSS animations */
-*, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-}
-}
+
