@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coastal Protection Initiative</title>
-    <link href="css/style.css" rel="stylesheet" >
+    <title>Contact Us</title>
     <link href="css/style_contact.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" >
     <!--These links connect to the two Google Fonts I'm using on this page-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +22,7 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="mission.html">About Us</a></li>
+                <li><a href="key-issues.html">Key Issues</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="donation.html">Giving</a></li>
                 <li><a href="contact.html" class="active">Contact Us</a></li>
@@ -29,8 +30,38 @@
         </nav>
     </header> 
     <main>
-        
+        <section id="contact-form">
+            <div id="form-wrapper">
+                <h1>Contact Us</h1>
+                <form class="contact">
+                    <label for="f-name">First Name:</label>
+                    <input class="input" type="text" id="f-name" name="f-name" required>
+
+                    <label for="l-name">Last Name:</label>
+                    <input class="input" type="text" id="l-name" name="l-name" required>
+
+                    <label for="contact-email">Email:</label>
+                    <input class="input" type="email" id="contact-email" name="email" placeholder="Enter your email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea class="input" id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+                    <div class="contact-btns">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section id="social-links">
+            <h2>Follow Us On Social Media</h2>
+            <ul>
+                <li><a href="https://www.facebook.com" target="_blank"><img src="images/facebook.png" alt="Facebook logo"></a></li>
+                <li><a href="https://www.instagram.com" target="_blank"><img src="images/instagram.png" alt="Instagram logo"></a></li>
+                <li><a href="https://www.youtube.com" target="_blank"><img src="images/youtube.png" alt="Youtube logo"></a></li>
+            </ul>
+        </section>
         <section id="quote-container">
+            <h2>Inspirational Quote of the Day</h2>
             <!--Loading state for the API -->
             <div id="inspirational-quote">
                 Loading quote... 
@@ -42,6 +73,11 @@
     </main>
     <footer>
         <p> &copy; Alexis Warren | ITD 210 Capstone Project </p>
+        <a href="https://www.flaticon.com/free-icons/instagram-logo" title="instagram logo icons">Instagram logo icons created by Freepik - Flaticon</a>
+        <br>
+        <a href="https://www.flaticon.com/free-icons/facebook" title="facebook icons">Facebook icons created by Ruslan Babkin - Flaticon</a>
+        <br>
+        <a href="https://www.flaticon.com/free-icons/youtube" title="youtube icons">Youtube icons created by Freepik - Flaticon</a>
     </footer>    
 </body>
 </html>
