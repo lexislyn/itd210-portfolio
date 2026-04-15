@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[rgb(245,245,245)]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--This script allows us to use Tailwind CSS-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--This script allows the email sign-up button to work-->
+    <script src="js/script-email.js" async></script>
+    <!--These links connect to the two Google Fonts I'm using on this page-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Mate:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Limelight&family=Mate:ital@0;1&display=swap" rel="stylesheet">
+    <title>Key Issues</title>
+<style>
+    /* All animations were done in CSS because I couldn't figure out how to do them in tailwind */
+    
+    /* Animations that slide in the text in the hero section upon loading */
+    #text {
+        opacity: 0;
+        transform: translateX(-30px);
+        animation: load-in 1s ease-in forwards;
+        animation-delay: 1.5s;
+    }
+
+    #h1 {
+        opacity: 0;
+        transform: translateX(30px);
+        animation: load-in 1s ease-in forwards;
+        animation-delay: 0.5s;
+    }
+
+    #skew {
+        opacity: 0;
+        transform: translateX(30px);
+        animation: load-in 1s ease-in forwards;
+    }
+
+    @keyframes load-in {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    } 
+
+    /* AI Assistance Citation: 
+        Date: 4/14/2026
+        Where used: elements with the reveal class
+        What AI did: After being a little confused by the format, ChatGPT taught me that all I had to do was add the word reveal to the class attributes. 
+        What I did: I added the javascript and CSS code for the scroll reveal animation.
+        Prompt summary: Why is my code not working for a scroll animation? 
+    */
+
+    /* all elements with this class start hidden and when they are
+    revealed they move down the screen over a 1s period. */
+    .reveal {
+            opacity: 0;
+            transform: translateY(-30px);
+            transition: all 1s ease-out;
+        }
+
+    /* Javascript adds this class, and once added the scroll elements
+    become visible on the page. */
+    .active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* This block runs ONLY when the user has enabled Reduce Motion */
+    @media (prefers-reduced-motion: reduce) {
+
+        /* Remove all CSS animations */
+        *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+
+        /* Make scroll-reveal elements visible immediately */
+        .reveal {
+            opacity: 1;
+            transform: none;
+        }
+    }
+</style>
+
+</head>
+<!--Creates a header and navigation list that matches the header and navigation list on all the other pages-->
+<body class="bg-[#ebf4d9] mx-auto w-full antialiased">
+    <header class="bg-[#7e988b] flex font-[Mate] text-base w-full">
+        <p class="text-white pl-3 md:pl-0 flex basis-[34%] justify-center items-center">Coastal Protection Initiative</p>
+        <nav class="flex basis-[66%]">
+            <ul class="flex basis-full">
+                <!--Nav list includes the same hover effects-->
+                <li class="flex flex-auto"><a href="index.html" class="text-white w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Home</a></li>
+                <li class="flex flex-auto"><a href="mission.html" class="text-white w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">About Us</a></li>
+                <li class="flex flex-auto"><a href="key-issues.html" class="w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)] bg-[#ebf4d9] text-[#215a36] border border-2 border-[#7e988b]">Key Issues</a></li>
+                <li class="flex flex-auto"><a href="events.html" class="text-white w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Events</a></li>
+                <li class="flex flex-auto"><a href="donation.html" class="text-white w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Giving</a></li>
+                <li class="flex flex-auto"><a href="contact.html" class="text-white w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!--These two websites helped me learn gradient terminology for tailwind (like making the gradient go from bottom to top and adding a middle color: https://v2.tailwindcss.com/docs/gradient-color-stops and https://www.braydoncoyer.dev/blog/tailwind-gradients-how-to-make-a-glowing-gradient-background)-->
+        <!--Hero Section with animated text, and two bird images-->
+        <section id="hero" class="flex flex-col z-0 justify-center items-center relative min-h-[60vh] md:min-h-screen text-align overflow-hidden bg-white bg-gradient-to-t via-[#ebf4d9] from-[#7e988b] to-[#d4e1ef]" >
+            <div id="hero-image">
+                        <!-- Image citation (web source)
+                        file/page: key-issues.html
+                        image file: images/pelicans.png
+                        Original creator: Tina Nord 
+                        Website: Pexels.com
+                        Title/description: White Bird Flying Over the River
+                        link to photo: https://www.pexels.com/photo/white-bird-flying-over-the-river-7510878/
+                        License: Pexels says that all photos and videos on Pexels can be downloaded and used for free.
+                        Accessed: 2026-04-14
+                        I removed the background and made it transparent -->
+                <img src="images/pelicans.png" alt="Northern Lapwing" class="z-10 absolute w-[45%] md:w-[40%] lg:w-[35%] top-6 right-0">
+                        <!-- Image citation (web source)
+                        file/page: key-issues.html
+                        image file: images/tern(1).png
+                        Original creator: Guerrero De la Luz 
+                        Website: Pexels.com
+                        Title/description: Arctic Tern in Flight
+                        link to photo: https://www.canva.com/photos/MAGw06FGmoI-graceful-arctic-tern-in-flight-against-blue-sky/
+                        License: Pexels says that all photos and videos on Pexels can be downloaded and used for free.
+                        Accessed: 2026-04-14
+                        I removed the background and made it transparent -->
+                <img src="images/tern(1).png" alt=" Arctic Tern in Flight" class="z-10 absolute w-[45%] md:w-[40%] lg:w-[35%] -left-2 bottom-12" >
+            </div>
+            <!-- The skew design was inspired by an example I saw in the tailwind documentation: https://tailwindcss.com/docs/hover-focus-and-other-states -->
+            <span id="skew" class="relative inline-block before:absolute before:-inset-2  before:block before:-skew-y-6 z-0 before:bg-[#d4e1ef]">
+                <span id="h1" class="font-[Cardo] relative text-4xl opacity-0">Key Issues</span>
+            </span>
+            <p id="text" class="px-6 py-6 text-center text-xl font-[Cardo] z-20 opacity-0">Come explore all the ways we work to help protect coastal areas!</p>
+                    <!-- AI Assistance Citation: 
+                    Date: 4/13/2026
+                    Where used: div#curve
+                    What AI did: I had AI make a svg path so that the website could have a curved look instead
+                    of looking so linear. 
+                    What I did: I changed the color of the curve and integrated it into the page. ChatGPT helped me learn that to add curves to a website, you need to use svg. 
+                    Prompt summary: How do I add a curved/wavy pattern to my page? */
+                     -->
+            <div id="curve" class="absolute z-50 bottom-0 left-0 w-full leading-none">
+                <svg viewBox="0 0 1440 150" class="w-full h-[120px] block" preserveAspectRatio="none">
+                    <path 
+                        fill="#ebf4d9"
+                        d="M0,100 C300,150 1100,0 1440,100 L1440,150 L0,150 Z">
+                    </path>
+                </svg>
+            </div>
+        </section>
+        <!--Creates a vertical button menu on mobile devices that is responsive and becomes horizontal on larger screens
+            In a future update to this page, I want these buttons to act like a filtering device. Includes Icons I got from the Google
+            Fonts Icons website that are displayed next to the label through flex. -->
+        <section class="bg-[#ebf4d9]">
+            <h2 class="text-center mt-8 font-[Cardo] text-2xl">Categories</h2>
+            <div id="button-bar" class="flex flex-col md:flex-row gap-2 space-evenly items-center mt-2 py-5 px-3 w-[90%] mx-auto font-[Cardo] rounded-lg">
+                <!-- All icons come from the Material Symbols and Icons page on Google Fonts (https://fonts.google.com/icons)-->
+                <span id="button1" class="bg-white w-[60%] rounded-full hover:bg-blue-50 transition-all duration-750 text-center basis-[20%] cursor-pointer">All</span>
+                <div class="flex justify-center gap-3 bg-white w-[60%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center basis-[20%] cursor-pointer">
+                    <img src="images/water_drop.png" alt="Water Drop Icon">
+                    <span id="button2" class="text-center">Clean Water</span>
+                </div>
+                <div class="flex justify-center gap-3 bg-white w-[60%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center basis-[20%] cursor-pointer">
+                    <img src="images/grass.png" alt="Grass Icon">
+                    <span id="button3" class="text-center">Habitat Preservation</span>
+                </div>
+                <div class="flex justify-center gap-3 bg-white w-[60%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center basis-[20%] cursor-pointer">
+                    <img src="images/gavel.png" alt="Gavel Icon">
+                    <span id="button4" class="text-center">Legislative Activities</span>
+                </div>
+                <div class="flex justify-center gap-3 bg-white w-[60%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center basis-[20%] cursor-pointer">
+                    <img src="images/school.png" alt="School Icon">
+                    <span id="button5" class="text-center">Education</span>
+                </div>
+            </div>
+        </section>
+        <!--Creates a section of cards that become visible by scrolling. The cards are set up in a responsive grid format- 
+        One column for mobile, up to 3 columns on larger screens. When hovering, the card title is underlined. -->
+        <section id="cards" class="px-5 my-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div id="issue1" class="reveal group bg-white shadow-md shadow-gray-850 hover:shadow-lg hover:shadow-gray-950 transition-all duration-500 rounded-xl border border-2 border-[#7e988b]">
+                        <!-- Image citation (web source)
+                        file/page: key-issues.html
+                        image file: images/oyster.png
+                        Original creator: CvetS
+                        Website: Pixabay.com
+                        Title/description: Oyster Shells on a Rocky Beach
+                        link to photo: https://www.canva.com/photos/MAE_X2V1Sk4/
+                        License: Found on Canva.com, which says that all photos on Canva can be used for free, even for commercial purposes, without asking for permission or giving credit to the artist.
+                        Accessed: 2026-04-12 -->
+                <img src="images/oyster.png" alt="Oysters on a Beach" class="w-full rounded-t-lg">
+                <h2 class="text-center py-3 group-hover:underline font-semibold text-lg font-[Cardo]">Oyster Restoration</h2>
+                <p class="px-3 font-[Mate]">Follow our journey to replenish the oyster population in the region so that
+                    they can help clean and filter the water.</p>
+                <div class="flex gap-2 pt-3 px-3 pb-4 font-[Mate]">  
+                    <img src="images/water_drop.png" alt="Water Drop Icon">
+                    <p class="font-light">Clean Water</p>
+                </div>
+            </div>
+            <div id="issue2" class="reveal group bg-white shadow-md shadow-gray-850 hover:shadow-lg hover:shadow-gray-950 transition-all duration-500 rounded-xl border border-2 border-[#7e988b] ">
+                        <!-- Image citation (web source)
+                        file/page: key-issues.html
+                        image file: images/clean_water.png
+                        Original creator: Aflo Images
+                        Website: Canva.com
+                        Title/description: Hands Catching Water from a Traditional Japanese Watering Can
+                        link to photo: https://www.canva.com/photos/MAGcuGUQ_tc-hands-catching-water-from-a-traditional-japanese-watering-can/
+                        License: Found on Canva.com, which says that all photos on Canva can be used for free, even for commercial purposes, without asking for permission or giving credit to the artist.
+                        Accessed: 2026-04-12 -->
+                <img src="images/clean_water.png" alt="Clean Water" class="w-full rounded-t-lg">
+                <h2 class="text-center group-hover:underline py-3 font-semibold text-lg font-[Cardo]">Pollution Prevention</h2>
+                <p class="px-3 font-[Mate]">We establish regional water quality goals and work with certified partners to track the progress of reducing pollution levels.</p>
+                <div class="flex gap-2 pt-3 px-3 pb-4 font-[Mate]">  
+                    <img src="images/water_drop.png" alt="Water Drop Icon">
+                    <p class="font-light">Clean Water</p>
+                </div>
+            </div>
+            <div id="issue3" class="reveal group bg-white shadow-md shadow-gray-850 hover:shadow-lg hover:shadow-gray-950 transition-all duration-500 rounded-xl border border-2 border-[#7e988b] ">
+                        <!-- Image citation (web source)
+                        file/page: key-issues.html
+                        image file: images/wetlands.png
+                        Original creator: Marian Strinoiu
+                        Website: Pexels.com
+                        Title/description: Great Egret Soaring Above Wetlands
+                        link to photo: https://www.canva.com/photos/MAG579QfKX0-graceful-great-egret-soaring-above-wetlands/
+                        License: Pexels says that all photos and videos on Pexels can be downloaded and used for free.
+                        Accessed: 2026-04-12 -->
+                <img src="images/wetlands.png" alt="Egret Flying Over Wetland" class="w-full rounded-t-lg">
+                <h2 class="text-center group-hover:underline py-3 font-semibold text-lg font-[Cardo]">Wetland Restoration</h2>
+                <p class="px-3 font-[Mate]">We partner with the city to restore former wetland areas back to their natural state for both wildlife and flood protection.</p>
+                <div class="flex gap-2 pt-3 px-3 pb-4 font-[Mate]">  
+                    <img src="images/grass.png" alt="Grass Icon">
+                    <p class="font-light">Habitat Preservation</p>
+                </div>
+            </div>
+            <div id="issue4" class="reveal group bg-white shadow-md shadow-gray-850 hover:shadow-lg hover:shadow-gray-950 transition-all duration-500 rounded-xl border border-2 border-[#7e988b]">
+                   <!-- Image citation (web source)
+                        file/page: key-issues.html
+                        image file: images/state-capitol.png
+                        Original creator: Brett Sayles
+                        Website: Pexels.com
+                        Title/description: Facade of the Idaho State Capitol Building
+                        link to photo: https://www.pexels.com/photo/facade-of-aged-historic-cathedral-under-colorful-sky-at-sunset-7956272/
+                        License: Pexels says that all photos and videos on Pexels can be downloaded and used for free.
+                        Accessed: 2026-04-13 -->
+                <img src="images/state-capitol.png" alt="Idaho State Capitol" class="w-full rounded-t-lg">
+                <h2 class="text-center group-hover:underline py-3 font-semibold text-lg font-[Cardo]">Legal Advocacy</h2>
+                <p class="px-3 font-[Mate]">We advocate for sustainable policies and regulations at the local, state, and federal levels.</p>
+                <div class="flex gap-2 pt-3 px-3 pb-4 font-[Mate]">  
+                    <img src="images/gavel.png" alt="Gavel Icon">
+                    <p class="font-light">Legislative Activities</p>
+                </div>
+            </div>
+             <div id="issue5" class="reveal group bg-white shadow-md shadow-gray-850 hover:shadow-lg hover:shadow-gray-950 transition-all duration-500 rounded-xl border-2 border-[#7e988b]">
+                        <!-- Image citation (web source)
+                        file/page: key-issues.html
+                        image file: images/education-program.png
+                        Original creator: Thư Tiêu
+                        Website: Pexels.com
+                        Title/description: Group of Teenagers Walking Outdoors in Nature
+                        link to photo: https://www.pexels.com/photo/group-of-teenagers-walking-outdoors-in-nature-33729068/
+                        License: Pexels says that all photos and videos on Pexels can be downloaded and used for free.
+                        Accessed: 2026-04-13 -->
+                <img src="images/education-program.png" alt="Teenagers Walking Outdoors" class="w-full rounded-t-lg">
+                <h2 class="text-center group-hover:underline py-3 font-semibold text-lg font-[Cardo]">Youth Education</h2>
+                <p class="px-3 font-[Mate]">We partner with local schools to give teenagers access to classes on environmental science.</p>
+                <div class="flex gap-2 pt-3 px-3 pb-4 font-[Mate]">  
+                    <img src="images/school.png" alt="School Icon">
+                    <p class="font-light">Education</p>
+                </div>
+            </div>
+        </section>
+        <!--Uses the same email subscription button as other pages just recreated using Tailwind-->
+        <section id="call_to_action" class="bg-white text-center">
+            <h3 class="font-[Cardo] font-bold text-xl p-8">Sign Up for Email Updates</h3>
+            <div class="flex pb-3 justify-center w-[90%] mx-auto">
+                <form class="border border-2 border-[#7e988b] rounded basis-[90%] md:basis-[70%] lg:basis-[50%] flex">
+                    <input type="email" name="email" id="email" placeholder="Enter your email" required class="font-[Mate] basis-[50%] py-2 pl-4 text-base border border-0 focus:outline-0 focus:bg-[#ebf4d9]">
+                    <input type="submit" id="sub" value="Click to Subscribe!" class="basis-[50%] bg-[#7e988b] border border-0 text-base font-[Mate] text-white cursor-pointer">
+                </form>
+            </div>
+            <p id="message" class="text-center pb-8 font-[Mate]"></p>
+        </section>
+    </main>
+    <!--Uses the same footer as other pages- just recreated using tailwind-->
+    <footer class="w-full bg-[#7e988b] text-white font-[Mate] text-center p-8">
+        <p>&copy; Alexis Warren | ITD 210 Capstone Project</p>
+    </footer>
+    <script>
+       
+        // Select every element with class "reveal"
+        const revealElements = document.querySelectorAll(".reveal");
+
+        function revealOnScroll() {
+            // takes the height of the window that contains the web page content
+            const windowHeight = window.innerHeight;
+    
+            /* for each element with the class "reveal", get its distance from the top of the viewport, 
+            and set a reveal point that is 300px from the bottom of the viewport. When the 
+            top of the element is less than the window height minus the reveal point, the active class is added
+            to the element to trigger the CSS transition */
+            revealElements.forEach(function (element) {
+            const elementTop  = element.getBoundingClientRect().top;
+            const revealPoint = 300;
+
+            if (elementTop < windowHeight - revealPoint) {
+                element.classList.add("active");
+            }
+            });
+        }
+
+        // Runs function once on load 
+        revealOnScroll();
+
+        // Run again every time the user scrolls
+        window.addEventListener("scroll", revealOnScroll);
+    </script>
+</body>
+<!--The tailwindcss.com documentation really helped me create this whole page: https://tailwindcss.com/docs/installation/using-vite-->
+</html>
