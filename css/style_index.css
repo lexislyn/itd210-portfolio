@@ -56,12 +56,12 @@ section.hero_content::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.2);
+  background: var(--color-overlay);
   z-index: 1;
 }   
 
 div.hero_text {
-  color: white;
+  color: var(--color-bg);
   padding: 0px 10px;
   z-index: 2;
 }
@@ -141,11 +141,11 @@ article > p {
 
 
 .flip-card-back {
-    background-color: #d4e1ef;
+    background-color: var(--color-bg-back);
     transform: rotateY(180deg);
     border-radius: 15px;
     padding: 0px 5px;
-    color: black;
+    color: var(--color-text);
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
@@ -153,12 +153,12 @@ article > p {
 }
 
 div.flip-card-back:hover {
-    box-shadow: gray 5px 5px 5px;
+    box-shadow: var(--color-shadow-hover) 5px 5px 5px;
 }
 
 div.flip-card a {
     text-decoration: none;
-    color: black;
+    color: var(--color-text);
 }
 
 /*
@@ -180,9 +180,10 @@ Prompt summary: How would I get the text not to display backwards on the back si
     opacity: 1;
     z-index: 3;
     bottom: 0px;
-    color: rgb(255, 255, 255);
-    background-color: rgba(0,0,0,0.4);
+    color: var(--color-bg);
+    background-color: var(--color-overlay-2);
     font-size: 1.05em;
+    
     width: 100%;
     display: flex;
     flex-flow: row nowrap;

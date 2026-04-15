@@ -28,14 +28,14 @@ section#hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.2);
+  background: var(--color-overlay);
   z-index: 1;
 }   
 
 /* responsive text on top layer of hero container */
 div.hero_text {
-  color: rgb(251, 226, 194);
-  text-shadow: 2px 2px 5px black;
+  color: var(--color-hero);
+  text-shadow: 2px 2px 5px var(--color-text);
   padding: 0px 10px;
   z-index: 2;
   font-size: clamp(10pt, 2vw, 25pt);
@@ -51,7 +51,7 @@ section#countdown_timer {
 }
 
 #fundraiser_end_date {
-    font-size: 1.3em;
+    font-size: 1.1em;
     font-weight: lighter;
     font-style: italic;
 }
@@ -68,4 +68,114 @@ section#countdown_timer p {
     padding: 10px 30px;
 }
 
+#donation_form {
+    background-color: var(--color-bg);
+    padding-bottom: 40px;
+}
 
+#donation_form > h2 {
+    margin: 30px auto 10px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.donate {
+    width: 80%;
+    margin: 0 auto;
+    background-color: var(--color-bg-back);
+    border-radius: 15px;
+    border: 5px solid var(--color-primary);
+    
+}
+
+fieldset {
+    width: 80%;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-bottom: 20px;
+    border: 2px solid var(--color-primary);
+}
+
+fieldset legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 0px 5px;
+}
+
+fieldset#customer > div.form-row {
+    display: flex;
+    flex-flow: row wrap;
+    width: 90%;
+    margin: 0px auto;
+}
+
+fieldset#customer > div.form-row > * {
+    flex: 1 1 150px;
+}
+
+form.donate label {
+    font-size: 1.1em;
+    width: 90%;
+    margin: 10px auto 0px;
+}
+
+form.donate input, form.donate select {
+    width: 90%;
+    margin: 0px auto;
+    border: 1.5px solid var(--color-primary);
+}
+
+form.donate input:focus, form.donate select:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--color-primary);
+    background-color: var(--color-bg);
+}
+
+.donate-btns {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    width: 90%;
+    margin: 10px auto 20px;
+}
+
+.donate-btns > * {
+    flex-basis: 33%;
+    flex-grow: 0;
+    border: 2px solid var(--color-primary);
+    border-radius: 15px;
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    font-size: 1em;
+    padding: 2px 0px;
+}
+
+.input {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#payment-method {
+    display: flex;
+    flex-flow: row wrap;
+    width: 90%;
+    margin: 0px auto;
+}
+
+.card-icons {
+    flex-grow: 1;
+    flex-basis: 50%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    margin: 10px 0px 0px;   
+}
+
+#payment-method label {
+    flex-grow: 1;
+    flex-basis: 50%;
+    display: flex;
+    flex-flow: row nowrap;
+}

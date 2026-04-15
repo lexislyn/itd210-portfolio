@@ -5,7 +5,7 @@
 arranged in a row so that the photo can go on the left side and 
 text can go on the right.*/
 section#hero {
-    background-color: white;
+    background-color: var(--color-bg);
     display: flex;
     flex-flow: row nowrap;
 }
@@ -65,7 +65,7 @@ div#hero_text p {
 setting the max-width to 100% and height to 100%.*/
 section#hero img {
     max-width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
     object-fit: cover;
 }
@@ -93,7 +93,7 @@ section#mission h2 {
 has a nice alternating green and white background.
 Again adds padding to the bottom so that there's plenty of space */
 section#team {
-     background-color: white;
+     background-color: var(--color-bg);
      padding-bottom: 60px;
 }
 
@@ -140,7 +140,7 @@ so that the image and text is in a column and centered horizontally
 and vertically within the card. */
 .team_member {
     border-radius: 22px;
-    background-color: #ebf4d9;
+    background-color: var(--color-accent);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -222,13 +222,13 @@ I changed the display from using flexbox to using a grid format for all the valu
 Prompt summary: How to make cards look like they're coming towards me, in a 3d way?
 */
 div#value_container > .card {
-    border: 2px solid #7e988b;
+    border: 2px solid var(--color-primary);
     border-radius: 15px;
-    background-color: white;
+    background-color: var(--color-bg);
     padding: 7px;
     margin: 0 auto;
     transform-style: preserve-3d;
-    box-shadow: 5px 10px 20px 5px rgba(41, 40, 40, 0.2);
+    box-shadow: 5px 10px 20px 5px var(--color-shadow);
     transition: transform 0.5s cubic-bezier(.25,.8,1,1),
                 box-shadow 0.5s ease,
                 scale 0.5s ease;
@@ -237,7 +237,7 @@ div#value_container > .card {
 
 .card:hover {
     transform: translateZ(30px) scale(1.025);
-    box-shadow: 5px 10px 20px 5px rgba(0, 0, 0, 1);
+    box-shadow: 5px 10px 20px 5px var(--color-shadow-hover);
 }
 
 /* value card images are responsive with a max-width of 100%
@@ -274,7 +274,7 @@ with extra padding on the top for space. */
     position: absolute;
     top: 5px;
     left: 150px;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--color-bg);
     font-size: clamp(12pt, 3vw, 18pt);
 }
 
@@ -292,7 +292,7 @@ for the text so that it stands out as instructions and not just card text. */
 p.instructions, p.icon {
     position: absolute;
     opacity: 1;
-    background-color: rgba(163, 190, 142, 0.2);
+    background-color: var(--color-bg-instruction);
     text-align: center;
 }
 
