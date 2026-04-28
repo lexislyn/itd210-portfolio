@@ -17,20 +17,32 @@
 </head>
 <body>
     <!--Header with name of organization and navigation list-->
-    <header>
+      <header>
         <p>Coastal Protection Initiative</p>
-        <!--Navigation List with links that work-->
-        <nav>
+        <button class="mobile-toggle" id="navButton">
+            <img src="images/list(1).png">
+        </button>
+        <nav id="mobile-nav" class="mobileNav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mission.html" class="active">About Us</a></li>
+                <li><a href="key-issues.html">Key Issues</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="media.html">Giving</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <nav class="desktop-nav">
             <ul>
                 <li><a href=index.html>Home</a></li>
                 <li><a href=mission.html class="active">About Us</a></li>
                 <li><a href=key-issues.html>Key Issues</a></li>
                 <li><a href=events.html>Events</a></li>
-                <li><a href=donation.html>Giving</a></li>
+                <li><a href=media.html>Giving</a></li>
                 <li><a href=contact.html>Contact Us</a></li>
             </ul>
         </nav>
-    </header>
+    </header> 
     <!--Hero Section that contains an image and a brief description of the purpose of the nonprofit organization-->
     <section id="hero">
         <div id="hero_img" class="load-in">
@@ -231,5 +243,15 @@
     <footer>
         <p> &copy; Alexis Warren | ITD 210 Capstone Project </p>
     </footer>   
+
+    <script>
+        const btn = document.getElementById("navButton");
+        const menu = document.getElementById("mobile-nav");
+
+        btn.addEventListener("click", function () {
+            menu.classList.toggle("show");
+        });
+
+    </script>
 </body>
 </html>

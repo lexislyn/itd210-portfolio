@@ -84,10 +84,12 @@ article > * {
 
 article > h2 {
     padding: 40px 0px 10px;
+    font-size: 1.6em;
 }
 
 article > p {
      padding-bottom: 20px;
+     font-size: 1.15em;
 }
 
 /* This makes the images in the cards have rounded corners. Also it 

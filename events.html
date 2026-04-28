@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Current Events</title>
-    <link href="css/style.css" rel="stylesheet" >
+    <!--Stylesheet links-->
     <link href="css/style_events.css" rel="stylesheet" >
+    <link href="css/style.css" rel="stylesheet" >
     <!--These links connect to the two Google Fonts I'm using on this page-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,29 +14,71 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Limelight&family=Mate:ital@0;1&display=swap" rel="stylesheet">
+    <!--Javascript scripts-->
     <script src = "js/script-calendar.js" defer></script>
     <script src = "js/script-email.js" defer></script>
 </head>
 <body>
-    <header>
+     <header>
         <p>Coastal Protection Initiative</p>
-        <nav>
+        <button class="mobile-toggle" id="navButton">
+            <!-- Mobile Nav button came from Phosphor Icons
+            https://phosphoricons.com/?q=menu -->
+            <img src="images/list(1).png">
+        </button>
+        <!-- Mobile Nav Menu-->
+        <nav id="mobile-nav" class="mobileNav">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="mission.html">About Us</a></li>
                 <li><a href="key-issues.html">Key Issues</a></li>
                 <li><a href="events.html" class="active">Events</a></li>
-                <li><a href="donation.html">Giving</a></li>
+                <li><a href="media.html">Giving</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <!-- Desktop Nav Menu-->
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href=index.html>Home</a></li>
+                <li><a href=mission.html>About Us</a></li>
+                <li><a href=key-issues.html>Key Issues</a></li>
+                <li><a href=events.html class="active">Events</a></li>
+                <li><a href=media.html>Giving</a></li>
+                <li><a href=contact.html>Contact Us</a></li>
             </ul>
         </nav>
     </header> 
     <main>
+        <!--Video Hero Section with Text-->
+        <section class="hero_content">
+            <div class="hero_video">
+                <video autoplay muted loop>
+                    <!--Video citation (web source)
+                        file/page: events.html
+                        video file: images/volunteer_events.mp4
+                        Original creator: Ron Lach  
+                        Website: Pexels.com
+                        Title/description: People Holding Garbage Bags High Fiving Each Other
+                        link to video: https://www.pexels.com/video/people-holding-garbage-bags-high-fiving-each-other-9543568/ 
+                        License: Pexels says that all photos and videos on Pexels can be downloaded and used for free.
+                        Accessed: 2026-04-23 
+                        I did shorten the video to 14 seconds -->
+                   <source src="images/volunteer_events.mp4" type= "video/mp4" >
+                </video>
+            </div>
+            <div class="hero_text">
+                <h1>Upcoming Events</h1>
+            </div>
+        </section> 
+        <!--Contains both the mobile calendar and desktop calendars depending on screen size-->
         <section id="calendar-section">
-            <h1>Upcoming Events</h1>
-            <p>Check out our calendar to see all of our upcoming events and volunteer opportunities!</p>
+            <h2>Get Involved With Us</h2>
+            <p>Check out our calendar to see all of our upcoming events and volunteer opportunities. All events are free and open to the public. We'd love to see you get involved! Just click on the link in the calendar to register.</p>
+            <div id="mobile-calendar"></div>
             <div id="calendar"></div>
         </section>
+        <!--Repeats the sign up for email form-->
          <section id="call_to_action">
             <h4>Sign Up for Email Updates</h4>
             <div class="button_container">
@@ -49,6 +92,16 @@
     </main>
     <footer>
         <p> &copy; Alexis Warren | ITD 210 Capstone Project </p>
-    </footer>    
+    </footer>   
+    
+    <script>
+        /* script for the mobile nav menu */
+        const btn = document.getElementById("navButton");
+        const menu = document.getElementById("mobile-nav");
+
+        btn.addEventListener("click", function () {
+            menu.classList.toggle("show");
+        });
+    </script>
 </body>
 </html>

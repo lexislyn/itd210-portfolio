@@ -18,14 +18,27 @@
 <body>
     <header>
         <p>Coastal Protection Initiative</p>
-        <nav>
+        <button class="mobile-toggle" id="navButton">
+            <img src="images/list(1).png">
+        </button>
+        <nav id="mobile-nav" class="mobileNav">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="mission.html">About Us</a></li>
                 <li><a href="key-issues.html">Key Issues</a></li>
                 <li><a href="events.html">Events</a></li>
-                <li><a href="donation.html">Giving</a></li>
+                <li><a href="media.html">Giving</a></li>
                 <li><a href="contact.html" class="active">Contact Us</a></li>
+            </ul>
+        </nav>
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href=index.html>Home</a></li>
+                <li><a href=mission.html>About Us</a></li>
+                <li><a href=key-issues.html>Key Issues</a></li>
+                <li><a href=events.html>Events</a></li>
+                <li><a href=media.html>Giving</a></li>
+                <li><a href=contact.html class="active">Contact Us</a></li>
             </ul>
         </nav>
     </header> 
@@ -78,6 +91,16 @@
         <a href="https://www.flaticon.com/free-icons/facebook" title="facebook icons">Facebook icons created by Ruslan Babkin - Flaticon</a>
         <br>
         <a href="https://www.flaticon.com/free-icons/youtube" title="youtube icons">Youtube icons created by Freepik - Flaticon</a>
-    </footer>    
+    </footer>  
+    
+    <script>
+        const navBtn = document.getElementById("navButton");
+        const menu = document.getElementById("mobile-nav");
+
+        navBtn.addEventListener("click", function () {
+            menu.classList.toggle("show");
+        });
+
+    </script>
 </body>
 </html>

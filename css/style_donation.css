@@ -1,84 +1,21 @@
 /*
 Author: Alexis Warren
-Date: 2/2/2026
 */
 
-section#hero {
-    display: flex;
-    position: relative;
-    align-items: end;
-    justify-content: center;
-    max-width: 100%;
-    height: 30vw; 
-    text-align: center;
-}
-
-div.hero_image img {
-    position: absolute;
-    width: 100%;
-    height: 100%;  
-    z-index: 0;
-    overflow: hidden;
-    inset: 0;
-    object-fit: cover;
-}
-
-/* gray overlay to slightly darken the hero image */
-section#hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--color-overlay);
-  z-index: 1;
-}   
-
-/* responsive text on top layer of hero container */
-div.hero_text {
-  color: var(--color-hero);
-  text-shadow: 2px 2px 5px var(--color-text);
-  padding: 0px 10px;
-  z-index: 2;
-  font-size: clamp(10pt, 2vw, 25pt);
-} 
-
-section#countdown_timer {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#fundraiser_end_date {
-    font-size: 1.1em;
-    font-weight: lighter;
-    font-style: italic;
-}
-
-section#countdown_timer h2 {
-    padding: 20px 0px 10px;
-}
-
-section#countdown_timer h3 {
-    padding: 10px 0px 10px;
-}
-
-section#countdown_timer p {
-    padding: 10px 30px;
-}
-
+/* adds extra padding to bottom of page */
 #donation_form {
-    background-color: var(--color-bg);
     padding-bottom: 40px;
 }
 
+/* centers the "Secure Checkout" text and adds extra padding to the top. */
 #donation_form > h2 {
     margin: 30px auto 10px;
     text-align: center;
     padding-top: 20px;
 }
 
+/* gives the form a width of 80% and centers it on the page. 
+The background color is blue, the border is green, and the edges are rounded. */
 .donate {
     width: 80%;
     margin: 0 auto;
@@ -88,6 +25,10 @@ section#countdown_timer p {
     
 }
 
+/*each fieldset has a width of 80%, is centered horizontally, 
+and is displayed as a flexbox where each flex item (the input elements) is displayed in a column. 
+Each input element has a 5px gap between the other. Adds padding to the bottom so there is space between
+field sets. Also has a green border, but less thick. */
 fieldset {
     width: 80%;
     margin: 30px auto;
@@ -98,12 +39,14 @@ fieldset {
     border: 2px solid var(--color-primary);
 }
 
+/* Each fieldset legend label has a bigger font-size and is bold with extra left/right padding. */
 fieldset legend {
     font-size: 1.2em;
     font-weight: bold;
     padding: 0px 5px;
 }
 
+/* For the general customer information, displays each input element as a row which wraps onto a new line if the screen is small.  */
 fieldset#customer > div.form-row {
     display: flex;
     flex-flow: row wrap;
@@ -111,28 +54,35 @@ fieldset#customer > div.form-row {
     margin: 0px auto;
 }
 
+/* sets the flex basis big enough so that on mobile the input elements stack like a column, but on desktop it displays as a row. */
 fieldset#customer > div.form-row > * {
     flex: 1 1 150px;
 }
 
+/* Aligns the label with the start of the input box and increases the font size. */
 form.donate label {
     font-size: 1.1em;
     width: 90%;
     margin: 10px auto 0px;
 }
 
+/* Horizontally centers the input boxes and gives them a green border. */
 form.donate input, form.donate select {
     width: 90%;
     margin: 0px auto;
     border: 1.5px solid var(--color-primary);
 }
 
+/* All input elements get a green shadow to show that it is in focus 
+instead of the default outline color. */
 form.donate input:focus, form.donate select:focus {
     outline: none;
     box-shadow: 0 0 5px var(--color-primary);
-    background-color: var(--color-bg);
 }
 
+/* The container that holds the submit and reset buttons. Is a flexbox so that 
+the buttons can be displayed in a row with space around spacing. The width is 90% and 
+there's extra top and bottom margin. */
 .donate-btns {
     display: flex;
     flex-flow: row nowrap;
@@ -141,6 +91,8 @@ form.donate input:focus, form.donate select:focus {
     margin: 10px auto 20px;
 }
 
+/* Each button has a size of 33%. The border and background color are both green and 
+they have rounded edges. The text color is white. There's extra top and bottom padding. */
 .donate-btns > * {
     flex-basis: 33%;
     flex-grow: 0;
@@ -152,11 +104,14 @@ form.donate input:focus, form.donate select:focus {
     padding: 2px 0px;
 }
 
+/* Adds padding and curved edges to all input elements */
 .input {
     padding: 5px 10px;
     border-radius: 5px;
 }
 
+/* container to group the card number label and the icons displaying types of credit cards.
+Is displayed as a flexbox so those two things can be displayed on the same row.  */
 #payment-method {
     display: flex;
     flex-flow: row wrap;
@@ -164,6 +119,8 @@ form.donate input:focus, form.donate select:focus {
     margin: 0px auto;
 }
 
+/* The card icons take up 50% of the row and grow as the screen size increases. 
+It is also displayed as flex with space around horizontal spacing for each card icon. */
 .card-icons {
     flex-grow: 1;
     flex-basis: 50%;
@@ -173,9 +130,21 @@ form.donate input:focus, form.donate select:focus {
     margin: 10px 0px 0px;   
 }
 
+/* The card number label also takes up 50% of the row and grows as the screen size gets larger. */
 #payment-method label {
     flex-grow: 1;
     flex-basis: 50%;
-    display: flex;
-    flex-flow: row nowrap;
+}
+
+/* provides a container for the back arrow. Adds padding to the top and 
+a width of 80% so that it's away from the left edge of the screen. */
+.arrow-wrap{
+    padding-top: 20px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Arrow image has a width of 60px */
+.arrow-wrap img {
+    width: 60px;
 }

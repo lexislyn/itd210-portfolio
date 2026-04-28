@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giving</title>
+    <title>Checkout</title>
+    <!--Links to CSS stylesheets-->
     <link href="css/style_donation.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" >
     <!--These links connect to the two Google Fonts I'm using on this page-->
@@ -13,56 +14,48 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Limelight&family=Mate:ital@0;1&display=swap" rel="stylesheet">
+    <!--Javascript links-->
     <script src="js/script-countdown.js" defer></script>
+    <script src="js/script-donation.js" defer></script>
 </head>
 <body>
-    <header>
+    <!--Header-->
+     <header>
         <p>Coastal Protection Initiative</p>
-        <nav>
+        <!--Mobile Nav Button-->
+        <button class="mobile-toggle" id="navButton">
+            <img src="images/list(1).png">
+        </button>
+        <!--Mobile navigation menu-->
+        <nav id="mobile-nav" class="mobileNav">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="mission.html">About Us</a></li>
                 <li><a href="key-issues.html">Key Issues</a></li>
                 <li><a href="events.html">Events</a></li>
-                <li><a href="donation.html" class="active">Giving</a></li>
+                <li><a href="media.html" class="active">Giving</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <!--Desktop navigation menu-->
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href=index.html>Home</a></li>
+                <li><a href=mission.html>About Us</a></li>
+                <li><a href=key-issues.html>Key Issues</a></li>
+                <li><a href=events.html>Events</a></li>
+                <li><a href=media.html class="active">Giving</a></li>
+                <li><a href=contact.html>Contact Us</a></li>
             </ul>
         </nav>
     </header> 
     <main>
-        <section id="hero">
-            <div class="hero_image">
-                <!--Image citation (web source)
-                    file/page: donation.html
-                    image file: images/sea_turtle_nesting.png
-                    Original creator: Marcus Lange
-                    Website: Pexels.com
-                    Title/description: Sea Turtle on the beach
-                    link to photo: https://www.canva.com/photos/MAG-jz1Ej0A-sea-turtle-on-sandy-beach-shoreline/
-                    License: Pexels says that all photos and videos on Pexels can be downloaded and used for free.
-                    Accessed: 2026-03-15 -->
-                <img src="images/sea_turtle_nesting.png" alt="Baby Turtle On a Beach" >
-            </div>
-            <div class="hero_text">
-                <h1>You can make a difference!</h1>
-            </div>
-        </section>
-        <section id="countdown_timer">
-            <h2>Donate Now!</h2> 
-            <p> Our Fundraiser Ends On <span id="fundraiser_end_date"></span>
-            <p> You can get involved with our fundraiser to
-                help get plastic off the beach in 
-                time for sea turtle nesting season.</p>
-            <h3>Time left to donate to this fundraiser:</h3>
-            <p id="timer"><span id="days">DD</span> Days <span id="hours">HH</span> Hours <span id="mins">MM</span> Minutes <span id="secs">SS</span> Seconds</p>
-        </section>
-        <section id="progress_bar">
-
-        </section>
+        <!--Section containing donation form-->
         <section id="donation_form">
             <h2>Secure Checkout</h2>
             <div id="form-wrapper">
-                <form class="donate">
+                <form class="donate" id="donation-form">
+                    <!--Fieldset containing generic customer information such as name, address, email, and phone number -->
                     <fieldset id="customer">
                         <legend>Customer Information</legend>
                             
@@ -168,11 +161,12 @@
                                 <input class="input" type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
                             </div>
                     </fieldset>
+                    <!--Fieldset for monetary amount and type of donation (one time, monthly, or yearly)-->
                     <fieldset id="donation">
                         <legend>Donation Information</legend>
-                            <label for="donation-amount">Donation Amount*</label>
-                            <input class="input" type="text" id="donation-amount" name="donation-amount" placeholder="$0.00" required>
-
+                            <label for="donationAmount">Donation Amount*</label>
+                            <input class="input" type="number" id="donationAmount" name="donationAmount" placeholder="$0.00" step="0.01" required>
+                            
                             <label for="donation-type">Select Donation Type</label>
                             <select class="input" id="donation-type" name="donation-type" required>
                                 <option value="">Select a donation type</option>
@@ -181,6 +175,7 @@
                                 <option value="yearly">Yearly</option>
                             </select>
                     </fieldset>
+                    <!--Fieldset for card payment information-->
                     <fieldset id="payment">
                         <legend>Payment Information</legend>
                             <div id="payment-method">
@@ -242,21 +237,37 @@
                             <input class="input" type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" minlength="19" maxlength="19" required>
 
                             <label for="expiration-date">Expiration Date*</label>
-                            <input class="input" type="text" id="expiration-date" name="expiration-date" placeholder="MM/YY" minlength="5" maxlength="5" required>
+                            <input class="input" type="month" id="expiration-date" name="expiration-date" placeholder="MM/YY" minlength="5" maxlength="5" required>
 
                             <label for="cvv">CVV*</label>
-                            <input class="input" type="password" id="cvv" name="cvv" placeholder="123" minlength="3"maxlength="3" required>
+                            <input class="input" type="password" id="cvv" name="cvv" placeholder="123" minlength="3" maxlength="3" required>
                     </fieldset>
+                    <!--Submit and reset form buttons-->
                     <div class="donate-btns">
-                        <input type="submit" value="Submit">
-                        <input type="reset" value="Reset">
+                        <input type="submit" id="submit" value="Submit">
+                        <input type="reset" id="reset" value="Reset">
                     </div>
                 </form>
             </div>
+            <!--Arrow link to navigate back to previous page.
+            The png file came from Google Icons (https://fonts.google.com/icons: Arrow Back)-->
+            <div class="arrow-wrap">
+                <a href="media.html"><img src=images/back-arrow.png alt="Back Arrow" id="arrow"></a>
+            </div>
         </section>
     </main>
+    <!--Footer-->
     <footer>
         <p> &copy; Alexis Warren | ITD 210 Capstone Project </p>
-    </footer>   
+    </footer> 
+    <script>
+        /* script for the mobile nav menu, that opens the menu when the button is clicked through a toggle action */
+        const btn = document.getElementById("navButton");
+        const menu = document.getElementById("mobile-nav");
+
+        btn.addEventListener("click", function () {
+            menu.classList.toggle("show");
+        });
+    </script>
 </body>
 </html>

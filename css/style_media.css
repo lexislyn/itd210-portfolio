@@ -1,0 +1,165 @@
+
+/* hero section is displayed as a flexbox. It is positioned relatively. The flex items inside 
+are horizontally centered by vertically at the end. */
+section#hero {
+    display: flex;
+    position: relative;
+    align-items: end;
+    justify-content: center;
+    max-width: 100%;
+    height: 30vw; 
+    text-align: center;
+}
+
+/*image is positioned absolutely and takes up the entire width and height of the hero section. 
+The overflow is hidden. The z-index is 0 so it's lowest priority in stacking order and inset is 0, 
+which sets top, left, right, and bottom to 0. */
+div.hero_image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;  
+    z-index: 0;
+    overflow: hidden;
+    inset: 0;
+    object-fit: cover;
+}
+
+/* gray overlay to slightly darken the hero image. Is positioned absolutely. Has a z-index value of one so that it 
+fits between the image and text. */
+section#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-overlay);
+  z-index: 1;
+}   
+
+/* Responsive text on top layer of hero container. Z-index is 2 so that it is always the top most layer. 
+Has a gray text shadow. The font is clamped to provide responsiveness. */
+div.hero_text {
+  color: var(--color-hero);
+  text-shadow: 2px 2px 5px var(--color-text);
+  padding: 0px 10px;
+  z-index: 2;
+  font-size: clamp(10pt, 2vw, 25pt);
+} 
+
+/* countdown timer section takes up 100% of the width and uses clamp to responsively changed the text size in relation to the viewport width */
+section#countdown_timer {
+    width: 100%;
+    font-size: clamp(12pt, 2vw, 14pt);
+}
+
+/* Changes the font size, font-weight and font style of the fundraiser end date to make it stand out. */
+#fundraiser_end_date {
+    font-size: 1.1em;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+/*next three rules sets the horizontal and vertical padding for each text element*/
+section#countdown_timer h2 {
+    padding: 30px 27px 10px;
+}
+
+section#countdown_timer h3 {
+    padding: 10px 0px 10px;
+}
+
+section#countdown_timer p {
+    padding: 10px 30px;
+}
+
+/* sets the video to have 90% width, automatic height, and fills the container while maintaining the aspect ratio. 
+Has rounded corners and is displayed as a block so that the margin centering works. */
+#video video{
+    width: 90%;
+    height: auto;
+    margin: 20px auto;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+}
+
+/* Displays the progress bar section as a flex box. The flex direction is set to column on mobile. 
+The text is horizontally centered and some extra margin is applied to the top and bottom. */
+#progress_bar {
+    margin: 10px 0 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+/* adds extra margin to the top */
+#wrapper > h3 {
+   margin-top: 20px;
+}
+
+/* styles for the progress bar. The width is 25% on mobile. The height is 400px. 
+It's vertically centered on the page and the background color is white. It is
+displayed using flexbox so that the bar portion is aligned to the bottom of the progress bar.
+It has curved corners and is placed using relative positioning. */
+#myProgress {
+  width: 25%;
+  height: 400px;
+  margin: 0 auto;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: flex-end;
+  border-radius: 15px;
+  position: relative;
+}
+
+/* styles for the bar that fills up the progress bar. The width is 100% of the progress bar. 
+The height is set to a default height of 20%, but changes as donations are made (since the new donation amount gets recalculated as a new percentage, which is 
+then used for the height. The background color is the green color, and the text labels inside are white. 
+Flex box is also used here so that the text labels are horizontally and vertically centered. The bottom corners only 
+are rounded. */
+#myBar {
+  width: 100%;
+  height: 20%;
+  background-color: var(--color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+/* Styles for the make a donation hyperlink tag which leads users to the donation page. It is
+displayed as an inline block so that it can sit underneath the progress bar without stretching across the whole page.
+Has a blue background color and border, with a gray shadow, rounded corners, and no
+underlining. Text inside is black. */
+#progress_bar a {
+    display: inline-block;
+    box-shadow: 5px 5px 5px var(--color-shadow);
+    background-color: var(--color-bg-back);
+    border: 3px solid rgb(163, 197, 225);
+    border-radius: 25px;
+    text-decoration: none;
+    color: var(--color-text);
+    margin-top: 30px; 
+    padding: 7px;
+}
+
+/*  AI Assistance Citation: 
+    Date: 4/26/2026
+    Where used: The turtle icon
+    What AI did: Suggested that instead of placing the turtle icon using only absolute positioning, I needed to anchor it to the progress bar and 
+    then slightly offset it using negative left and bottom values.
+    What I did: Determined the exact offset values to use so that the turtle icon didn't overlap with anything.
+    Prompt summary: How do I get the turtle icon to stay near the progress bar no matter what size the screen is?
+
+    I set the width to 50px so that it still looks like an icon. */
+#progress_bar img {
+    width: 50px;
+    position: absolute;
+    left: -60px;
+    bottom: -50px;
+}
+
+/* used for the attribution text to be white with no underlining */
+footer a {
+    color: white;
+    text-decoration: none;
+}

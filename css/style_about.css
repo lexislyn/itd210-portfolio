@@ -79,6 +79,7 @@ section#mission {
     padding: 50px 20px;
     margin: 0 auto;
     width: 90%;
+    font-size: 1.15em;
 }
 
 /*heading is centered on the page and has extra padding 
@@ -95,6 +96,7 @@ Again adds padding to the bottom so that there's plenty of space */
 section#team {
      background-color: var(--color-bg);
      padding-bottom: 60px;
+     font-size: 1.15em;
 }
 
 /*the team is organized as a grid.

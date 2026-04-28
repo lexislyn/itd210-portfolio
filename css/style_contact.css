@@ -12,7 +12,7 @@ form.contact {
 
 h1 {
     text-align: center;
-    padding: 50px 0px 0px;
+    padding: 30px 0px 0px; 
 }
 
 form.contact label {
@@ -59,7 +59,7 @@ form.contact input:focus, form.contact textarea:focus {
 
 #social-links {
     background-color: var(--color-bg);
-    padding: 50px 0px;
+    padding: 30px 0px; 
     text-align: center;
 }
 
@@ -92,7 +92,7 @@ blockquote, cite {
 /* displaying this container as a flex item so that the quote, author, and button are centered */
 #quote-container {
     width: 80%;
-    padding: 10px;
+    /*padding: 10px;*/
     background-color: var(--color-box);
     margin: 50px auto;
     border-radius: 20px;
@@ -101,6 +101,10 @@ blockquote, cite {
     flex-flow: column wrap;
     align-items: center;
     justify-content: center;
+}
+
+#quote-container h2 {
+    padding-top: 8px;
 }
 
 /* displaying this container as a flex item so the loading animation is centered */
@@ -115,22 +119,22 @@ blockquote, cite {
 blockquote {
     quotes: "\201C" "\201D";
     color: var(--color-text);
-    padding: 0px 30px 10px;
+    padding: 0px 30px 4px; 
+    line-height: 1.8em;
 }
 
 blockquote::before {
     content: open-quote;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 blockquote::after {
     content: close-quote;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 cite {
     color: var(--color-text);
-    padding: 0px 30px;
 }
 
 /* styles for the loading animation */
@@ -150,15 +154,15 @@ cite {
 }
 
 /* button styles */
-button {
+button#quote-btn {
     background-color: var(--color-button);
     border-radius: 30px;
     border: none;
-    padding: 5px 10px;
+    padding: 5px 10px; 
     font-family: Mate, "Times New Roman";
     font-size: 0.9em;
     color: var(--color-text-btn);
-    margin: 15px 0px 0px;
+    margin: 8px 0px 12px;
 }
 
 footer a {

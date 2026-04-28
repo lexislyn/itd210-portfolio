@@ -14,19 +14,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Limelight&family=Mate:ital@0;1&display=swap" rel="stylesheet">
     <script src="js/script-email.js" defer></script>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'">
 </head>
 <body>
     <header>
         <p>Coastal Protection Initiative</p>
-        <nav>
+        <button class="mobile-toggle" id="navButton">
+            <img src="images/list(1).png">
+        </button>
+        <nav id="mobile-nav" class="mobileNav">
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="mission.html">About Us</a></li>
                 <li><a href="key-issues.html">Key Issues</a></li>
                 <li><a href="events.html">Events</a></li>
-                <li><a href="donation.html">Giving</a></li>
+                <li><a href="media.html">Giving</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href=index.html class="active">Home</a></li>
+                <li><a href=mission.html>About Us</a></li>
+                <li><a href=key-issues.html>Key Issues</a></li>
+                <li><a href=events.html>Events</a></li>
+                <li><a href=media.html>Giving</a></li>
+                <li><a href=contact.html>Contact Us</a></li>
             </ul>
         </nav>
     </header> 
@@ -163,6 +175,16 @@
     </main>
     <footer>
         <p> &copy; Alexis Warren | ITD 210 Capstone Project </p>
-    </footer>    
+    </footer> 
+    
+    <script>
+        const btn = document.getElementById("navButton");
+        const menu = document.getElementById("mobile-nav");
+
+        btn.addEventListener("click", function () {
+            menu.classList.toggle("show");
+        });
+
+    </script>
 </body>
 </html> 

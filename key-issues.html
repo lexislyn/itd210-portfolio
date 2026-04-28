@@ -46,6 +46,10 @@
         }
     } 
 
+    nav#mobile-nav.show {
+        display: block;
+    }
+
     /* AI Assistance Citation: 
         Date: 4/14/2026
         Where used: elements with the reveal class
@@ -90,24 +94,37 @@
 </head>
 <!--Creates a header and navigation list that matches the header and navigation list on all the other pages-->
 <body class="bg-[#ebf4d9] mx-auto w-full antialiased">
-    <header class="bg-[#7e988b] flex font-[Mate] text-base w-full">
-        <p class="text-white pl-3 md:pl-0 flex basis-[34%] justify-center items-center">Coastal Protection Initiative</p>
-        <nav class="flex basis-[66%]">
+    <header class="bg-[#7e988b] flex justify-between relative font-[Mate] text-base w-full">   
+        <p class="text-white text-lg pl-3 md:pl-0 flex grow justify-center items-center">Coastal Protection Initiative</p>
+        <nav class="desktop-nav hidden md:block flex basis-[66%]">
             <ul class="flex basis-full">
                 <!--Nav list includes the same hover effects-->
                 <li class="flex flex-auto"><a href="index.html" class="text-white w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Home</a></li>
                 <li class="flex flex-auto"><a href="mission.html" class="text-white w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">About Us</a></li>
                 <li class="flex flex-auto"><a href="key-issues.html" class="w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)] bg-[#ebf4d9] text-[#215a36] border border-2 border-[#7e988b]">Key Issues</a></li>
                 <li class="flex flex-auto"><a href="events.html" class="text-white w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Events</a></li>
-                <li class="flex flex-auto"><a href="donation.html" class="text-white w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Giving</a></li>
+                <li class="flex flex-auto"><a href="media.html" class="text-white w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Giving</a></li>
                 <li class="flex flex-auto"><a href="contact.html" class="text-white w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Contact Us</a></li>
+            </ul>
+        </nav>
+        <button class="md:hidden hover:bg-[#215a36] focus:bg-[#215a36] p-4 cursor-pointer" id="navButton">
+            <img src="images/list(1).png">
+        </button>
+        <nav id="mobile-nav" class="mobileNav hidden absolute right-0 top-16 bg-[#7e988b] z-50 min-w-[160px]">
+            <ul class="">
+                <li class=""><a href="index.html" class="text-white block py-3 px-4 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Home</a></li>
+                <li class=""><a href="mission.html" class="text-white block py-3 px-4 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">About Us</a></li>
+                <li class=""><a href="key-issues.html" class="py-3 px-4 text-center block hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)] bg-[#ebf4d9] text-[#215a36] border border-2 border-[#7e988b]">Key Issues</a></li>
+                <li class=""><a href="events.html" class="text-white py-3 px-4 block text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Events</a></li>
+                <li class=""><a href="media.html" class="text-white py-3 px-4 block text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Giving</a></li>
+                <li class=""><a href="contact.html" class="text-white py-3 px-4 block text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Contact Us</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <!--These two websites helped me learn gradient terminology for tailwind (like making the gradient go from bottom to top and adding a middle color: https://v2.tailwindcss.com/docs/gradient-color-stops and https://www.braydoncoyer.dev/blog/tailwind-gradients-how-to-make-a-glowing-gradient-background)-->
         <!--Hero Section with animated text, and two bird images-->
-        <section id="hero" class="flex flex-col z-0 justify-center items-center relative min-h-[60vh] md:min-h-screen text-align overflow-hidden bg-white bg-gradient-to-t via-[#ebf4d9] from-[#7e988b] to-[#d4e1ef]" >
+        <section id="hero" class="flex flex-col z-0 justify-center items-center relative min-h-[60vh] md:max-h-screen text-align overflow-hidden bg-white bg-gradient-to-t via-[#ebf4d9] from-[#7e988b] to-[#d4e1ef]" >
             <div id="hero-image">
                         <!-- Image citation (web source)
                         file/page: key-issues.html
@@ -159,22 +176,22 @@
             Fonts Icons website that are displayed next to the label through flex. -->
         <section class="bg-[#ebf4d9]">
             <h2 class="text-center mt-8 font-[Cardo] text-2xl">Categories</h2>
-            <div id="button-bar" class="flex flex-col md:flex-row gap-2 space-evenly items-center mt-2 py-5 px-3 w-[90%] mx-auto font-[Cardo] rounded-lg">
+            <div id="button-bar" class="flex flex-col lg:flex-row gap-2 space-evenly items-center mt-2 py-5 px-3 w-[90%] mx-auto font-[Cardo] rounded-lg">
                 <!-- All icons come from the Material Symbols and Icons page on Google Fonts (https://fonts.google.com/icons)-->
-                <span id="button1" class="bg-white w-[60%] rounded-full hover:bg-blue-50 transition-all duration-750 text-center basis-[20%] cursor-pointer">All</span>
-                <div class="flex justify-center gap-3 bg-white w-[60%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center basis-[20%] cursor-pointer">
+                <span id="button1" class="bg-white w-[70%] rounded-full hover:bg-blue-50 transition-all duration-750 text-center cursor-pointer">All</span>
+                <div class="flex justify-center gap-3 bg-white w-[70%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center cursor-pointer">
                     <img src="images/water_drop.png" alt="Water Drop Icon">
                     <span id="button2" class="text-center">Clean Water</span>
                 </div>
-                <div class="flex justify-center gap-3 bg-white w-[60%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center basis-[20%] cursor-pointer">
+                <div class="flex justify-center gap-3 bg-white w-[70%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center cursor-pointer">
                     <img src="images/grass.png" alt="Grass Icon">
                     <span id="button3" class="text-center">Habitat Preservation</span>
                 </div>
-                <div class="flex justify-center gap-3 bg-white w-[60%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center basis-[20%] cursor-pointer">
+                <div class="flex justify-center gap-3 bg-white w-[70%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center cursor-pointer">
                     <img src="images/gavel.png" alt="Gavel Icon">
                     <span id="button4" class="text-center">Legislative Activities</span>
                 </div>
-                <div class="flex justify-center gap-3 bg-white w-[60%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center basis-[20%] cursor-pointer">
+                <div class="flex justify-center gap-3 bg-white w-[70%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center cursor-pointer">
                     <img src="images/school.png" alt="School Icon">
                     <span id="button5" class="text-center">Education</span>
                 </div>
@@ -182,7 +199,7 @@
         </section>
         <!--Creates a section of cards that become visible by scrolling. The cards are set up in a responsive grid format- 
         One column for mobile, up to 3 columns on larger screens. When hovering, the card title is underlined. -->
-        <section id="cards" class="px-5 my-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <section id="cards" class="px-5 my-8 grid w-[80%] mx-auto sm:w-[95%] sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <div id="issue1" class="reveal group bg-white shadow-md shadow-gray-850 hover:shadow-lg hover:shadow-gray-950 transition-all duration-500 rounded-xl border border-2 border-[#7e988b]">
                         <!-- Image citation (web source)
                         file/page: key-issues.html
@@ -278,10 +295,10 @@
         <!--Uses the same email subscription button as other pages just recreated using Tailwind-->
         <section id="call_to_action" class="bg-white text-center">
             <h3 class="font-[Cardo] font-bold text-xl p-8">Sign Up for Email Updates</h3>
-            <div class="flex pb-3 justify-center w-[90%] mx-auto">
-                <form class="border border-2 border-[#7e988b] rounded basis-[90%] md:basis-[70%] lg:basis-[50%] flex">
-                    <input type="email" name="email" id="email" placeholder="Enter your email" required class="font-[Mate] basis-[50%] py-2 pl-4 text-base border border-0 focus:outline-0 focus:bg-[#ebf4d9]">
-                    <input type="submit" id="sub" value="Click to Subscribe!" class="basis-[50%] bg-[#7e988b] border border-0 text-base font-[Mate] text-white cursor-pointer">
+            <div class="flex pb-3 justify-center w-[93%] mx-auto">
+                <form class="border border-2 border-[#7e988b] rounded basis-[100%] sm:basis-[70%] md:basis-[60%] lg:basis-[50%] flex">
+                    <input type="email" name="email" id="email" placeholder="Enter your email" required class="font-[Mate] basis-[30%] sm:basis-[40%] md:basis-[50%] py-2 pl-4 text-base border border-0 focus:outline-0 focus:bg-[#ebf4d9]">
+                    <input type="submit" id="sub" value="Click to Subscribe!" class="basis-[70%] sm:basis-[60%] md:basis-[50%] bg-[#7e988b] border border-0 text-base font-[Mate] text-white cursor-pointer">
                 </form>
             </div>
             <p id="message" class="text-center pb-8 font-[Mate]"></p>
@@ -319,6 +336,14 @@
 
         // Run again every time the user scrolls
         window.addEventListener("scroll", revealOnScroll);
+    
+        const btn = document.getElementById("navButton");
+        const menu = document.getElementById("mobile-nav");
+
+        btn.addEventListener("click", function () {
+            menu.classList.toggle("show");
+        });
+    
     </script>
 </body>
 <!--The tailwindcss.com documentation really helped me create this whole page: https://tailwindcss.com/docs/installation/using-vite-->
