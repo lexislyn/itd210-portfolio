@@ -17,8 +17,15 @@ var dayEvent = {
 };
 
 //runs the createCalendar function
-document.getElementById("mobile-calendar").innerHTML = createMobileCalendar(thisDay);
-document.getElementById("desktop-calendar").innerHTML = createCalendar(thisDay);
+var mobile = document.getElementById("mobile-calendar");
+var desktop = document.getElementById("desktop-calendar");
+
+if (mobile) {
+    mobile.innerHTML = createMobileCalendar(thisDay);
+}
+if (desktop) {
+    desktop.innerHTML = createCalendar(thisDay);
+}
 
 // creates a table that acts as a calendar
 function createCalendar(calDate){
