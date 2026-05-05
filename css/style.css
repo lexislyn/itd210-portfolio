@@ -134,7 +134,7 @@ h1, h2, h3, h4, legend, caption, th {
     font-family: Cardo, "Times New Roman";
 }
 
-p, input, label, button, a {
+p, input, label, button, a, select, textarea {
     font-family: Mate, "Times New Roman";
 }
 
@@ -225,17 +225,46 @@ footer {
     padding: 32px;
 }
 
+.load-in {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: load-in 1s ease-in forwards;
+}
+
+.load-in-2 {
+    opacity: 0;
+    transform: translateX(30px);
+    animation: load-in 1s ease-in forwards;
+    animation-delay: 1s;
+}
+
+.load-in-3 {
+    opacity: 0;
+    transform: translateX(30px);
+    animation: load-in 1s ease-in forwards;
+    animation-delay: 2s;
+}
+
+/* the animation lets the elements slide in from either the left or right side 
+and slowly makes it visible*/
+@keyframes load-in {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 /* Responsive Web Design */
 
 @media only screen and (min-width: 420px) {
     /* on bigger screens (anything bigger than 420 px, replaces the mobile 
     calendar with the desktop calendar. Same styling, just has a header row for the week days 
     and the date cells are aligned like a real calendar. */
-    table#mobile-calendar {
+    table.mobile-calendar {
         display: none;
     }
 
-    table#calendar {
+    table.desktop-calendar {
         background-color: var(--color-bg-back);
         margin: 30px auto;
         width: 90%;
@@ -244,7 +273,7 @@ footer {
         display: table;
     }
 
-    table#calendar caption {
+    table.desktop-calendar caption {
         background-color: var(--color-bg);
         border-top: 4px solid var(--color-primary);
         border-left: 4px solid var(--color-primary);
@@ -258,16 +287,16 @@ footer {
         width: 12.8%; 
     }
 
-    td.calendar_dates, th {
+    table.desktop-calendar td.calendar-dates, table.desktop-calendar th {
         border: 3px double var(--color-primary); 
         background-color: var(--color-bg);
     }
 
-    th {
+    table.desktop-calendar th {
         font-size: clamp(0.8em, 1.4vw, 1.2em);
     }
 
-    td.calendar_dates {
+    table.desktop-calendar td.calendar-dates {
         text-align: left;
         vertical-align: top;
         height: 80px;
@@ -312,12 +341,8 @@ footer {
         flex-basis: 50%;
     }
 
-    table#calendar {
+    table.desktop-calendar {
         width: 90%;
-    }
-
-    #social-links ul li {
-        flex-basis: 8%;
     }
 
     nav.desktop-nav {
@@ -389,7 +414,57 @@ footer {
     #video {
         flex-basis: 50%;
     }
+    
+    div.span-12 {
+        grid-column: span 12;   
+    }
 
+    div.span-8 {
+        grid-column: span 8;
+    }
+
+    div.span-4 {
+        grid-column: span 4;
+    }
+
+    .name {
+        flex-direction: row;
+    }
+
+    /* changes the contact ways section to be displayed in a row with the form and alt ways
+    of contact starting at the top of the section. */
+    #contact-ways {
+        flex-direction: row;
+        align-items: start;
+    }
+
+    /* sets the height of the form wrapper to 610px and establishes a right green border
+    so that when the form is submitted, and the submission text appears the border (which acts as a vertical separation line)
+    is still the same length. */
+    #form-wrapper {
+        border-right: 4px solid var(--color-primary);
+        height: 610px;
+    }
+    
+    /* makes the alt-text border 0px so that a double top border doesn't happen */
+    .alt-text {
+        border: 0px;
+    }
+
+    /* each social media icon image has a width of 30% for tablet + screens. */
+    #social-links ul img {
+        width: 30%;
+    }
+ 
+    /* the svg curve has a higher height of 120px for tablet + screens */
+    #curve > svg {
+        height: 120px;
+    }
+
+    /* the hero text is centered on larger screens instead of at start. */
+    .hero-text {
+        justify-content: center;
+    }
 }
 
 /* Laptop designs (min-width: 1020px) */
@@ -411,17 +486,12 @@ footer {
 
     
     form.contact {
-        width: 30%;
-
+        width: 60%;
     }   
 
     /* Donation form has a smaller width of 50% of large desktop devices. */
     form.donate {
         width: 50%;
-    }
-
-    #social-links ul li {
-        flex-basis: 5%;
     }
 
     #calendar-section > p {

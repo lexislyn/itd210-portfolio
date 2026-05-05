@@ -1,38 +1,156 @@
 
+#hero {
+    background-color: white; /*fallback option for if the linear gradient doesn't work. */
+    background-image: linear-gradient(to top, #7e988b, #ebf4d9, #d4e1ef);  /* linear gradient passing from green to light green to blue from bottom to top */  
+    display: flex; /* displays as flex so that the text and image are aligned in a row */
+    flex-flow: row nowrap;
+    position: relative; /* places it in relative positioning (still in normal flow) */
+}
+
+.hero-text {
+    position: relative; /* places it in relative positioning */
+    font-size: clamp(0.9em, 3vw, 1.4em); /* clamps the font-size for the header text so that it's bigger on bigger screens */
+    display: flex; /* displays as flex so that the text is displayed in a column */
+    flex-direction: column;
+    padding: 0px 5px; /* adds left/right padding */
+    flex-basis: 50%; /* makes it so that the text takes up half of the screen width */
+    justify-content: start; /* aligns text to the top */
+    top: 40px; /* pushes text down 40px for mobile devices */
+    text-align: center /*centers text horizontally */;
+}
+
+div#hero-img {
+    flex-basis: 50%; /* makes it so that the image takes up the other half of the screen */
+}
+
+#hero-img img {
+    max-width: 100%; /* max-width of image is 100% */
+    height: 100%; /* height is 100% */
+    display: block; /* displays image as a block */
+    object-fit: cover; /* fills container while maintaining the aspect ratio */
+}
+
+#curve {
+    position: absolute; /* positions the curve with absolute positioning so that it's on a different layer */
+    z-index: 5; /* z-index of 5 so that it's always on top */
+    bottom: 0; /* positions it using the bottom-left corner */
+    left: 0;
+    width: 100%; /* width is 100% */
+}
+
+#curve > svg {
+    width: 100%; /* width is 100% */
+    display: block; /* displays the svg as a block */
+    height: 80px; /* height for mobile is 80px */
+}
+
+#contact-form .text {
+    text-align: center; /* centers the text horizontally */
+    padding: 10px 20px; /* adds 10px of padding top/bottom and 20px of padding left/right */
+    font-size: 1.1em; /* increases font-size */
+}
+
+#contact-ways {
+    display: flex;  /* displays as flex so that the contact form and the alternate ways to contact are displayed in a column layout */
+    flex-direction: column;
+    border: 4px solid var(--color-primary); /* makes a green 4px solid border around the content */
+    margin-top: 30px; /* adds 30px of margin to the top of the section */
+}
+
+#form-wrapper {
+    flex-basis: 50%; /* this section takes up 50% of the screen width */
+}
+
+.alt-text {
+    flex-basis: 50%; /* this section takes up 50% of the screen width */
+    border-top: 4px solid var(--color-primary); /* adds a top border on mobile devices to separate the two sections on mobile devices */
+}
+
+h3 {
+    text-align: center; /* centers the text horizontally */
+    font-size: 20px; /* sets the font size to 20px */
+    margin: 30px auto; /* centers the margin horizontally and adds 30px of top/bottom padding */
+    width: 80%; /* sets the width to 80% */
+}
+
+
+.alt-text h4 {
+    font-size: 16px; /* sets the font size to 16px */
+    padding-left: 15%; /* adds 15% padding to the left */
+}
+
+.alt-text a {
+    color: black; /* hypertext links are black */
+}
+
+#points {
+    display: flex;   /* displays section as flex so that the alternate contact ways are displayed in a column */
+    flex-direction: column;
+    gap: 20px; /* gap between items is 20px */
+    padding-bottom: 30px; /* adds 30px of padding to the bottom */
+    width: 80%; /* width is 80% */
+    margin: 0 auto; /* margin is horizontally centered */
+}
+
+#points img {
+    height: auto; /* icon height is auto */
+    display: block; /* icon is displayed as a block */
+}
+
+.list {
+    display: flex;  /* each list is displayed as a row so icon and text are in the same row */
+    flex-flow: row nowrap;
+    gap: 10px; /* gap between icon and text is 10px */
+    align-items: center; /* centers the text vertically */
+    justify-content: left; /* justifies the text to the left so that it's even */
+    font-size: 1.1em; /* the font size is increased */
+}
+
+#successCard {
+    display: none; /* the text that shows submission thank you text is hidden by default */
+}
+
+#successCard.show {  /* when the submission text is shown, it aligns the text in the center for mobile devices */
+    display: flex;
+    align-items: center;
+}
+
+/* form is displayed as flex with the inputs shown in a column.  */
 form.contact {
     display: flex;
     flex-direction: column;
     gap: 5px;
     width: 80%;
-    margin: 30px auto 40px;
-    border: 5px solid var(--color-primary);
-    background-color: var(--color-bg-back);
-    border-radius: 15px;
+    margin: 20px auto 40px; /* horizontally centers the form and adds margin */
+    border: 5px solid var(--color-primary); /* green 5px border */
+    background-color: var(--color-bg-back); /* blue background color */
+    border-radius: 15px; /* rounded corners */
 }
 
-h1 {
-    text-align: center;
-    padding: 30px 0px 0px; 
-}
-
+/* width is 90%, font size is increased, and horizontally centered */
 form.contact label {
     font-size: 1.1em;
     width: 90%;
     margin: 10px auto 0px;
 }
 
+/* form elements have width of 90%, horizontally centered, and has a green border */
 form.contact input, form.contact textarea {
     width: 90%;
     margin: 0px auto;
     border: 1.5px solid var(--color-primary);
 }
 
+/* when the form elements have focus, it gets rid of the default outline,
+adds a box shadow and changes the background color to light green. */
 form.contact input:focus, form.contact textarea:focus {
     outline: none;
     box-shadow: 0 0 5px var(--color-primary);
     background-color: var(--color-bg);
 }
 
+/* contact buttons are displayed as flex so that the buttons can be aligned in a row.
+The buttons are aligned with space around spacing. the width is 90% and padding is added. */
 .contact-btns {
     display: flex;
     flex-flow: row nowrap;
@@ -41,6 +159,9 @@ form.contact input:focus, form.contact textarea:focus {
     margin: 10px auto 20px;
 }
 
+/* each button has a flex basis of 33%. They don't grow in size. They have
+a green border and curved edges. The background color is the same color as the border.
+The text color is white. */
 .contact-btns > * {
     flex-basis: 33%;
     flex-grow: 0;
@@ -52,39 +173,54 @@ form.contact input:focus, form.contact textarea:focus {
     padding: 2px 0px;
 }
 
+/* each input element has added padding and curved edges */
 .input {
     padding: 5px 10px;
     border-radius: 5px;
 }
 
+/* the social links section has a white background color. Top and bottom padding is added. 
+The text is centered. */
 #social-links {
     background-color: var(--color-bg);
     padding: 30px 0px; 
     text-align: center;
 }
 
+/* The unordered list has top padding of 30px and is horizontally centered.
+The display is flex and the icons are displayed in a row. There's no list markers. 
+The gap between icons is 20px. The width is 90%. */
 #social-links ul {
     margin: 30px auto 0px;
     display: flex;
     flex-flow: row nowrap;
     list-style: none;
+    gap: 20px;
+    width: 90%;
     justify-content: center;
-    align-items: center;
-    gap: 10%;
 }
 
+/* each icon has a flex basis of 25% */
 #social-links ul li {
-    flex-basis: 10%;
-    flex-grow: 0;
-    height: auto;
+    flex-basis: 25%;
 }
 
+/* each icon image has a width of 80%, height set to auto, a max height of 120px,
+and a transition for the transform that is defined below. */
 #social-links ul img {
-   width: 100%;
+   width: 80%;
    height: auto;
+   max-height: 120px; 
+   object-fit: contain;
+   transition: transform 0.5s ease-in;
 }
 
-/* assigning the Google fonts to text elements */
+/*scales each icon when hovered over */
+#social-links ul img:hover {
+    transform: scale(1.15);
+}
+
+/* assigning the Google fonts to text elements for the api */
 blockquote, cite {
     font-family: Mate, "Times New Roman";
 }
@@ -103,6 +239,7 @@ blockquote, cite {
     justify-content: center;
 }
 
+/* adds top padding for the h2 element */
 #quote-container h2 {
     padding-top: 8px;
 }
@@ -123,25 +260,30 @@ blockquote {
     line-height: 1.8em;
 }
 
+/* adds an open quote mark to the content to help emphasize that it is quoted content */ 
 blockquote::before {
     content: open-quote;
     font-size: 1.3em;
 }
 
+/* adds a closing quotation mark to the content to mark the end of the quote */
 blockquote::after {
     content: close-quote;
     font-size: 1.3em;
 }
 
+/* changes the color to black for the cite element */
 cite {
     color: var(--color-text);
 }
 
-/* styles for the loading animation */
+/* keyframe styles for the loading animation */
 @keyframes dualRing {
   to {transform: rotate(360deg); }
 }
 
+/* adds a dual ring animation to convey to the user that the quote is loading.
+The dual ring is green, circular, and has an infinite animation. */
 .dual-ring {
   width: 50px;
   height: 50px;
@@ -165,6 +307,7 @@ button#quote-btn {
     margin: 8px 0px 12px;
 }
 
+/* makes the attributions in the footer a white text color with no underlining */
 footer a {
     text-decoration: none;
     color: white;

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
+    <!--Links to CSS stylesheets-->
     <link href="css/style_contact.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" >
     <!--These links connect to the two Google Fonts I'm using on this page-->
@@ -13,14 +14,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Limelight&family=Mate:ital@0;1&display=swap" rel="stylesheet">
+    <!--Link to Javascript files-->
     <script src="js/script-api.js" defer></script>
 </head>
 <body>
+    <!--Header content-->
     <header>
         <p>Coastal Protection Initiative</p>
+        <!--Mobile Nav button-->
         <button class="mobile-toggle" id="navButton">
             <img src="images/list(1).png">
         </button>
+        <!--Mobile Navigation List-->
         <nav id="mobile-nav" class="mobileNav">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -31,6 +36,7 @@
                 <li><a href="contact.html" class="active">Contact Us</a></li>
             </ul>
         </nav>
+        <!--Desktop Navigation List-->
         <nav class="desktop-nav">
             <ul>
                 <li><a href=index.html>Home</a></li>
@@ -42,29 +48,103 @@
             </ul>
         </nav>
     </header> 
+    <!--Main section-->
     <main>
-        <section id="contact-form">
-            <div id="form-wrapper">
-                <h1>Contact Us</h1>
-                <form class="contact">
-                    <label for="f-name">First Name:</label>
-                    <input class="input" type="text" id="f-name" name="f-name" required>
-
-                    <label for="l-name">Last Name:</label>
-                    <input class="input" type="text" id="l-name" name="l-name" required>
-
-                    <label for="contact-email">Email:</label>
-                    <input class="input" type="email" id="contact-email" name="email" placeholder="Enter your email" required>
-
-                    <label for="message">Message:</label>
-                    <textarea class="input" id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
-                    <div class="contact-btns">
-                        <input type="submit" value="Submit">
-                        <input type="reset" value="Reset">
-                    </div>
-                </form>
+    </section>
+        <!--Hero section that has text on one half and an image on the other-->
+        <section id="hero">
+            <!--Text has a load-in animation applied to it-->
+            <div class="hero-text">
+                <h1 class="load-in">Contact Us!</h1>
+                <p class="load-in-2">We'd love to hear from you!</p>
+            </div>
+            <div id="hero-img">
+                <!-- Image citation (web source)
+                file/page: contact.html
+                image file: images/customer_service.jpg
+                Original creator: Mikhail Nilov 
+                Website: Pexels
+                Title/description: A woman sitting at the table 
+                link to photo: https://www.pexels.com/photo/a-woman-sitting-at-the-table-8297075/ 
+                License: Has a free content license for a wide range of personal and commercial uses as long as I 
+                don't resell, take credit for, or trademark this image
+                Accessed: 2026-05-01 -->
+                <img src="images/customer_service.jpg" alt="Woman talking on the phone">
+            </div>
+            <!-- AI Assistance Citation: 
+                 Date: 5/1/2026
+                 Where used: div#curve
+                 What AI did: I had AI make a svg path that was the mirror image of the svg path on the key-issues.html page. I wanted the webpage to have a curved look instead
+                 of looking so linear, while also looking cohesive with the other pages. 
+                 What I did: I changed the color of the curve and integrated it into the page. In the CSS files, I also made the height smaller on mobile devices, and larger on laptops.  
+                 Prompt summary: Can you flip the svg path from this code? */
+                 -->
+            <div id="curve">
+                <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
+                    <g transform="scale(-1,1) translate(-1440,0)">
+                        <path 
+                        fill="#ebf4d9"
+                        d="M0,100 C300,150 1100,0 1440,100 L1440,150 L0,150 Z">
+                        </path>
+                    </g>
+                </svg>
             </div>
         </section>
+        <!--Section with a contact form and another list of ways to contact-->
+        <section id="contact-form">
+            <div class="text">
+                <h2>How to Get in Touch</h2>
+                <p>Choose one of the following ways to get in touch and a representative of our organization will get back to you within 48 hours!</p>
+            </div>
+            <div id="contact-ways">
+                <div id="form-wrapper">
+                    <h3 id="instruction">Fill Out This Form</h3>
+                    <!--Contact form using Formspree-->
+                    <form class="contact" action="https://formspree.io/f/xwvyllkl" method="POST" novalidate>
+                        <label for="f-name">First Name:</label>
+                        <input class="input" type="text" id="f-name" name="f-name" placeholder="Enter your first name" required>
+
+                        <label for="l-name">Last Name:</label>
+                        <input class="input" type="text" id="l-name" name="l-name" placeholder="Enter your last name" required>
+
+                        <label for="contact-email">Email:</label>
+                        <input class="input" type="email" id="contact-email" name="email" placeholder="Enter your email" required>
+
+                        <label for="message">Message:</label>
+                        <textarea class="input" id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+                        <div class="contact-btns">
+                            <input type="submit" value="Submit">
+                            <input type="reset" value="Reset">
+                        </div>
+                        <!-- Honeypot — hidden from real users, catches bots -->
+                        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    </form>
+                    <!--Text that appears after form is submitted and processed.-->
+                    <div id="successCard">
+                        <h3>Thank you for filling out this form! We'll get back to you soon!</h3>
+                    </div>
+                </div>
+                <div class="alt-text">
+                    <h3>Other Ways to Contact Us!</h3>
+                    <div id="points">
+                        <!--Icons for this section all came from Phosphoricons.com (Phone, Envelope, and Building icons were used)-->
+                        <div class="list">
+                            <img src="images/phone.png" alt="Phone Icon">
+                            <a href="tel:+180069094">Call Us</a>
+                        </div>
+                        <div class="list">
+                            <img src="images/envelope.png" alt="Email Icon">
+                            <a href="mailto:example@email.com">Email Us</a>
+                        </div>
+                        <div class="list">
+                            <img src="images/building.png" alt="Building Icon">
+                            <p>Corporate Address: <br> 111 Brick lane Richmond, Virginia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Social media links. All social media icons came from Flaticon.com and the attributions are found in the footer. -->
         <section id="social-links">
             <h2>Follow Us On Social Media</h2>
             <ul>
@@ -73,6 +153,7 @@
                 <li><a href="https://www.youtube.com" target="_blank"><img src="images/youtube.png" alt="Youtube logo"></a></li>
             </ul>
         </section>
+        <!--API feature that loads an inspirational quote of the day. Has a button that will load a new quote. -->
         <section id="quote-container">
             <h2>Inspirational Quote of the Day</h2>
             <!--Loading state for the API -->
@@ -84,6 +165,7 @@
         <button id="quote-btn">Click for new quote</button>
         </section>
     </main>
+    <!--Footer content-->
     <footer>
         <p> &copy; Alexis Warren | ITD 210 Capstone Project </p>
         <a href="https://www.flaticon.com/free-icons/instagram-logo" title="instagram logo icons">Instagram logo icons created by Freepik - Flaticon</a>
@@ -94,6 +176,7 @@
     </footer>  
     
     <script>
+        /* mobile nav script */
         const navBtn = document.getElementById("navButton");
         const menu = document.getElementById("mobile-nav");
 
@@ -101,6 +184,46 @@
             menu.classList.toggle("show");
         });
 
+        /* form processing script using Formspree*/
+        (function () {
+            /* gets the form using the class name (since there's only one form) */
+            var form = document.getElementsByClassName("contact")[0];
+            /* if form doesn't exist, then the function stops */
+            if (!form) return;
+
+            /* adds an event listener to the form to wait for it to be submitted */
+            form.addEventListener('submit', function (e) {
+                /*prevents the page from loading a default formspree page*/
+                e.preventDefault();             
+
+                /*send form to formspree using a formdata object */
+                var data = new FormData(form);
+
+                /* uses the fetch API to send data to formspree using the post method */
+                fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                })
+                .then(function (response) {
+                    /* if the response is valid */
+                    if (response.ok) {
+                    /* hide the form and show a success message. Then reset the form. */
+                    form.style.display = 'none';
+                    document.getElementById("instruction").style.display = 'none';
+                    document.getElementById('successCard').classList.add('show');
+                    form.reset();
+                    } else {
+                    /* Formspree returned an error. Gives the user an error message */
+                    alert('Something went wrong. Please try again.');
+                    }
+                })
+                /* if fetch doesn't work, show error message. */
+                .catch(function () {
+                    alert('Network error. Check your connection.');
+                });
+            });
+        })();
     </script>
 </body>
 </html>

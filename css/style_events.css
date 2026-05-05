@@ -43,6 +43,11 @@ div.hero_text {
     text-align: center;
 }
 
+h1 {
+    text-align: center;
+    padding: 30px 0px 0px; 
+}
+
 /* adds 50px of padding to the top and 10px of padding to the bottom */
 h2 {
     padding: 50px 0px 10px;
@@ -56,7 +61,7 @@ h2 {
 
 /* Sets the mobile calendar styles. Displays the calendar as a table. Has a 4px wide border and 
 collapses other borders together. */
-table#mobile-calendar {
+table.mobile-calendar {
     background-color: var(--color-bg-back);
     margin: 30px auto;
     width: 80%;
@@ -66,7 +71,7 @@ table#mobile-calendar {
 }
 
 /* Adds a top, left, and right border, makes the caption bold, and clamps the font. */
-table#mobile-calendar caption {
+table.mobile-calendar caption {
     background-color: var(--color-bg);
     border-top: 4px solid var(--color-primary);
     border-left: 4px solid var(--color-primary);
@@ -77,7 +82,7 @@ table#mobile-calendar caption {
 }
 
 /* Adds a border between each table cell. Aligns text to the top and left of each table cell */
-td.mobile_calendar_dates {
+td.mobile-calendar-dates {
     border: 3px solid var(--color-primary);  
     background-color: var(--color-bg);
     vertical-align: top;
@@ -88,12 +93,16 @@ td.mobile_calendar_dates {
     margin: 0px;
 }
 /* The current date has a different colored background */
-td#active {
+td#active.calendar-dates {
     background-color: var(--color-accent);
 }
 
+td#active.mobile-calendar-dates {
+    background-color: var(--color-bg-back);
+}
+
 /* makes the desktop calendar hidden by default for mobile devices.  */
-table#calendar {
+table.desktop-calendar {
     display: none;
 }
 
@@ -114,7 +123,7 @@ div.top-row {
 }
 
 /* Sets the font for the weekday and makes it bold */
-div > span.weekDay {
+div > span.weekday {
     font-weight: bold;
     font-family: Cardo, "Times New Roman";
 }
@@ -128,4 +137,216 @@ div > span.date {
 .time {
     padding-top: 2px;
     padding-bottom: 4px;
+}
+
+#modal {
+  display: none; /* Hidden by default */
+  position: fixed; /*Stay in place */
+  z-index: 10; /*Sit on top */
+  left: 0;
+  top: 0px;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+}
+
+/* Modal Header */
+.modal-header {
+  padding: 2px 16px;
+  font-size: 18px;
+  background-color: var(--color-primary);
+  color: white;
+}
+
+
+/* Modal Footer */
+.modal-footer {
+  padding: 2px 16px;
+  background-color: var(--color-primary);
+  color: white;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animateTop;
+  animation-duration: 0.8s
+}
+
+/* Add Animation */
+@keyframes animateTop {
+  from {top: -300px; opacity: 0}
+  to {top: 0px; opacity: 1}
+}
+
+/* The Close Button */
+.close {
+  color: var(--color-bg);
+  font-size: 28px;
+  font-weight: bold;
+  background-color: var(--color-primary);
+  border: 0;
+}
+
+.close:hover, .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+form.register {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg-back);
+    padding-top: 20px;
+}
+
+form.register label {
+    font-size: 1.1em;
+    width: 90%;
+    margin: 10px auto 0px;
+    display: block;
+}
+
+div.form-row {
+    display: flex;
+    flex-flow: row wrap;
+    width: 90%;
+    margin: 0px auto;
+}
+
+div.form-row > * {
+    flex: 1 1 150px;
+}
+
+form.register input {
+    width: 90%;
+    margin: 10px auto 0px;
+    border: 2px solid var(--color-primary);
+}
+
+form.register input:focus, div.name input:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--color-primary);
+    background-color: var(--color-bg);
+}
+
+.contact-btns {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    width: 90%;
+    margin: 10px auto 20px;
+}
+
+.contact-btns > * {
+    flex-basis: 33%;
+    flex-grow: 0;
+    border: 2px solid var(--color-primary);
+    border-radius: 15px;
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    font-size: 1em;
+    padding: 2px 0px;
+}
+
+.input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: block;
+}
+
+#submit-view {
+    background-color: var(--color-bg-back);
+    padding: 30px 10px;
+}
+
+#submit-view > p {
+    margin-top: 12px;
+}
+
+button#calendar-file {
+    background-color: var(--color-primary);
+    width: auto;
+    padding: 8px;
+    border: 0px;
+    border-radius: 15px;
+    color: white;
+    font-size: 1em;
+    margin-top: 18px; 
+}
+
+
+#gallery > h3 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 72px;
+    margin-bottom: 20px;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(100px, 300px);
+    overflow-x: hidden;
+}
+
+.span {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    min-width: 0;
+}
+
+#grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    transition: transform 0.8s ease-in-out;
+
+}
+
+div.label {
+    opacity: 0;
+    z-index: 5;
+    background-color: rgba(255,255,255,0.8);
+    margin-left: 5px;
+    margin-bottom: 5px;
+    padding: 0px 8px;
+    border-radius: 50px;
+    font-size: 1.15em;
+    transition: opacity 1s ease-in;
+    
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+img:hover + .label {
+    opacity: 1;
+}
+
+.span {
+    overflow: hidden;
+    border: 1.5px solid black;
+}
+
+div.span {
+    grid-column: span 12;   
 }

@@ -17,16 +17,14 @@
     <!--Javascript scripts-->
     <script src = "js/script-calendar.js" defer></script>
     <script src = "js/script-email.js" defer></script>
+    <script src = "js/script-modal.js" defer></script>
 </head>
 <body>
      <header>
         <p>Coastal Protection Initiative</p>
         <button class="mobile-toggle" id="navButton">
-            <!-- Mobile Nav button came from Phosphor Icons
-            https://phosphoricons.com/?q=menu -->
-            <img src="images/list(1).png">
+            <img src="images/list(1).png" alt="Nav Button">
         </button>
-        <!-- Mobile Nav Menu-->
         <nav id="mobile-nav" class="mobileNav">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -37,7 +35,6 @@
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
-        <!-- Desktop Nav Menu-->
         <nav class="desktop-nav">
             <ul>
                 <li><a href=index.html>Home</a></li>
@@ -70,16 +67,207 @@
             <div class="hero_text">
                 <h1>Upcoming Events</h1>
             </div>
-        </section> 
+        </section>
         <!--Contains both the mobile calendar and desktop calendars depending on screen size-->
         <section id="calendar-section">
             <h2>Get Involved With Us</h2>
             <p>Check out our calendar to see all of our upcoming events and volunteer opportunities. All events are free and open to the public. We'd love to see you get involved! Just click on the link in the calendar to register.</p>
             <div id="mobile-calendar"></div>
-            <div id="calendar"></div>
+            <div id="desktop-calendar"></div>
         </section>
+        <section id="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Registration for <span id="event"></span> on <span id="month"></span>&nbsp;<span id="day"></span> at <span id="time"></span></h3>
+                </div>
+                <div class="modal-body" id="form-view">
+                    <form class="register">
+                        <div class="form-row">
+                            <label for="f-name">First Name*</label>
+                            <input class="input" type="text" id="f-name" name="f-name" placeholder="Your first name" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="l-name">Last Name*</label>
+                            <input class="input" type="text" id="l-name" name="l-name" placeholder="Your last name" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="contact-email">Email:</label>
+                            <input class="input" type="email" id="contact-email" name="email" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="num_people">How many people are coming:</label>
+                            <input class="input" type="number" step="1" min="1" max="12" id="num_people" name="num_people" required>
+                        </div>
+                            
+                        <div class="contact-btns">
+                            <input type="submit" value="Submit" id="modalBtn">
+                            <input type="reset" value="Reset">
+                        </div>
+                    </form>
+                </div>
+                <div id="submit-view">
+                    <h3>Thank you for registering!</h3> 
+                    <p>Click the button below to add the event to your calendar.</p>
+                    <button id="calendar-file">Download a calendar file</button>
+                </div>
+                <div class="modal-footer">
+                    <h3></h3>
+                    <button class="close">&times;</button>
+                </div>
+            </div>
+        </section>
+        <!--A photo gallery containing 9 photos from past events-->
+        <section id="gallery">
+            <h3>Photos From Past Events</h3>
+            <div id="grid">
+                <div class="span span-12">
+                    <!-- Image citation (web source)
+                    file/page: events.html
+                    image file: images/beach_cleanup.jpg
+                    Original creator: Inna Rabotyagina
+                    Website: Pexels
+                    Title/description: Two men carrying a trash bag while walking on a beach
+                    link to photo: https://www.pexels.com/photo/people-carrying-black-trash-bag-while-walking-on-the-shore-of-a-beach-8018592/ 
+                    License: Pexels says that all photos and videos on Pexels can be downloaded and used for free.
+                    Accessed: 2026-04-29 -->
+                    <img src="images/beach_cleanup.jpg" alt="Volunteers Cleaning a Beach">
+                    <div class="label">
+                        <p>Beach Cleanup 2026</p>
+                    </div>
+                </div>
+                <div class="span span-4">
+                    <!-- Image citation (web source)
+                    file/page: events.html
+                    image file: images/volunteers_cleaning_riverbank.png
+                    Original creator: Vitaly Gariev
+                    Website: Found on Canva but originated from Pexels
+                    Title/description: Group of Volunteers Cleaning up Riverbank Area
+                    link to photo: https://www.canva.com/photos/MAHE2YNeT40-group-of-volunteers-cleaning-up-riverbank-area/ 
+                    License: Has a free content license for a wide range of personal and commercial uses as long as I 
+                    don't resell, take credit for, or trademark this image
+                    Accessed: 2026-04-29 -->
+                    <img src="images/volunteers_cleaning_riverbank.png" alt="Volunteers Cleaning a Riverbank">
+                    <div class="label">
+                        <p>River Cleanup 2024</p>
+                    </div>
+                </div>
+                <div class="span span-8">
+                    <!-- Image citation (web source)
+                    file/page: events.html
+                    image file: images/volunteers_picking_up_trash.png
+                    Original creator: Vitaly Gariev
+                    Website: Found on Canva but originated from Pexels
+                    Title/description: Volunteers Cleaning Riverbank to Save Environment
+                    link to photo: https://www.canva.com/photos/MAHE2qi7UUU-volunteers-cleaning-riverbank-to-save-environment/ 
+                    License: Has a free content license for a wide range of personal and commercial uses as long as I 
+                    don't resell, take credit for, or trademark this image
+                    Accessed: 2026-04-29 -->
+                    <img src="images/volunteers_picking_up_trash.png" alt="Volunteers picking up trash">
+                    <div class="label">
+                        <p>River Cleanup 2024</p>
+                    </div>
+                </div>
+                <div class="span span-4">
+                    <!-- Image citation (web source)
+                    file/page: events.html
+                    image file: images/close_up_volunteer.png
+                    Original creator: baseimage
+                    Website: Found on Canva
+                    Title/description: Stylish Woman Doing Beach Cleanup 
+                    link to photo: https://www.canva.com/photos/MAFC-vT9eAs-stylish-woman-doing-beach-cleanup/ 
+                    License: Has a free content license for a wide range of personal and commercial uses as long as I 
+                    don't resell, take credit for, or trademark this image
+                    Accessed: 2026-04-29 -->
+                    <img src="images/close_up_volunteer.png" alt="Girl Picking up trash">
+                    <div class="label">
+                        <p>Beach Cleanup 2025</p>
+                    </div>
+                </div>
+                <div class="span span-4"> 
+                    <!-- Image citation (web source)
+                    file/page: events.html
+                    image file: images/charity_runner.png
+                    Original creator: CRISTIAN CAMILO ESTRADA
+                    Website: Found on Canva but originated on Pexels
+                    Title/description: Marathon Runner Celebrating Victory 
+                    link to photo: https://www.canva.com/photos/MAG1w3l4pKM-marathon-runner-celebrating-victory-on-road/ 
+                    License: Has a free content license for a wide range of personal and commercial uses as long as I 
+                    don't resell, take credit for, or trademark this image
+                    Accessed: 2026-04-29 -->
+                    <img src="images/charity_runner.png" alt="Person Running a Race">
+                    <div class="label">
+                        <p>Richmond Marathon 2025</p>
+                    </div>
+                </div>
+                <div class="span span-4">
+                    <!-- Image citation (web source)
+                    file/page: events.html
+                    image file: images/gala_photo2.jpg
+                    Original creator: Luis Becerra Fotógrafo 
+                    Website: Pexels
+                    Title/description: Smiling Friends Embracing
+                    link to photo: https://www.pexels.com/photo/smiling-friends-embracing-15551991/
+                    License: Pexels says that all photos and videos on Pexels can be downloaded and used for free.
+                    Accessed: 2026-04-29 -->
+                    <img src="images/gala_photo2.jpg" alt="Couple at Fancy Event">
+                    <div class="label">
+                        <p>Charity Gala 2026</p>
+                    </div>
+                </div>
+                <div class="span span-8">
+                    <!-- Image citation (web source)
+                    file/page: events.html
+                    image file: images/gala_photo.jpg
+                    Original creator: Luis Becerra Fotógrafo
+                    Website: Pexels
+                    Title/description: Smiling People Posing
+                    link to photo: https://www.pexels.com/photo/smiling-people-posing-15551978/
+                    License: Pexels says that all photos and videos on Pexels can be downloaded and used for free.
+                    Accessed: 2026-04-29 -->
+                    <img src="images/gala_photo.jpg" alt="Family at Fancy Event">
+                    <div class="label">
+                        <p>Charity Gala 2026</p>
+                    </div>
+                </div>
+                <!-- Image citation (web source)
+                    file/page: events.html
+                    image file: images/documentary_screening.jpg
+                    Original creator: Tima Miroshnichenko
+                    Website: Pexels
+                    Title/description: A Group of People Watching Movie
+                    link to photo: https://www.pexels.com/photo/a-group-of-people-watching-movie-7991318/ 
+                    License: Pexels says that all photos and videos on Pexels can be downloaded and used for free.
+                    Accessed: 2026-04-29 -->
+                <div class="span span-4">
+                    <img src="images/documentary_screening.jpg" alt="People Watching a Movie">
+                    <div class="label">
+                        <p>Documentary Screening 2024</p>
+                    </div>
+                </div>
+                <div class="span span-12">
+                    <!-- Image citation (web source)
+                    file/page: events.html
+                    image file: images/guest_speaker.png
+                    Original creator: corelens
+                    Website: Found on Canva
+                    Title/description: Audience Listening To Workshop Speaker
+                    link to photo: https://www.canva.com/photos/MAGTta9SvLc-audience-listening-to-workshop-speaker-in-modern-office/ 
+                    License: Has a free content license for a wide range of personal and commercial uses as long as I 
+                    don't resell, take credit for, or trademark this image
+                    Accessed: 2026-04-29 -->
+                    <img src="images/guest_speaker.png" alt="Guest Speaker">
+                    <div class="label">
+                        <p>Guest Speaker 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section> 
         <!--Repeats the sign up for email form-->
-         <section id="call_to_action">
+        <section id="call_to_action">
             <h4>Sign Up for Email Updates</h4>
             <div class="button_container">
                 <form class="button">
