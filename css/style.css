@@ -443,7 +443,7 @@ and slowly makes it visible*/
     is still the same length. */
     #form-wrapper {
         border-right: 4px solid var(--color-primary);
-        height: 610px;
+        height: 680px;
     }
     
     /* makes the alt-text border 0px so that a double top border doesn't happen */

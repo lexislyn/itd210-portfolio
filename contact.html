@@ -100,18 +100,21 @@
                 <div id="form-wrapper">
                     <h3 id="instruction">Fill Out This Form</h3>
                     <!--Contact form using Formspree-->
-                    <form class="contact" action="https://formspree.io/f/xwvyllkl" method="POST" novalidate>
+                    <form class="contact" action="https://formspree.io/f/xwvyllkl" method="POST">
                         <label for="f-name">First Name:</label>
-                        <input class="input" type="text" id="f-name" name="f-name" placeholder="Enter your first name" required>
+                        <input class="input" type="text" id="f-name" name="f-name" placeholder="Enter your first name" pattern="^[A-Za-z]+$" required>
 
                         <label for="l-name">Last Name:</label>
-                        <input class="input" type="text" id="l-name" name="l-name" placeholder="Enter your last name" required>
+                        <input class="input" type="text" id="l-name" name="l-name" placeholder="Enter your last name" pattern="^[A-Za-z]+$" required>
 
                         <label for="contact-email">Email:</label>
                         <input class="input" type="email" id="contact-email" name="email" placeholder="Enter your email" required>
 
+                        <label for="subject">Subject:</label>
+                        <input class="input" type="text" id="subject" name="subject" placeholder="Subject of your message" required>
+                        
                         <label for="message">Message:</label>
-                        <textarea class="input" id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+                        <textarea class="input" id="message" name="message" rows="5" minlength="30" maxlength="250" placeholder="Enter your message" required></textarea>
                         <div class="contact-btns">
                             <input type="submit" value="Submit">
                             <input type="reset" value="Reset">
