@@ -32,7 +32,7 @@ div#hero-img {
 
 #curve {
     position: absolute; /* positions the curve with absolute positioning so that it's on a different layer */
-    z-index: 5; /* z-index of 5 so that it's always on top */
+    z-index: 4; /* z-index of 5 so that it's always on top */
     bottom: 0; /* positions it using the bottom-left corner */
     left: 0;
     width: 100%; /* width is 100% */

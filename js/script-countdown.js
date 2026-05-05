@@ -2,11 +2,13 @@
 /* This section creates a countdown timer on 
 the donation page. */
 
+/* makes sure the element isn't null, then runs the runClock function every second */
 if (document.getElementById("fundraiser_end_date") !== null) {
     runClock();
     setInterval("runClock()",1000);
 }
 
+/* sets a fundraiser end date and then calculates the days, hours, minutes, and seconds between that end date and today. */
 function runClock() {
     var thisDay = new Date();
     var fundraiserEndDate = new Date("May 22, 2026");

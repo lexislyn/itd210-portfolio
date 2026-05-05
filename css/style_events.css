@@ -139,18 +139,19 @@ div > span.date {
     padding-bottom: 4px;
 }
 
+/* sets the modal to be hidden by default, have a fixed position so it doesn't move, has a z-index of 10 so that it sits on top 
+of everything. Sits at the top-left corner, and has 100% width and height. */
 #modal {
-  display: none; /* Hidden by default */
-  position: fixed; /*Stay in place */
-  z-index: 10; /*Sit on top */
+  display: none; 
+  position: fixed; 
+  z-index: 10; 
   left: 0;
   top: 0px;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  width: 100%; 
+  height: 100%; 
 }
 
-/* Modal Header */
+/* Header for the modal. Adds padding, sets the font size to 18px, and the background color is green with white text */
 .modal-header {
   padding: 2px 16px;
   font-size: 18px;
@@ -159,7 +160,7 @@ div > span.date {
 }
 
 
-/* Modal Footer */
+/* Footer for the modal. Same as the header, except it has a flex display so that the close button sits at the bottom right corner. */
 .modal-footer {
   padding: 2px 16px;
   background-color: var(--color-primary);
@@ -170,26 +171,25 @@ div > span.date {
   align-items: center;
 }
 
-/* Modal Content */
+/* Width is at 80%, is horizontally centered, has a gray border, two 
+dark box shadows, and an animation attached so that it slides in from the top. */
 .modal-content {
   position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
+  margin: 0px auto;
   border: 1px solid #888;
   width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  animation-name: animateTop;
-  animation-duration: 0.8s
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  animation: slideDown 0.8s ease-in;
 }
 
-/* Add Animation */
-@keyframes animateTop {
+/* Animation for making the modal slideDown from the top */
+@keyframes slideDown {
   from {top: -300px; opacity: 0}
   to {top: 0px; opacity: 1}
 }
 
-/* The Close Button */
+/* Closing button styles. Originally it's white, and bold, and has the same 
+green background as the footer with no border.  */
 .close {
   color: var(--color-bg);
   font-size: 28px;
@@ -198,6 +198,8 @@ div > span.date {
   border: 0;
 }
 
+/* When the closing button is hovered over or in focus, it turns black 
+and the cursor changes to a pointer one. */
 .close:hover, .close:focus {
   color: black;
   text-decoration: none;
