@@ -60,7 +60,7 @@ section.hero_content::before {
 }   
 
 div.hero_text {
-  color: var(  --color-text-alt);
+  color: var(--color-text-alt);
   padding: 0px 10px;
   z-index: 2;
   font-size: 1.15em;
@@ -123,6 +123,7 @@ and overflow is hidden. The perspective is set to 1000 to help the flip effect. 
 .hover_effect {
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    color: var(--color-text-alt);
 }
 
 /* takes up full height and width of the grid area. Has a 1.25 second transition for the flip effect so it's not too sudden.
