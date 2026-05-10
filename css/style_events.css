@@ -288,7 +288,7 @@ The text color is white. */
     color: var(--color-bg);
     font-size: 1em;
     padding: 2px 0px;
-    color: var(--color-text);
+    color: var(--color-text-alt);
 }
 
 /* each input element has added padding and curved edges and is displayed as a block element*/
