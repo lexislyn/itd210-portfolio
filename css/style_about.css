@@ -6,6 +6,7 @@ arranged in a row so that the photo can go on the left side and
 text can go on the right.*/
 section#hero {
     background-color: var(--color-bg);
+    position: relative;
     display: flex;
     flex-flow: row nowrap;
 }
@@ -54,6 +55,7 @@ div#hero_text {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: var(--color-text);
 }
 
 div#hero_text p {
@@ -80,6 +82,7 @@ section#mission {
     margin: 0 auto;
     width: 90%;
     font-size: 1.15em;
+    color: var(--color-text);
 }
 
 /*heading is centered on the page and has extra padding 
@@ -94,9 +97,10 @@ section#mission h2 {
 has a nice alternating green and white background.
 Again adds padding to the bottom so that there's plenty of space */
 section#team {
-     background-color: var(--color-bg);
-     padding-bottom: 60px;
-     font-size: 1.15em;
+    background-color: var(--color-bg);
+    padding-bottom: 60px;
+    font-size: 1.15em;
+    color: var(--color-text);
 }
 
 /*the team is organized as a grid.
@@ -135,6 +139,7 @@ section#team h2 {
     grid-column: -1/1;
     text-align: center;
     padding: 50px 0px 30px;
+    color: var(--color-text);
 }
 
 /* the content inside the team cards is displayed as a flexbox
@@ -186,10 +191,10 @@ so that text doesn't run too close to the edge. */
 }
 
 /* Values Section Styles */
-
 section#values h2 {
     text-align: center;
     padding: 50px 0px 10px;
+    color: var(--color-text);
 }
 
 /* displays the values section as a grid 
@@ -235,6 +240,7 @@ div#value_container > .card {
                 box-shadow 0.5s ease,
                 scale 0.5s ease;
     position: relative;
+    color: var(--color-text);
 }
 
 .card:hover {

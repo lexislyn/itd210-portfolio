@@ -1,3 +1,12 @@
+<!--    AI Assistance Citation: 
+        Date: 5/9/2026
+        Where used: anywhere that I added variables for the colors.
+        What AI did: ChatGPT helped me with the syntax to add variables for the background and text elements so that dark mode could work on this page. 
+        For example it specifically helped me with syntax such as bg-[var(--color-accent)] and bg-[image:var(--contact-gradient)] and text-[var(--color-text)].
+        What I did: I had made the variables in CSS, I just needed to know how to transfer that to Tailwind CSS.        
+        Prompt summary: Can you help me use this CSS variable in Tailwind CSS?  
+-->
+
 <!DOCTYPE html>
 <html lang="en" class="bg-[rgb(245,245,245)]">
 <head>
@@ -5,8 +14,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--This script allows us to use Tailwind CSS-->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/script-mobile-nav.js" defer></script>
     <!--This script allows the email sign-up button to work-->
-    <script src="js/script-email.js" async></script>
+    <script src="js/script-email.js" defer></script>
+    <!--Links to the base css stylesheet-->
+    <link href="css/style.css" rel="stylesheet">
     <!--These links connect to the two Google Fonts I'm using on this page-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +26,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Limelight&family=Mate:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
     <title>Key Issues</title>
 <style>
     /* All animations were done in CSS because I couldn't figure out how to do them in tailwind */
@@ -45,7 +60,7 @@
             transform: translateX(0);
         }
     } 
-
+    /* Displays the mobile nav as a block element on mobile devices */
     nav#mobile-nav.show {
         display: block;
     }
@@ -73,6 +88,36 @@
         transform: translateY(0);
     }
 
+    /*  AI Assistance Citation: 
+        Date: 5/7/2026
+        Where used: The active1 class below
+        What AI did: Taught me the use of !important to override any other style rules
+        What I did: I made this class so that this button would have a different background, but it was being overridden, so I needed help in fixing that. 
+        Prompt summary: Can you help me figure out why this code isn't doing anything? 
+    */
+    .active1 {
+        background-color: rgb(253, 210, 161) !important;
+    }
+
+    /* when an element has the show class, it is displayed as a block element */
+    .show {
+        display: block;
+    }
+
+    /* adds a slide animation effect to the mobile nav where it slides in from the right to the left.
+    It also adds a transparent black background and border to the mobile nav and also blurs the background. */
+    nav#mobile-nav.show {
+        animation: slideLeft 0.5s ease-in;
+        backdrop-filter:blur(18px);
+        background-color: rgba(0, 0, 0, 0.3);
+        border: 2px solid rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes slideLeft {
+        from {right: -300px; opacity: 0;}
+        to {right: 0px; opacity: 1;}
+    }
+
     /* This block runs ONLY when the user has enabled Reduce Motion */
     @media (prefers-reduced-motion: reduce) {
 
@@ -93,38 +138,46 @@
 
 </head>
 <!--Creates a header and navigation list that matches the header and navigation list on all the other pages-->
-<body class="bg-[#ebf4d9] mx-auto w-full antialiased">
-    <header class="bg-[#7e988b] flex justify-between relative font-[Mate] text-base w-full">   
+<body class="mx-auto w-full antialiased">
+    <header class="bg-[var(--color-primary)] flex justify-between relative font-[Inconsolata] text-base w-full">   
         <p class="text-white text-lg pl-3 md:pl-0 flex grow justify-center items-center">Coastal Protection Initiative</p>
+        <!--Desktop navigation menu-->
         <nav class="desktop-nav hidden md:block flex basis-[66%]">
             <ul class="flex basis-full">
                 <!--Nav list includes the same hover effects-->
-                <li class="flex flex-auto"><a href="index.html" class="text-white w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Home</a></li>
-                <li class="flex flex-auto"><a href="mission.html" class="text-white w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">About Us</a></li>
-                <li class="flex flex-auto"><a href="key-issues.html" class="w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)] bg-[#ebf4d9] text-[#215a36] border border-2 border-[#7e988b]">Key Issues</a></li>
-                <li class="flex flex-auto"><a href="events.html" class="text-white w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Events</a></li>
-                <li class="flex flex-auto"><a href="media.html" class="text-white w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Giving</a></li>
-                <li class="flex flex-auto"><a href="contact.html" class="text-white w-full py-4 px-1 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Contact Us</a></li>
+                <li class="flex flex-auto"><a href="index.html" class="text-white w-full py-4 px-1 text-center hover:bg-[var(--color-bg-active)] hover:text-[rgb(255,255,255)]">Home</a></li>
+                <li class="flex flex-auto"><a href="mission.html" class="text-white w-full py-4 px-1 text-center hover:bg-[var(--color-bg-active)] hover:text-[rgb(255,255,255)]">About Us</a></li>
+                <li class="flex flex-auto"><a href="key-issues.html" class="active w-full py-4 px-1 text-center bg-[var(--color-accent)] border border-2 border-[var(--color-primary)]">Key Issues</a></li>
+                <li class="flex flex-auto"><a href="events.html" class="text-white w-full py-4 px-1 text-center hover:bg-[var(--color-bg-active)] hover:text-[rgb(255,255,255)]">Events</a></li>
+                <li class="flex flex-auto"><a href="media.html" class="text-white w-full py-4 px-1 text-center hover:bg-[var(--color-bg-active)] hover:text-[rgb(255,255,255)]">Giving</a></li>
+                <li class="flex flex-auto"><a href="contact.html" class="text-white w-full py-4 px-1 text-center hover:bg-[var(--color-bg-active)] hover:text-[rgb(255,255,255)]">Contact Us</a></li>
             </ul>
         </nav>
-        <button class="md:hidden hover:bg-[#215a36] focus:bg-[#215a36] p-4 cursor-pointer" id="navButton">
+        <!--Mobile nav button-->
+        <button class="md:hidden hover:bg-[var(--color-bg-active)] focus:bg-[var(--color-bg-active)] p-4 cursor-pointer" id="navButton">
             <img src="images/list(1).png">
         </button>
-        <nav id="mobile-nav" class="mobileNav hidden absolute right-0 top-16 bg-[#7e988b] z-50 min-w-[160px]">
+        <!--Mobile navigation menu-->
+        <nav id="mobile-nav" class="mobileNav hidden absolute right-0 top-16 z-50 min-w-[160px]">
             <ul class="">
-                <li class=""><a href="index.html" class="text-white block py-3 px-4 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Home</a></li>
-                <li class=""><a href="mission.html" class="text-white block py-3 px-4 text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">About Us</a></li>
-                <li class=""><a href="key-issues.html" class="py-3 px-4 text-center block hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)] bg-[#ebf4d9] text-[#215a36] border border-2 border-[#7e988b]">Key Issues</a></li>
-                <li class=""><a href="events.html" class="text-white py-3 px-4 block text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Events</a></li>
-                <li class=""><a href="media.html" class="text-white py-3 px-4 block text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Giving</a></li>
-                <li class=""><a href="contact.html" class="text-white py-3 px-4 block text-center hover:bg-[#215a36] hover:text-[rgba(255,255,255,0.7)]">Contact Us</a></li>
+                <li><button type="button" id="dark-mode" class="text-white block w-full py-3 px-4 text-center">Dark Mode</button></li>
+                <li class=""><a href="index.html" class="text-white block py-3 px-4 text-center hover:bg-[var(--color-bg-active)] hover:text-[rgb(255,255,255)]">Home</a></li>
+                <li class=""><a href="mission.html" class="text-white block py-3 px-4 text-center hover:bg-[var(--color-bg-active)] hover:text-[rgb(255,255,255)]">About Us</a></li>
+                <li class=""><a href="key-issues.html" class="active py-3 px-4 text-center block bg-[var(--color-accent)] border border-2 border-[var(--color-primary)]">Key Issues</a></li>
+                <li class=""><a href="events.html" class="text-white py-3 px-4 block text-center hover:bg-[var(--color-bg-active)] hover:text-[rgb(255,255,255)]">Events</a></li>
+                <li class=""><a href="media.html" class="text-white py-3 px-4 block text-center hover:bg-[var(--color-bg-active)] hover:text-[rgb(255,255,255)]">Giving</a></li>
+                <li class=""><a href="contact.html" class="text-white py-3 px-4 block text-center hover:bg-[var(--color-bg-active)] hover:text-[rgb(255,255,255)]">Contact Us</a></li>
             </ul>
         </nav>
     </header>
-    <main>
+    <main class="bg-[var(--color-accent)]">
         <!--These two websites helped me learn gradient terminology for tailwind (like making the gradient go from bottom to top and adding a middle color: https://v2.tailwindcss.com/docs/gradient-color-stops and https://www.braydoncoyer.dev/blog/tailwind-gradients-how-to-make-a-glowing-gradient-background)-->
         <!--Hero Section with animated text, and two bird images-->
-        <section id="hero" class="flex flex-col z-0 justify-center items-center relative min-h-[60vh] md:max-h-screen text-align overflow-hidden bg-white bg-gradient-to-t via-[#ebf4d9] from-[#7e988b] to-[#d4e1ef]" >
+        <section id="hero" class="flex flex-col z-0 justify-center items-center relative min-h-[60vh] md:max-h-screen text-align overflow-hidden bg-[image:var(--contact-gradient)]" >
+            <!--A button that is placed in the top right corner of the page that switches the page to dark mode -->
+            <div class="desktop-dark-mode">
+                <button type="button" id="large-dark-mode" class="py-0 px-0">Dark Mode</button>
+            </div>
             <div id="hero-image">
                         <!-- Image citation (web source)
                         file/page: key-issues.html
@@ -153,7 +206,7 @@
             <span id="skew" class="relative inline-block before:absolute before:-inset-2  before:block before:-skew-y-6 z-0 before:bg-[#d4e1ef]">
                 <span id="h1" class="font-[Cardo] relative text-4xl opacity-0">Key Issues</span>
             </span>
-            <p id="text" class="px-6 py-6 text-center text-xl font-[Cardo] z-20 opacity-0">Come explore all the ways we work to help protect coastal areas!</p>
+            <p id="text" class="px-6 py-6 text-center text-xl font-[Cardo] z-20 opacity-0 text-[var(--color-text)]">Come explore all the ways we work to help protect coastal areas!</p>
                     <!-- AI Assistance Citation: 
                     Date: 4/13/2026
                     Where used: div#curve
@@ -165,7 +218,7 @@
             <div id="curve" class="absolute z-50 bottom-0 left-0 w-full leading-none">
                 <svg viewBox="0 0 1440 150" class="w-full h-[120px] block" preserveAspectRatio="none">
                     <path 
-                        fill="#ebf4d9"
+                        fill="var(--color-accent)"
                         d="M0,100 C300,150 1100,0 1440,100 L1440,150 L0,150 Z">
                     </path>
                 </svg>
@@ -174,24 +227,25 @@
         <!--Creates a vertical button menu on mobile devices that is responsive and becomes horizontal on larger screens
             In a future update to this page, I want these buttons to act like a filtering device. Includes Icons I got from the Google
             Fonts Icons website that are displayed next to the label through flex. -->
-        <section class="bg-[#ebf4d9]">
-            <h2 class="text-center mt-8 font-[Cardo] text-2xl">Categories</h2>
+        <section class="bg-[var(--color-accent)]">
+            <h2 class="text-center text-[var(--color-text)] mt-8 font-[Cardo] text-3xl">Categories</h2>
             <div id="button-bar" class="flex flex-col lg:flex-row gap-2 space-evenly items-center mt-2 py-5 px-3 w-[90%] mx-auto font-[Cardo] rounded-lg">
                 <!-- All icons come from the Material Symbols and Icons page on Google Fonts (https://fonts.google.com/icons)-->
-                <span id="button1" class="bg-white w-[70%] rounded-full hover:bg-blue-50 transition-all duration-750 text-center cursor-pointer">All</span>
-                <div class="flex justify-center gap-3 bg-white w-[70%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center cursor-pointer">
+                 <!--Each button has an event handler attached that runs the filterSelection() function when clicked-->
+                <span id="button1" class="button active1 flex justify-center gap-3 bg-white w-[70%] rounded-full hover:bg-blue-50 transition-all duration-750 text-center cursor-pointer" onclick="filterSelection('all')">All</span>
+                <div class="button flex justify-center gap-3 bg-white w-[70%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center cursor-pointer" onclick="filterSelection('clean-water')">
                     <img src="images/water_drop.png" alt="Water Drop Icon">
                     <span id="button2" class="text-center">Clean Water</span>
                 </div>
-                <div class="flex justify-center gap-3 bg-white w-[70%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center cursor-pointer">
+                <div class="button flex justify-center gap-3 bg-white w-[70%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center cursor-pointer" onclick="filterSelection('habitat-preservation')">
                     <img src="images/grass.png" alt="Grass Icon">
                     <span id="button3" class="text-center">Habitat Preservation</span>
                 </div>
-                <div class="flex justify-center gap-3 bg-white w-[70%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center cursor-pointer">
+                <div class="button flex justify-center gap-3 bg-white w-[70%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center cursor-pointer" onclick="filterSelection('legislative-activities')">
                     <img src="images/gavel.png" alt="Gavel Icon">
                     <span id="button4" class="text-center">Legislative Activities</span>
                 </div>
-                <div class="flex justify-center gap-3 bg-white w-[70%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center cursor-pointer">
+                <div class="button flex justify-center gap-3 bg-white w-[70%] rounded-full hover:bg-blue-50 transition-all duration-750 px-3 text-center cursor-pointer" onclick="filterSelection('education')">
                     <img src="images/school.png" alt="School Icon">
                     <span id="button5" class="text-center">Education</span>
                 </div>
@@ -200,7 +254,7 @@
         <!--Creates a section of cards that become visible by scrolling. The cards are set up in a responsive grid format- 
         One column for mobile, up to 3 columns on larger screens. When hovering, the card title is underlined. -->
         <section id="cards" class="px-5 my-8 grid w-[80%] mx-auto sm:w-[95%] sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            <div id="issue1" class="reveal group bg-white shadow-md shadow-gray-850 hover:shadow-lg hover:shadow-gray-950 transition-all duration-500 rounded-xl border border-2 border-[#7e988b]">
+            <div id="issue1" class="filterCard clean-water reveal group bg-[var(--color-bg)] text-[var(--color-text)] shadow-md shadow-gray-850 hover:shadow-lg hover:shadow-gray-950 transition-all duration-500 rounded-xl border border-2 border-[var(--color-primary)]">
                         <!-- Image citation (web source)
                         file/page: key-issues.html
                         image file: images/oyster.png
@@ -212,14 +266,14 @@
                         Accessed: 2026-04-12 -->
                 <img src="images/oyster.png" alt="Oysters on a Beach" class="w-full rounded-t-lg">
                 <h2 class="text-center py-3 group-hover:underline font-semibold text-lg font-[Cardo]">Oyster Restoration</h2>
-                <p class="px-3 font-[Mate]">Follow our journey to replenish the oyster population in the region so that
+                <p class="px-3 font-[Inconsolata]">Follow our journey to replenish the oyster population in the region so that
                     they can help clean and filter the water.</p>
-                <div class="flex gap-2 pt-3 px-3 pb-4 font-[Mate]">  
+                <div class="flex gap-2 pt-3 px-3 pb-4 font-[Inconsolata]">  
                     <img src="images/water_drop.png" alt="Water Drop Icon">
                     <p class="font-light">Clean Water</p>
                 </div>
             </div>
-            <div id="issue2" class="reveal group bg-white shadow-md shadow-gray-850 hover:shadow-lg hover:shadow-gray-950 transition-all duration-500 rounded-xl border border-2 border-[#7e988b] ">
+            <div id="issue2" class="filterCard clean-water reveal group bg-[var(--color-bg)] text-[var(--color-text)] shadow-md shadow-gray-850 hover:shadow-lg hover:shadow-gray-950 transition-all duration-500 rounded-xl border border-2 border-[var(--color-primary)]">
                         <!-- Image citation (web source)
                         file/page: key-issues.html
                         image file: images/clean_water.png
@@ -231,13 +285,13 @@
                         Accessed: 2026-04-12 -->
                 <img src="images/clean_water.png" alt="Clean Water" class="w-full rounded-t-lg">
                 <h2 class="text-center group-hover:underline py-3 font-semibold text-lg font-[Cardo]">Pollution Prevention</h2>
-                <p class="px-3 font-[Mate]">We establish regional water quality goals and work with certified partners to track the progress of reducing pollution levels.</p>
-                <div class="flex gap-2 pt-3 px-3 pb-4 font-[Mate]">  
+                <p class="px-3 font-[Inconsolata]">We establish regional water quality goals and work with certified partners to track the progress of reducing pollution levels.</p>
+                <div class="flex gap-2 pt-3 px-3 pb-4 font-[Inconsolata]">  
                     <img src="images/water_drop.png" alt="Water Drop Icon">
                     <p class="font-light">Clean Water</p>
                 </div>
             </div>
-            <div id="issue3" class="reveal group bg-white shadow-md shadow-gray-850 hover:shadow-lg hover:shadow-gray-950 transition-all duration-500 rounded-xl border border-2 border-[#7e988b] ">
+            <div id="issue3" class="filterCard habitat-preservation reveal group bg-[var(--color-bg)] text-[var(--color-text)] shadow-md shadow-gray-850 hover:shadow-lg hover:shadow-gray-950 transition-all duration-500 rounded-xl border border-2 border-[var(--color-primary)]">
                         <!-- Image citation (web source)
                         file/page: key-issues.html
                         image file: images/wetlands.png
@@ -249,13 +303,13 @@
                         Accessed: 2026-04-12 -->
                 <img src="images/wetlands.png" alt="Egret Flying Over Wetland" class="w-full rounded-t-lg">
                 <h2 class="text-center group-hover:underline py-3 font-semibold text-lg font-[Cardo]">Wetland Restoration</h2>
-                <p class="px-3 font-[Mate]">We partner with the city to restore former wetland areas back to their natural state for both wildlife and flood protection.</p>
-                <div class="flex gap-2 pt-3 px-3 pb-4 font-[Mate]">  
+                <p class="px-3 font-[Inconsolata]">We partner with the city to restore former wetland areas back to their natural state for both wildlife and flood protection.</p>
+                <div class="flex gap-2 pt-3 px-3 pb-4 font-[Inconsolata]">  
                     <img src="images/grass.png" alt="Grass Icon">
                     <p class="font-light">Habitat Preservation</p>
                 </div>
             </div>
-            <div id="issue4" class="reveal group bg-white shadow-md shadow-gray-850 hover:shadow-lg hover:shadow-gray-950 transition-all duration-500 rounded-xl border border-2 border-[#7e988b]">
+            <div id="issue4" class="filterCard legislative-activities reveal group bg-[var(--color-bg)] text-[var(--color-text)] shadow-md shadow-gray-850 hover:shadow-lg hover:shadow-gray-950 transition-all duration-500 rounded-xl border border-2 border-[var(--color-primary)]">
                    <!-- Image citation (web source)
                         file/page: key-issues.html
                         image file: images/state-capitol.png
@@ -267,13 +321,13 @@
                         Accessed: 2026-04-13 -->
                 <img src="images/state-capitol.png" alt="Idaho State Capitol" class="w-full rounded-t-lg">
                 <h2 class="text-center group-hover:underline py-3 font-semibold text-lg font-[Cardo]">Legal Advocacy</h2>
-                <p class="px-3 font-[Mate]">We advocate for sustainable policies and regulations at the local, state, and federal levels.</p>
-                <div class="flex gap-2 pt-3 px-3 pb-4 font-[Mate]">  
+                <p class="px-3 font-[Inconsolata]">We advocate for sustainable policies and regulations at the local, state, and federal levels.</p>
+                <div class="flex gap-2 pt-3 px-3 pb-4 font-[Inconsolata]">  
                     <img src="images/gavel.png" alt="Gavel Icon">
                     <p class="font-light">Legislative Activities</p>
                 </div>
             </div>
-             <div id="issue5" class="reveal group bg-white shadow-md shadow-gray-850 hover:shadow-lg hover:shadow-gray-950 transition-all duration-500 rounded-xl border-2 border-[#7e988b]">
+             <div id="issue5" class="filterCard education reveal group bg-[var(--color-bg)] text-[var(--color-text)] shadow-md shadow-gray-850 hover:shadow-lg hover:shadow-gray-950 transition-all duration-500 rounded-xl border border-2 border-[var(--color-primary)]">
                         <!-- Image citation (web source)
                         file/page: key-issues.html
                         image file: images/education-program.png
@@ -285,8 +339,8 @@
                         Accessed: 2026-04-13 -->
                 <img src="images/education-program.png" alt="Teenagers Walking Outdoors" class="w-full rounded-t-lg">
                 <h2 class="text-center group-hover:underline py-3 font-semibold text-lg font-[Cardo]">Youth Education</h2>
-                <p class="px-3 font-[Mate]">We partner with local schools to give teenagers access to classes on environmental science.</p>
-                <div class="flex gap-2 pt-3 px-3 pb-4 font-[Mate]">  
+                <p class="px-3 font-[Inconsolata]">We partner with local schools to give teenagers access to classes on environmental science.</p>
+                <div class="flex gap-2 pt-3 px-3 pb-4 font-[Inconsolata]">  
                     <img src="images/school.png" alt="School Icon">
                     <p class="font-light">Education</p>
                 </div>
@@ -294,18 +348,18 @@
         </section>
         <!--Uses the same email subscription button as other pages just recreated using Tailwind-->
         <section id="call_to_action" class="bg-white text-center">
-            <h3 class="font-[Cardo] font-bold text-xl p-8">Sign Up for Email Updates</h3>
+            <h3 class="font-[Cardo] font-bold text-2xl p-8 text-[var(--color-text)]">Sign Up for Email Updates</h3>
             <div class="flex pb-3 justify-center w-[93%] mx-auto">
-                <form class="border border-2 border-[#7e988b] rounded basis-[100%] sm:basis-[70%] md:basis-[60%] lg:basis-[50%] flex">
-                    <input type="email" name="email" id="email" placeholder="Enter your email" required class="font-[Mate] basis-[30%] sm:basis-[40%] md:basis-[50%] py-2 pl-4 text-base border border-0 focus:outline-0 focus:bg-[#ebf4d9]">
-                    <input type="submit" id="sub" value="Click to Subscribe!" class="basis-[70%] sm:basis-[60%] md:basis-[50%] bg-[#7e988b] border border-0 text-base font-[Mate] text-white cursor-pointer">
+                <form class="border border-2 border-[var(--color-primary)] rounded basis-[100%] sm:basis-[98%] md:basis-[70%] lg:basis-[50%] flex">
+                    <input type="email" name="email" id="email" placeholder="Enter your email" required class="font-[Inconsolata] lg:basis[50%] flex-1 py-2 pl-4 text-base border border-0 focus:outline-0 focus:bg-[var(--color-accent)] outline-none">
+                    <input type="submit" id="sub" value="Click to Subscribe!" class="lg:basis[50%] bg-[var(--color-primary)] border border-0 text-base font-[Inconsolata] text-white cursor-pointer text-center">
                 </form>
             </div>
-            <p id="message" class="text-center pb-8 font-[Mate]"></p>
+            <p id="message" class="text-center pb-8 font-[Inconsolata]"></p>
         </section>
     </main>
     <!--Uses the same footer as other pages- just recreated using tailwind-->
-    <footer class="w-full bg-[#7e988b] text-white font-[Mate] text-center p-8">
+    <footer class="w-full bg-[var(--color-primary)] text-white font-[Inconsolata] text-center p-8">
         <p>&copy; Alexis Warren | ITD 210 Capstone Project</p>
     </footer>
     <script>
@@ -337,13 +391,43 @@
         // Run again every time the user scrolls
         window.addEventListener("scroll", revealOnScroll);
     
-        const btn = document.getElementById("navButton");
-        const menu = document.getElementById("mobile-nav");
-
-        btn.addEventListener("click", function () {
-            menu.classList.toggle("show");
-        });
     
+        // Javascript code to filter items 
+        /* AI Assistance Citation: 
+            Date: 5/6/2026
+            Where used: the below code used for filtering cards
+            What AI did: ChatGPT helped me modernize the W3Schools code for filtering. It helped me replace .className functions with .classList functions. It taught me the this keyword to use 
+            for the currently selected item. 
+            What I did: I added the code to select elements by their Id, I provided the code for the event listeners, and I added the classes to the elements that they would be filtered by. 
+            Prompt summary: Can you help me get this filtering code to work?  
+        */
+        
+        /* defines the filterSelection function. It takes the c parameter which is the label each card is filtered by. */
+        function filterSelection(c) {
+            /* gets all elements with the class name filterCard */
+            var cards = document.getElementsByClassName("filterCard");
+            // Goes through all the elements defined above, and hides them by default, but then displays them if the c parameter matches the class name of the card or if it's the all button.
+            for (var i = 0; i < cards.length; i++) {
+                cards[i].classList.add("hidden");
+                if ( c === "all" || cards[i].classList.contains(c)) {
+                    cards[i].classList.remove("hidden");
+                }
+            }
+        }
+
+        // defines variables that point to the button Container and the entire class of buttons
+        var btnContainer = document.getElementById("button-bar");
+        var btns = btnContainer.getElementsByClassName("button");
+        /* the for loop loops through all of the buttons and adds an eventListener to each one. If the eventListener is activated through 
+        clicking, it finds the element with the active class, removes the active class from that element, and reattaches it to the element 
+        that was clicked. */
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active1");
+            current[0].classList.remove("active1");
+            this.classList.add("active1");
+            });
+        }
     </script>
 </body>
 <!--The tailwindcss.com documentation really helped me create this whole page: https://tailwindcss.com/docs/installation/using-vite-->

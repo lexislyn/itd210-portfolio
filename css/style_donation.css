@@ -5,6 +5,9 @@ Author: Alexis Warren
 /* adds extra padding to bottom of page */
 #donation_form {
     padding-bottom: 40px;
+    height: auto;
+    position: relative;
+    border: 2px solid var(--color-accent);
 }
 
 /* centers the "Secure Checkout" text and adds extra padding to the top. */
@@ -12,6 +15,7 @@ Author: Alexis Warren
     margin: 30px auto 10px;
     text-align: center;
     padding-top: 20px;
+    color: var(--color-text);
 }
 
 /* gives the form a width of 80% and centers it on the page. 
@@ -37,6 +41,7 @@ fieldset {
     gap: 5px;
     padding-bottom: 20px;
     border: 2px solid var(--color-primary);
+    color: var(--color-text);
 }
 
 /* Each fieldset legend label has a bigger font-size and is bold with extra left/right padding. */
@@ -64,6 +69,7 @@ form.donate label {
     font-size: 1.1em;
     width: 90%;
     margin: 10px auto 0px;
+    color: var(--color-text);
 }
 
 /* Horizontally centers the input boxes and gives them a green border. */
@@ -91,6 +97,11 @@ there's extra top and bottom margin. */
     margin: 10px auto 20px;
 }
 
+.donate-btns > input:hover {
+    background-color: #537153;
+    cursor: pointer;
+}
+
 /* Each button has a size of 33%. The border and background color are both green and 
 they have rounded edges. The text color is white. There's extra top and bottom padding. */
 .donate-btns > * {
@@ -99,7 +110,7 @@ they have rounded edges. The text color is white. There's extra top and bottom p
     border: 2px solid var(--color-primary);
     border-radius: 15px;
     background-color: var(--color-primary);
-    color: var(--color-bg);
+    color: var(--color-text-alt);
     font-size: 1em;
     padding: 2px 0px;
 }
@@ -142,6 +153,13 @@ a width of 80% so that it's away from the left edge of the screen. */
     padding-top: 20px;
     width: 80%;
     margin: 0 auto;
+}
+
+/* adds a white circle background to the arrow image when hovered over */
+.arrow-wrap img:hover {
+    background: var(--color-text-alt);
+    border-radius: 50%;
+    width: 60px;
 }
 
 /* Arrow image has a width of 60px */

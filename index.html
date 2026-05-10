@@ -13,16 +13,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Limelight&family=Mate:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+    <!--Javascript scripts-->
+    <script src="js/script-mobile-nav.js" async></script>
     <script src="js/script-email.js" defer></script>
 </head>
 <body>
     <header>
         <p>Coastal Protection Initiative</p>
+        <!--Mobile Nav Button-->
         <button class="mobile-toggle" id="navButton">
             <img src="images/list(1).png">
         </button>
+        <!--Mobile Navigation Menu-->
         <nav id="mobile-nav" class="mobileNav">
             <ul>
+                <li>
+                    <button type="button" id="dark-mode">Dark Mode</button>
+                </li>
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="mission.html">About Us</a></li>
                 <li><a href="key-issues.html">Key Issues</a></li>
@@ -31,6 +41,7 @@
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
+        <!--Desktop Navigation Menu-->
         <nav class="desktop-nav">
             <ul>
                 <li><a href=index.html class="active">Home</a></li>
@@ -45,6 +56,10 @@
     <main> 
         <!--This section is only for hero content (video and text)-->
         <section class="hero_content">
+            <!--A button that is placed in the top right corner of the page that switches the page to dark mode -->
+            <div class="desktop-dark-mode">
+                <button type="button" id="large-dark-mode">Dark Mode</button>
+            </div>
             <div class="hero_video">
                 <video autoplay muted loop>
                     <!--I took three 3-4 second videos I had in my phone and combined them into one 
@@ -175,15 +190,5 @@
     <footer>
         <p> &copy; Alexis Warren | ITD 210 Capstone Project </p>
     </footer> 
-    
-    <script>
-        const btn = document.getElementById("navButton");
-        const menu = document.getElementById("mobile-nav");
-
-        btn.addEventListener("click", function () {
-            menu.classList.toggle("show");
-        });
-
-    </script>
 </body>
 </html> 

@@ -38,7 +38,7 @@ section#hero::before {
 Has a gray text shadow. The font is clamped to provide responsiveness. */
 div.hero_text {
   color: var(--color-hero);
-  text-shadow: 2px 2px 5px var(--color-text);
+  text-shadow: 2px 2px 5px rgb(0,0,0);
   padding: 0px 10px;
   z-index: 2;
   font-size: clamp(10pt, 2vw, 25pt);
@@ -48,13 +48,12 @@ div.hero_text {
 section#countdown_timer {
     width: 100%;
     font-size: clamp(12pt, 2vw, 14pt);
+    color: var(--color-text);
 }
 
 /* Changes the font size, font-weight and font style of the fundraiser end date to make it stand out. */
 #fundraiser_end_date {
     font-size: 1.1em;
-    font-weight: lighter;
-    font-style: italic;
 }
 
 /*next three rules sets the horizontal and vertical padding for each text element*/
@@ -91,7 +90,8 @@ The text is horizontally centered and some extra margin is applied to the top an
 }
 /* adds extra margin to the top */
 #wrapper > h3 {
-   margin-top: 20px;
+    margin-top: 20px;
+    color: var(--color-text);
 }
 
 /* styles for the progress bar. The width is 25% on mobile. The height is 400px. 
@@ -134,12 +134,17 @@ underlining. Text inside is black. */
     display: inline-block;
     box-shadow: 5px 5px 5px var(--color-shadow);
     background-color: var(--color-bg-back);
-    border: 3px solid rgb(163, 197, 225);
+    border: 3px solid var(--color-button-border);
     border-radius: 25px;
     text-decoration: none;
     color: var(--color-text);
     margin-top: 30px; 
     padding: 7px;
+}
+
+#progress_bar a:hover {
+    background-color: var(--color-button-border);
+    border: 3px solid var(--color-button-border);
 }
 
 /*  AI Assistance Citation: 

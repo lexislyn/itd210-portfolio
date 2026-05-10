@@ -14,7 +14,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Limelight&family=Mate:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
     <!--Javascript scripts-->
+    <script src="js/script-mobile-nav.js" defer></script>
     <script src = "js/script-calendar.js" defer></script>
     <script src = "js/script-email.js" defer></script>
     <script src = "js/script-modal.js" defer></script>
@@ -22,12 +26,14 @@
 <body>
      <header>
         <p>Coastal Protection Initiative</p>
+        <!--Mobile navigation button that makes the mobile nav menu visible-->
         <button class="mobile-toggle" id="navButton">
             <img src="images/list(1).png" alt="Nav Button">
         </button>
         <!--Mobile nav menu-->
         <nav id="mobile-nav" class="mobileNav">
             <ul>
+                <button type="button" id="dark-mode">Dark Mode</button>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="mission.html">About Us</a></li>
                 <li><a href="key-issues.html">Key Issues</a></li>
@@ -51,6 +57,10 @@
     <main>
         <!--Video Hero Section with Text-->
         <section class="hero_content">
+            <!--A button that is placed in the top right corner of the page that switches the page to dark mode -->
+            <div class="desktop-dark-mode">
+                <button type="button" id="large-dark-mode">Dark Mode</button>
+            </div>
             <div class="hero_video">
                 <video autoplay muted loop>
                     <!--Video citation (web source)
@@ -106,9 +116,9 @@
                             <input class="input" type="number" step="1" min="1" max="12" id="num_people" name="num_people" required>
                         </div>
                             
-                        <div class="contact-btns">
-                            <input type="submit" value="Submit" id="modalBtn">
-                            <input type="reset" value="Reset">
+                        <div class="register-btns">
+                            <input type="submit" value="Submit" class="modalBtn">
+                            <input type="reset" value="Reset" class="modalBtn">
                         </div>
                     </form>
                 </div>
@@ -285,15 +295,5 @@
     <footer>
         <p> &copy; Alexis Warren | ITD 210 Capstone Project </p>
     </footer>   
-    
-    <script>
-        /* script for the mobile nav menu */
-        const btn = document.getElementById("navButton");
-        const menu = document.getElementById("mobile-nav");
-
-        btn.addEventListener("click", function () {
-            menu.classList.toggle("show");
-        });
-    </script>
 </body>
 </html>

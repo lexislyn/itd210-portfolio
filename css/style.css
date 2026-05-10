@@ -3,6 +3,7 @@ Author: Alexis Warren
 Date: 2/2/2026
 */
 
+/* defines the colors used throughout the web page */
 :root{
   /* Brand */
   --color-primary:#7e988b;
@@ -17,10 +18,12 @@ Date: 2/2/2026
   --color-bg-back: #d4e1ef;
   --color-box: rgb(250, 211, 125);
   --color-button: rgb(130, 131, 133);
+  --color-button-border: rgb(163, 197, 225);
 
   /* Text */
   --color-text:#000000;
   --color-text-muted:rgba(255,255,255,0.7);
+  --color-text-alt: #ffffff;
   --color-text-btn: #f7f1d3;
   --color-hero: rgb(251, 226, 194);
 
@@ -29,8 +32,73 @@ Date: 2/2/2026
   --color-shadow-hover: rgba(0, 0, 0, 0.7);
   --color-overlay: rgba(0, 0, 0, 0.2);
   --color-overlay-2: rgba(0, 0, 0, 0.4);
+
+  /* Gradients */
+  --contact-gradient: linear-gradient(to top, #7e988b, #ebf4d9, #d4e1ef);
 }
 
+/* defines the alternate colors used for dark mode */
+.dark-mode {
+    --color-primary:#000000;
+    --color-accent:#a8a8a8;
+    --color-bg-active: #7e7b7b;
+    --color-bg:#808080;
+    --color-bg-back: #4a4e51;
+    --color-box: rgb(84, 79, 79);
+    --color-button-border: rgb(96, 95, 95);
+    --color-bg-instruction: rgba(255, 255, 255, 0.2);
+    /* Text */
+    --color-text:#ffffff;
+    --color-text-muted:rgba(252, 247, 247, 0.934);
+    /*Gradients */
+    --contact-gradient: linear-gradient(to top, #0f0f0f, #6c6d68, #cccdcf);
+}
+
+/* doesn't display the desktop dark mode button on mobile devices */
+.desktop-dark-mode {
+    display: none;
+}
+
+/* styles for the desktop dark mode button. Displayed in a pill button shape,
+ using white text, a gray background, extra padding, and a defined width of 150 pixels.*/
+button#large-dark-mode {
+    border-radius: 25px;
+    width: 150px;
+    color: var(--color-text-alt);
+    display: block;
+    padding: 16px 16px;
+    cursor: pointer;
+    font-size: 1rem;
+    border: 0;
+    background-color: rgb(56, 55, 55);
+}
+
+/* a hover rule for the dark mode button. When hovered over, the background turns black. */
+button#large-dark-mode:hover {
+    background-color: black;
+}
+
+/* styles for the mobile dark mode button. It's very similar to the desktop version, 
+except that it's located in the mobile nav menu (so 100% width and height) and has no rounded edges. 
+It also has a transparent background. */
+button#dark-mode {
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: var(--color-text-alt);
+    padding: 16px 16px;
+    background-color: transparent;
+    border: 0;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Also has a hover effect on the mobile dark mode button where the background also turns black. */
+button#dark-mode:hover {
+    background-color: rgb(0, 0, 0);
+}
+
+/* reset styles for all page elements */
 * {
     margin: 0px;
     padding: 0px;
@@ -67,7 +135,7 @@ header {
 }
 
 header > p {
-    color: var(--color-bg);
+    color: var(--color-text-alt);
     font-size: 1.125em;
     display: flex;
     align-items: center;
@@ -75,7 +143,8 @@ header > p {
     flex-grow: 1;
 }
 
-
+/* Mobile nav styles. It's placed using absolute positioning. It's hidden until the mobile nav button is clicked, and then it toggles the show 
+class, which then displays it as a block element. */
 nav#mobile-nav {
     display: none;
     position: absolute;
@@ -92,7 +161,7 @@ nav#mobile-nav li {
 }
 
 nav#mobile-nav a {
-  color: var(--color-bg);
+  color: var(--color-text-alt);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -100,16 +169,28 @@ nav#mobile-nav a {
 
 nav#mobile-nav a:hover {
     background-color: var(--color-bg-active);
-    color: var(--color-text-muted);
+    color: var(--color-text-alt);
 }
 
 nav#mobile-nav a.active {
     background-color: var(--color-accent);
-    color: var(--color-bg-active);
+    color: var(--color-text);
 }
 
+/* defines how the mobile nav looks when displayed. The background and border is a transparent black color. 
+The background is also blurred. */
 nav#mobile-nav.show {
     display: block;
+    animation: slideLeft 0.5s ease-in;
+    backdrop-filter:blur(18px);
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+/* An animation for the mobile nav. It slides in from the right to the left, when the mobile nav button is clicked. */
+@keyframes slideLeft {
+  from {right: -300px; opacity: 0;}
+  to {right: 0px; opacity: 1;}
 }
 
 .mobile-toggle {
@@ -125,6 +206,7 @@ nav#mobile-nav.show {
   background-color: var(--color-bg-active);
 }
 
+/* Hides the desktop navigation menu for mobile devices. */
 nav.desktop-nav {
     display: none;
 }
@@ -135,7 +217,7 @@ h1, h2, h3, h4, legend, caption, th {
 }
 
 p, input, label, button, a, select, textarea {
-    font-family: Mate, "Times New Roman";
+    font-family: Inconsolata, "Roboto";
 }
 
 /* creates horizontal lines on the page to separate sections */
@@ -166,6 +248,7 @@ the space around feature so that there's space between them */
 h4 {
     padding: 32px;
     font-size: 1.4em;
+    color: var(--color-text);
 }
 
 /* sets the border for the email input item and the submit button.
@@ -196,6 +279,7 @@ Is displayed as flex so it's child elements are displayed in a row. */
 .button #email:focus {
     outline: none;
     background-color: var(--color-accent);
+    color: var(--color-text);
 }
 
 /* styles for the submit button. Sets the flex-basis to 50%,
@@ -205,7 +289,7 @@ has a dark green background color, and white text, and an interactive cursor.*/
     background-color: var(--color-primary);
     cursor: pointer;
     border: 0;
-    color: var(--color-bg);
+    color: var(--color-text-alt);
     font-size: 12pt;
 }
 
@@ -214,6 +298,7 @@ when the button is clicked and a valid email is entered. */
 #message {
     text-align: center;
     padding-bottom: 40px;
+    color: var(--color-text);
 }
 
 /* footer styles */ 
@@ -221,10 +306,11 @@ footer {
     background-color: var(--color-primary);
     width: 100%;
     text-align: center;
-    color: var(--color-bg);
+    color: var(  --color-text-alt);
     padding: 32px;
 }
 
+/* load in classes that have different delay times */
 .load-in {
     opacity: 0;
     transform: translateX(-30px);
@@ -255,7 +341,9 @@ and slowly makes it visible*/
 }
 
 /* Responsive Web Design */
-
+/* Styles for screen sizes bigger than 420 pixels. This is mostly used for the events calendar. 
+The big events calendar broke for screen sizes lower than 420 pixels, so for really small mobile screens, I use the mobile events calendar instead. 
+But for screens bigger than 420 pixels, the mobile events calendar is replaced by the events calendar. */
 @media only screen and (min-width: 420px) {
     /* on bigger screens (anything bigger than 420 px, replaces the mobile 
     calendar with the desktop calendar. Same styling, just has a header row for the week days 
@@ -281,6 +369,7 @@ and slowly makes it visible*/
         font-weight: bold;
         font-size: clamp(1.1em, 2vw, 1.3em);
         padding: 3px 0px;
+        color: var(--color-text);
     }
 
     .calendar-day {
@@ -290,6 +379,7 @@ and slowly makes it visible*/
     table.desktop-calendar td.calendar-dates, table.desktop-calendar th {
         border: 3px double var(--color-primary); 
         background-color: var(--color-bg);
+        color: var(--color-text);
     }
 
     table.desktop-calendar th {
@@ -304,6 +394,7 @@ and slowly makes it visible*/
         padding: 3px;
     }
 
+    /* changes the flex basis amount for the subscribe button */
     .button #email {
         flex-basis: 40%;
     }
@@ -315,6 +406,7 @@ and slowly makes it visible*/
 
 
 /* Styles for tablets */
+/* Starts to really change the layout of elements to fit screens larger than 768 pixels. */
 @media only screen and (min-width: 768px) {
     /* On larger screens, this allows the hero image to take up 76.2% of
     the screen and is a weird number, but on a full laptop page it perfectly aligns with
@@ -329,6 +421,7 @@ and slowly makes it visible*/
         width: 70%;
     }
 
+    /* changes the flex basis amount for the subscribe button */
     .button {
         flex-basis: 70%;
     }
@@ -341,14 +434,25 @@ and slowly makes it visible*/
         flex-basis: 50%;
     }
 
+    /* changes the width of the events calendar */
     table.desktop-calendar {
         width: 90%;
     }
 
+    /* displays the desktop navigation menu and desktop dark mode button */
     nav.desktop-nav {
         display: block;
     }
 
+    .desktop-dark-mode {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 100;
+    }
+
+    /* hides the mobile navigation menu and the mobile dark mode button */
     nav.mobileNav {
         display: none;
     }
@@ -357,6 +461,7 @@ and slowly makes it visible*/
         display: none;
     }
 
+    /* desktop navigation styles */
     nav {
         flex-basis: 66%;
         display: flex;
@@ -376,7 +481,7 @@ and slowly makes it visible*/
     }
 
     nav a {
-        color: var(--color-bg);
+        color: var(--color-text-alt);
         text-decoration: none;
         text-align: center;
         padding: 16px 4px;
@@ -385,12 +490,12 @@ and slowly makes it visible*/
 
     nav a:hover, nav a:active {
         background-color: var(--color-bg-active);
-        color: var(--color-text-muted);
+        color: var(--color-text-alt);
     }
 
     nav a.active {
         background-color: var(--color-accent);
-        color: var(--color-bg-active);
+        color: var(--color-text);
         border: 2px solid var(--color-primary);
     }
 
@@ -411,24 +516,23 @@ and slowly makes it visible*/
         flex-basis: 50%;
     }
 
+    /* video element takes up half of the screen on larger screens */
     #video {
         flex-basis: 50%;
     }
-    
+    /* photos in the gallery with this span class span all 12 columns */
     div.span-12 {
         grid-column: span 12;   
     }
 
+    /* photos in the gallery with this span class span 8 columns */
     div.span-8 {
         grid-column: span 8;
     }
 
+    /* photos in the gallery with this span class span 4 columns */
     div.span-4 {
         grid-column: span 4;
-    }
-
-    .name {
-        flex-direction: row;
     }
 
     /* changes the contact ways section to be displayed in a row with the form and alt ways
@@ -469,7 +573,7 @@ and slowly makes it visible*/
 
 /* Laptop designs (min-width: 1020px) */
 @media only screen and (min-width: 1024px) {
-    
+    /* allows the four flip cards to be aligned in a row */
     div.flip-card {
         grid-column: span 1;
     }
@@ -480,11 +584,12 @@ and slowly makes it visible*/
         width: 60%;
     }
 
+    /* changes the flex basis amount for the subscribe button */
     .button {
         flex-basis: 50%;
     }
 
-    
+    /* contact form has a smaller width of 60% on larger screens */
     form.contact {
         width: 60%;
     }   
@@ -494,6 +599,7 @@ and slowly makes it visible*/
         width: 50%;
     }
 
+    /* extra left/right padding for paragraph elements in this calendar section */
     #calendar-section > p {
         padding: 0px 120px;
     }

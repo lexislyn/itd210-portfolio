@@ -29,7 +29,6 @@ section.hero_content {
     width: 100%;
     height: 40vw; 
     min-height: 300px;
-    text-align: center;
 }
 
 div.hero_video {
@@ -61,7 +60,7 @@ section.hero_content::before {
 }   
 
 div.hero_text {
-  color: var(--color-bg);
+  color: var(  --color-text-alt);
   padding: 0px 10px;
   z-index: 2;
   font-size: 1.15em;
@@ -86,11 +85,13 @@ article > * {
 article > h2 {
     padding: 40px 0px 10px;
     font-size: 1.6em;
+    color: var(--color-text);
 }
 
 article > p {
-     padding-bottom: 20px;
-     font-size: 1.15em;
+    padding-bottom: 20px;
+    font-size: 1.15em;
+    color: var(--color-text);
 }
 
 /* This makes the images in the cards have rounded corners. Also it 
@@ -103,7 +104,9 @@ article > p {
     border-radius: 15px;
 }
 
-/* card styling rules. The span allows the cards to align in a row. */
+/* card styling rules. The span is 2 on mobile devices to make a 2 by 2 card setup. 
+The aspect ratio is defined at 4/3 explicitly. The edges are rounded, extra margin is added, 
+and overflow is hidden. The perspective is set to 1000 to help the flip effect. */
 .flip-card {
     background-color: transparent;
     perspective: 1000px;
@@ -116,23 +119,30 @@ article > p {
     grid-column: span 2;
 }
 
+/* has the gray overlay over the cards also have rounded bottom edges to match the cards. */
 .hover_effect {
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
 
+/* takes up full height and width of the grid area. Has a 1.25 second transition for the flip effect so it's not too sudden.
+Preserves the 3d effect for the flip effect. */
 .flip-card-inner {
-    position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 1s ease-in-out;
+    transition: transform 1.25s ease-in-out;
     transform-style: preserve-3d;
 }
 
+/* when the flip card is hovered over, it starts the flip effect where the card 
+rotates 180 degrees in the y direction. */
 .flip-card:hover .flip-card-inner {
     transform: rotateY(180deg);
 }
 
+/* with absolute positioning, the front and back of the card can layer over each other 
+like a card. Here we have three different rules (for different browsers) to prevent the text on the other side 
+from showing. */
 .flip-card-front, .flip-card-back {
     position: absolute;
     width: 100%;
@@ -142,7 +152,9 @@ article > p {
     backface-visibility: hidden;
 }
 
-
+/* the back of the flip card has a blue background, black text, 
+text that is centered horizontally and vertically on the card in a column 
+layout. Like the front, the edges are curved and it rotates 180 degrees to flip back to the front. */
 .flip-card-back {
     background-color: var(--color-bg-back);
     transform: rotateY(180deg);
@@ -155,10 +167,7 @@ article > p {
     align-items: center;
 }
 
-div.flip-card-back:hover {
-    box-shadow: var(--color-shadow-hover) 5px 5px 5px;
-}
-
+/* makes the hypertext on the back have black text and no underlining. */
 div.flip-card a {
     text-decoration: none;
     color: var(--color-text);
@@ -177,13 +186,16 @@ Prompt summary: How would I get the text not to display backwards on the back si
     transform: rotateY(0deg);
 }
 
-
+/* styles for the gray overlay on the cards. Makes it have a higher z-index so it's always on top. 
+Has a transparent gray background with white text. Sits on its own layer at the bottom of the card. 
+Font size is increased. Width covers the whole card. Overlay is displayed as flex so that the
+text and i icon can be displayed in a row with space around horizontal positioning. */
 .flip-card-front div.hover_effect{
     position: absolute;
     opacity: 1;
     z-index: 3;
     bottom: 0px;
-    color: var(--color-bg);
+    color: var( --color-text-alt);
     background-color: var(--color-overlay-2);
     font-size: 1.05em;
     
@@ -194,11 +206,3 @@ Prompt summary: How would I get the text not to display backwards on the back si
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
-
-.flip-card-front img, .flip-card-back {
-    position: relative;
-    z-index: 1;
-    inset: 0px;
-}
-
-

@@ -31,16 +31,17 @@ div.hero_video video{
 /* The text is white, includes padding, has a higher z value so that it's over the video, 
 has a text shadow, and a bigger font size */
 div.hero_text {
-  color: var(--color-bg);
+  color: var(--color-text-alt);
   padding: 10px 10px;
   z-index: 2;
-  text-shadow: 2px 2px 5px var(--color-text);
+  text-shadow: 2px 2px 5px rgb(0,0,0,0.4);
   font-size: 1.4em;
 }
 
 /* centers the text on the page in this section */
 #calendar-section {
     text-align: center;
+    color: var(--color-text);
 }
 
 h1 {
@@ -79,12 +80,14 @@ table.mobile-calendar caption {
     font-weight: bold;
     font-size: clamp(1.2em, 3vw, 1.3em);
     padding: 3px 0px;
+    color: var(--color-text);
 }
 
 /* Adds a border between each table cell. Aligns text to the top and left of each table cell */
 td.mobile-calendar-dates {
     border: 3px solid var(--color-primary);  
     background-color: var(--color-bg);
+    color: var(--color-text);
     vertical-align: top;
     text-align: left;
     height: 80px;
@@ -95,10 +98,12 @@ td.mobile-calendar-dates {
 /* The current date has a different colored background */
 td#active.calendar-dates {
     background-color: var(--color-accent);
+    color: var(--color-text);
 }
 
 td#active.mobile-calendar-dates {
     background-color: var(--color-bg-back);
+    color: var(--color-text);
 }
 
 /* makes the desktop calendar hidden by default for mobile devices.  */
@@ -108,7 +113,7 @@ table.desktop-calendar {
 
 /* Makes the hypertext links a blue color and they use the pointer cursor to indicate interactivity.  */
 #calendar-section a {
-    color: blue;
+    color: var(--color-text);
     cursor: pointer;
 }
 
@@ -201,28 +206,33 @@ green background as the footer with no border.  */
 /* When the closing button is hovered over or in focus, it turns black 
 and the cursor changes to a pointer one. */
 .close:hover, .close:focus {
-  color: black;
+   color: var(--color-text);
   text-decoration: none;
   cursor: pointer;
 }
 
+/* styles of the event registration form. form is displayed as flex with the inputs shown in a column. */  
 form.register {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-bg-back);
-    padding-top: 20px;
+    width: 100%;  /* the form takes up 100% of the modal body width */
+    height: 100%; /* the form takes up 100% of the modal body height */
+    background-color: var(--color-bg-back); /* sets the background color of the form to blue */
+    padding-top: 20px; /* adds padding to the top */
 }
 
+/* increases the font-size for each form label. Sets the width to 90%. Horizontally centers the label. */
 form.register label {
     font-size: 1.1em;
     width: 90%;
     margin: 10px auto 0px;
     display: block;
+    color: var(--color-text);
 }
 
+/* displays each row of the form as flex, so that the label and input box 
+are displayed in a row. The width of each row is 90%. Each row is horizontally centered */
 div.form-row {
     display: flex;
     flex-flow: row wrap;
@@ -230,23 +240,30 @@ div.form-row {
     margin: 0px auto;
 }
 
+/* each child of the form row class (so the input and labels)
+has a flex basis of 150px and a growth and shrink rate of 1 */
 div.form-row > * {
     flex: 1 1 150px;
 }
 
+/*Each input element has a width of 90%, is horizontally centered, 
+and has a green border. */
 form.register input {
     width: 90%;
     margin: 10px auto 0px;
     border: 2px solid var(--color-primary);
 }
 
-form.register input:focus, div.name input:focus {
+/* when each input element is in focus, the default outline is replaced 
+by a green box shadow. */
+form.register input:focus {
     outline: none;
     box-shadow: 0 0 5px var(--color-primary);
-    background-color: var(--color-bg);
 }
 
-.contact-btns {
+/* contact buttons are displayed as flex so that the buttons can be aligned in a row.
+The buttons are aligned with space around spacing. the width is 90% and padding is added. */
+.register-btns {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
@@ -254,7 +271,15 @@ form.register input:focus, div.name input:focus {
     margin: 10px auto 20px;
 }
 
-.contact-btns > * {
+.modalBtn:hover {
+    background-color: #537153;
+    cursor: pointer;
+}
+
+/* each button has a flex basis of 33%. They don't grow in size. They have
+a green border and curved edges. The background color is the same color as the border.
+The text color is white. */
+.register-btns > * {
     flex-basis: 33%;
     flex-grow: 0;
     border: 2px solid var(--color-primary);
@@ -263,23 +288,30 @@ form.register input:focus, div.name input:focus {
     color: var(--color-bg);
     font-size: 1em;
     padding: 2px 0px;
+    color: var(--color-text);
 }
 
+/* each input element has added padding and curved edges and is displayed as a block element*/
 .input {
     padding: 5px 10px;
     border-radius: 5px;
     display: block;
 }
-
+/* The submission view has a blue background color and added padding */
 #submit-view {
     background-color: var(--color-bg-back);
     padding: 30px 10px;
+    color: var(--color-text);
 }
 
+/* adds space above the paragraph element */
 #submit-view > p {
     margin-top: 12px;
 }
 
+/* button styles to download a calendar file. The button has a green background
+with white text, no border, and curved edges. Has some padding and extra margin on the top, and the width is set to auto
+so that it's only as big as the text. */
 button#calendar-file {
     background-color: var(--color-primary);
     width: auto;
@@ -291,38 +323,52 @@ button#calendar-file {
     margin-top: 18px; 
 }
 
-
+/* adds margin to the heading text above the gallery. 
+Also horizontally centers the text and increases the font size. */
 #gallery > h3 {
     text-align: center;
     font-size: 1.5em;
     margin-top: 72px;
     margin-bottom: 20px;
+    color: var(--color-text);
 }
 
+/* displays the photo collection as a grid. There's 12 columns, each 1 fractional unit in size.
+Each row has a minimum height of 100px and a maximum height of 300px. */
 #grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-auto-rows: minmax(100px, 300px);
-    overflow-x: hidden;
 }
 
+/* styles for the labels that appear when you hover over the image. It's displayed as flex 
+so that the labels appear on the bottom left corner of the image. The position is also set to relative. 
+Overflow is hidden, and each image has a black border. Lastly, for mobile devices, 
+each image spans the 12 grid columns. */
 .span {
     position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-    min-width: 0;
+    overflow: hidden;
+    border: 1.5px solid black;
+    grid-column: span 12; 
 }
 
+/* for the grid images, they each take up 100% of the width and height of their area. The object-fit is set to cover so 
+that the aspect ratio is maintained. Each image has a transition that will scale the image when hovered over. Each
+image is placed using absolute positioning, so that it sits in its own layer and doesn't have to share space with the labels. */
 #grid img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     position: absolute;
     transition: transform 0.8s ease-in-out;
-
 }
 
+/* Each label starts with zero opacity, but has a z-index of 5 so that when they are visible, they sit over the images. 
+The background color is an opaque white. There's added margin and padding. The edges are curved. The font size is increased.
+Lastly, there's a transition for the opacity. */
 div.label {
     opacity: 0;
     z-index: 5;
@@ -336,19 +382,13 @@ div.label {
     
 }
 
+/* when the image is hovered over, the scale increases */
 img:hover {
     transform: scale(1.05);
 }
 
+/* when the image is hovered over, it's sibling label element becomes opaque. */
 img:hover + .label {
     opacity: 1;
 }
 
-.span {
-    overflow: hidden;
-    border: 1.5px solid black;
-}
-
-div.span {
-    grid-column: span 12;   
-}

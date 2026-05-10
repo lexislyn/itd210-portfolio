@@ -14,7 +14,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Limelight&family=Mate:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
     <!--Link to Javascript files-->
+    <script src="js/script-mobile-nav.js" async></script>
     <script src="js/script-api.js" defer></script>
 </head>
 <body>
@@ -28,6 +32,7 @@
         <!--Mobile Navigation List-->
         <nav id="mobile-nav" class="mobileNav">
             <ul>
+                <button type="button" id="dark-mode">Dark Mode</button>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="mission.html">About Us</a></li>
                 <li><a href="key-issues.html">Key Issues</a></li>
@@ -53,6 +58,10 @@
     </section>
         <!--Hero section that has text on one half and an image on the other-->
         <section id="hero">
+            <!--A button that is placed in the top right corner of the page that switches the page to dark mode -->
+            <div class="desktop-dark-mode">
+                <button type="button" id="large-dark-mode">Dark Mode</button>
+            </div>
             <!--Text has a load-in animation applied to it-->
             <div class="hero-text">
                 <h1 class="load-in">Contact Us!</h1>
@@ -83,7 +92,7 @@
                 <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
                     <g transform="scale(-1,1) translate(-1440,0)">
                         <path 
-                        fill="#ebf4d9"
+                        fill="var(--color-accent)"
                         d="M0,100 C300,150 1100,0 1440,100 L1440,150 L0,150 Z">
                         </path>
                     </g>
@@ -114,10 +123,10 @@
                         <input class="input" type="text" id="subject" name="subject" placeholder="Subject of your message" required>
                         
                         <label for="message">Message:</label>
-                        <textarea class="input" id="message" name="message" rows="5" minlength="30" maxlength="250" placeholder="Enter your message" required></textarea>
+                        <textarea class="input" id="contact-message" name="message" rows="5" minlength="30" maxlength="250" placeholder="Enter your message" required></textarea>
                         <div class="contact-btns">
-                            <input type="submit" value="Submit">
-                            <input type="reset" value="Reset">
+                            <input type="submit" id="submit" value="Submit">
+                            <input type="reset" id="reset" value="Reset">
                         </div>
                         <!-- Honeypot — hidden from real users, catches bots -->
                         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -179,14 +188,6 @@
     </footer>  
     
     <script>
-        /* mobile nav script */
-        const navBtn = document.getElementById("navButton");
-        const menu = document.getElementById("mobile-nav");
-
-        navBtn.addEventListener("click", function () {
-            menu.classList.toggle("show");
-        });
-
         /* form processing script using Formspree*/
         (function () {
             /* gets the form using the class name (since there's only one form) */
