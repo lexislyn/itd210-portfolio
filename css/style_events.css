@@ -291,6 +291,10 @@ The text color is white. */
     color: var(--color-text-alt);
 }
 
+#calendar-file:hover, #calendar-file:active {
+    background-color: #537153;
+}
+
 /* each input element has added padding and curved edges and is displayed as a block element*/
 .input {
     padding: 5px 10px;

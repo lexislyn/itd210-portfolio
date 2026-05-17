@@ -6,7 +6,8 @@
         var closeBtn = document.getElementsByClassName("close")[0];
         var formView = document.getElementById("form-view");
         var submitView = document.getElementById("submit-view")
-        
+        var calendarButton = document.getElementById("calendar-file");
+
         // When the user clicks on a link in the calendar, open the modal
         for (var i = 0; i < links.length; i++){
             links[i].addEventListener("click", loadModal);
@@ -73,4 +74,49 @@
             submitView.style.display = "block";
         });
 
+        // When the button is clicked, generate and download the ICS file
+        calendarButton.addEventListener("click", function() {
+            // Get the currently selected day from your modal
+            var dayIndex = document.querySelector(".modal-header span#day").textContent.replace(/\D/g,''); //remove all non-digit characters.
+            var event = dayEvent[dayIndex]; // Your existing dayEvent object
+            var name = document.getElementById("f-name").value; // Use the user's name
 
+            if (!event) return; // safety check
+            /* Generate ICS content
+            BEGIN:VCALENDAR & END:VCALENDAR: //marks this as a calendar file.
+            VERSION:2.0 //standard ICS version.
+            PRODID //identifies the software that generated the calendar (you can customize this).
+            BEGIN:VEVENT & END:VEVENT //defines a single calendar event.
+            UID:${uid} //unique ID for the event.
+            DTSTAMP  //timestamp for when the event was created. Converts JS date to UTC format without dashes/colons, which ICS expects.
+            DTSTART //event start time in UTC (from event.start).
+            DTEND //event end time in UTC.
+            SUMMARY  //the event title.
+            DESCRIPTION //we personalize it with Thank you ${name} for signing up!.
+            LOCATION //event location.
+            .trim() just removes any leading/trailing whitespace.
+            */
+            var icsContent = `
+            BEGIN:VCALENDAR
+            VERSION:2.0
+            PRODID:-//CoastalProtectionInitiative//EventCalendar//EN
+            BEGIN:VEVENT
+            UID:${Date.now()}@example.com
+            DTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').split('.')[0]}Z
+            DTSTART:${event.start}
+            DTEND:${event.end}
+            SUMMARY:${event.title}
+            DESCRIPTION:Thank you ${name} for signing up!
+            LOCATION:${event.location}
+            END:VEVENT
+            END:VCALENDAR
+            `.trim();
+
+            // Use a Blob to trigger download
+            var blob = new Blob([icsContent], { type: 'text/calendar' });  //tells the browser “this is a calendar file”
+            var link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);  //this link points to our Blob file in memory
+            link.download = `${event.title.replace(/\s/g,'-')}.ics`; //when the user clicks, save it with this filename”
+            link.click();
+            URL.revokeObjectURL(link); // frees memory
+        });
