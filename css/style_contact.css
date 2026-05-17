@@ -37,12 +37,14 @@ div#hero-img {
     bottom: 0; /* positions it using the bottom-left corner */
     left: 0;
     width: 100%; /* width is 100% */
+    height: 80px; /* height for mobile is 80px */
+    overflow: hidden;
 }
 
 #curve > svg {
     width: 100%; /* width is 100% */
     display: block; /* displays the svg as a block */
-    height: 80px; /* height for mobile is 80px */
+    height: 100%; 
 }
 
 #contact-form .text {
