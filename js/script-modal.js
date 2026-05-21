@@ -82,6 +82,7 @@
             var name = document.getElementById("f-name").value; // Use the user's name
 
             if (!event) return; // safety check
+
             /* Generate ICS content
             BEGIN:VCALENDAR & END:VCALENDAR: //marks this as a calendar file.
             VERSION:2.0 //standard ICS version.
@@ -95,19 +96,24 @@
             DESCRIPTION //we personalize it with Thank you ${name} for signing up!.
             LOCATION //event location.
             .trim() just removes any leading/trailing whitespace.
+            
+            Other fields are added to make it work better with iPhones
             */
             var icsContent = `
             BEGIN:VCALENDAR
             VERSION:2.0
+            CALSCALE:GREGORIAN
             PRODID:-//CoastalProtectionInitiative//EventCalendar//EN
             BEGIN:VEVENT
             UID:${Date.now()}@example.com
             DTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').split('.')[0]}Z
-            DTSTART:${event.start}
-            DTEND:${event.end}
+            DTSTART:${new Date(event.start).toISOString().replace(/[-:]/g,'').split('.')[0]}Z
+            DTEND:${new Date(event.end).toISOString().replace(/[-:]/g,'').split('.')[0]}Z
             SUMMARY:${event.title}
             DESCRIPTION:Thank you ${name} for signing up!
             LOCATION:${event.location}
+            STATUS:CONFIRMED
+            SEQUENCE:0
             END:VEVENT
             END:VCALENDAR
             `.trim();
