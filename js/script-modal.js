@@ -87,8 +87,23 @@
             
             var name = document.getElementById("f-name").value; // Use the user's name
             console.log("name:", name);
+
+            console.log("start:", event.start);
+            console.log("end:", event.end);
             
             if (!event) return; // safety check
+
+            function toICS(value) {
+                const d = new Date(value);
+                return d.toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
+            }
+
+            function clean(text) {
+                return String(text || "")
+                .replace(/\n/g, "\\n")
+                .replace(/,/g, "\\,")
+                .replace(/;/g, "\\;");
+            }
 
             /* Generate ICS content
             BEGIN:VCALENDAR & END:VCALENDAR: //marks this as a calendar file.
@@ -106,23 +121,29 @@
             
             Other fields are added to make it work better with iPhones
             */
-            var icsContent = `BEGIN:VCALENDAR
+var icsContent =
+`BEGIN:VCALENDAR
 VERSION:2.0
+METHOD:PUBLISH
 CALSCALE:GREGORIAN
 PRODID:-//CoastalProtectionInitiative//EventCalendar//EN
+X-WR-CALNAME:Events
+X-WR-TIMEZONE:UTC
 BEGIN:VEVENT
 UID:${Date.now()}@example.com
-DTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').split('.')[0]}Z
-DTSTART:${new Date(event.start).toISOString().replace(/[-:]/g,'').split('.')[0]}Z
-DTEND:${new Date(event.end).toISOString().replace(/[-:]/g,'').split('.')[0]}Z
-SUMMARY:${event.title}
-DESCRIPTION:Thank you ${name} for signing up!
-LOCATION:${event.location}
+DTSTAMP:${toICS(new Date())}
+DTSTART:${toICS(event.start)}
+DTEND:${toICS(event.end)}
+SUMMARY:${clean(event.title)}
+DESCRIPTION:${clean(`Thank you ${name} for signing up!`)}
+LOCATION:${clean(event.location)}
 STATUS:CONFIRMED
 SEQUENCE:0
 END:VEVENT
-END:VCALENDAR`.trim();
+END:VCALENDAR`;
 
+
+icsContent = icsContent.replace(/\r/g, "");
             /* Use a Blob to trigger download
             Doesn't work well on safari for iPhones
             var blob = new Blob([icsContent], { type: 'text/calendar' });  //tells the browser “this is a calendar file”
