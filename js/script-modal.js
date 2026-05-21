@@ -125,9 +125,23 @@ END:VCALENDAR`.trim();
             link.click();
             URL.revokeObjectURL(link); // frees memory */
 
-            var encoded = encodeURIComponent(icsContent);
+            var blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
 
-            window.location.href =
-                "data:text/calendar;charset=utf-8," + encoded;
+            var url = URL.createObjectURL(blob);
 
+            /* Create a temporary link */
+            var a = document.createElement("a");
+            a.href = url;
+            a.download = `${event.title.replace(/\s/g,'-')}.ics`;
+
+            /* MUST be added to DOM for iOS */
+            document.body.appendChild(a);
+
+            a.click();
+
+            document.body.removeChild(a);
+
+            setTimeout(() => {
+                URL.revokeObjectURL(url);
+            }, 1000);
         });
