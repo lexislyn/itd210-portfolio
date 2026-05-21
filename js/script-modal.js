@@ -83,6 +83,8 @@
             console.log("dayIndex:", dayIndex);
             
             var event = dayEvent[dayIndex]; // Your existing dayEvent object
+             
+            if (!event) return; // safety check
             console.log("event:", event);
             
             var name = document.getElementById("f-name").value; // Use the user's name
@@ -90,13 +92,14 @@
 
             console.log("start:", event.start);
             console.log("end:", event.end);
-            
-            if (!event) return; // safety check
 
             function toICS(value) {
                 const d = new Date(value);
-                return d.toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
-            }
+                if (isNaN(d.getTime())) {
+                    throw new Error("Invalid date: " + value);
+                }
+                return d.toISOString().replace(/[-:]/g,'').split('.')[0];
+            }   
 
             function clean(text) {
                 return String(text || "")
@@ -128,12 +131,27 @@ METHOD:PUBLISH
 CALSCALE:GREGORIAN
 PRODID:-//CoastalProtectionInitiative//EventCalendar//EN
 X-WR-CALNAME:Events
-X-WR-TIMEZONE:UTC
+BEGIN:VTIMEZONE
+TZID:America/New_York
+BEGIN:STANDARD
+DTSTART:20071104T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:20070311T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+END:DAYLIGHT
+END:VTIMEZONE
+
 BEGIN:VEVENT
 UID:${Date.now()}@example.com
 DTSTAMP:${toICS(new Date())}
-DTSTART:${toICS(event.start)}
-DTEND:${toICS(event.end)}
+DTSTART;TZID=America/New_York:${toICS(event.start)}
+DTEND;TZID=America/New_York:${toICS(event.end)}
 SUMMARY:${clean(event.title)}
 DESCRIPTION:${clean(`Thank you ${name} for signing up!`)}
 LOCATION:${clean(event.location)}
