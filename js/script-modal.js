@@ -76,7 +76,7 @@
 
         // When the button is clicked, generate and download the ICS file
         calendarButton.addEventListener("click", function() {
-            alert("clicked");
+            window.alert("clicked");
             // Get the currently selected day from your modal
             var dayIndex = document.querySelector(".modal-header span#day").textContent.replace(/\D/g,''); //remove all non-digit characters.
             var event = dayEvent[dayIndex]; // Your existing dayEvent object
