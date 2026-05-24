@@ -76,30 +76,30 @@
 
         // When the button is clicked, generate and download the ICS file
         calendarButton.addEventListener("click", function() {
-            window.alert("clicked");
-            console.log("step 1");
             // Get the currently selected day from your modal
             var dayIndex = document.querySelector(".modal-header span#day").textContent.replace(/\D/g,''); //remove all non-digit characters.
-            console.log("dayIndex:", dayIndex);
-            
             var event = dayEvent[dayIndex]; // Your existing dayEvent object
              
             if (!event) return; // safety check
-            console.log("event:", event);
             
             var name = document.getElementById("f-name").value; // Use the user's name
-            console.log("name:", name);
 
-            console.log("start:", event.start);
-            console.log("end:", event.end);
+            function pad(value){ 
+                dateText = String(value);
+                padDate = dateText.padStart(2, "0");
+                return padDate;
+            };
 
             function toICS(value) {
                 const d = new Date(value);
+
                 if (isNaN(d.getTime())) {
                     throw new Error("Invalid date: " + value);
                 }
-                return d.toISOString().replace(/[-:]/g,'').split('.')[0];
-            }   
+
+                icsTime = d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) + "T" + pad(d.getHours()) + pad(d.getMinutes()) + pad(d.getSeconds());
+                return icsTime;
+            }
 
             function clean(text) {
                 return String(text || "")
@@ -131,37 +131,36 @@ METHOD:PUBLISH
 CALSCALE:GREGORIAN
 PRODID:-//CoastalProtectionInitiative//EventCalendar//EN
 X-WR-CALNAME:Events
+X-WR-TIMEZONE:America/New_York
 BEGIN:VTIMEZONE
 TZID:America/New_York
+LAST-MODIFIED:20050809T050000Z
 BEGIN:STANDARD
 DTSTART:20071104T020000
-RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
 TZOFFSETFROM:-0400
 TZOFFSETTO:-0500
+TZNAME:EST
 END:STANDARD
 BEGIN:DAYLIGHT
 DTSTART:20070311T020000
-RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
 TZOFFSETFROM:-0500
 TZOFFSETTO:-0400
+TZNAME:EDT
 END:DAYLIGHT
 END:VTIMEZONE
-
 BEGIN:VEVENT
 UID:${Date.now()}@example.com
 DTSTAMP:${toICS(new Date())}
 DTSTART;TZID=America/New_York:${toICS(event.start)}
 DTEND;TZID=America/New_York:${toICS(event.end)}
 SUMMARY:${clean(event.title)}
-DESCRIPTION:${clean(`Thank you ${name} for signing up!`)}
 LOCATION:${clean(event.location)}
 STATUS:CONFIRMED
 SEQUENCE:0
 END:VEVENT
-END:VCALENDAR`;
+END:VCALENDAR`; 
 
-
-icsContent = icsContent.replace(/\r/g, "");
+icsContent = icsContent.replace(/\n/g, "\r\n");
             /* Use a Blob to trigger download
             Doesn't work well on safari for iPhones
             var blob = new Blob([icsContent], { type: 'text/calendar' });  //tells the browser “this is a calendar file”
