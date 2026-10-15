@@ -8,7 +8,7 @@ section#hero {
     background-color: var(--color-bg);
     position: relative;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
 }
 
 /* loads the hero image and text with a staggered animation */
@@ -43,14 +43,17 @@ and slowly makes it visible*/
 
 /*for mobile styles the image in the hero section takes up 50% of the body width */
 div#hero_img {
-    flex-basis: 60%;
+    flex: 0 0 100%;
+    width: 100%;
+    height: clamp(120px, 55vw, 300px);
 }
 
 /*for mobile styles the text in the hero section takes up 50% of the body width*/
 /*the text is displayed as a flexbox so the text can be horizontally and vertically aligned */
 div#hero_text {
-    padding: 5px;
-    flex-basis: 50%;
+    padding: 15px;
+    flex-basis: 0 0 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,10 +69,11 @@ div#hero_text p {
 /*makes the image in the hero section responsive by
 setting the max-width to 100% and height to 100%.*/
 section#hero img {
-    max-width: 100%;
+    width: 100%;
     height: 100%;
     display: block;
     object-fit: cover;
+    object-position: center;
 }
 
 /*Mission Statement Styles */
@@ -310,7 +314,17 @@ so they disappear */
     opacity: 0;
 }
 
+@media (min-width: 500px) {
+    div#hero_img {
+        flex: 0 0 60%;
+        width: 60%;
+        height: clamp(200px, 35vw, 375px);
+    }
 
-
-
+    div#hero_text {
+        flex: 1 1 40%;
+        width: 40%;
+        padding: 5px;
+    }
+}
 

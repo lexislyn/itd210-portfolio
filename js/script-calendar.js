@@ -12,20 +12,21 @@
 
 // This section creates a monthly calendar of events on the events page.
 var thisDay = new Date();
-
+var thisMonth = thisDay.getMonth() + 1;
 
 // JavaScript object literal that holds the event data for the month
 var dayEvent = {
-  1: { title: "Volunteer Training", time: "5 pm", start: "2026-05-01T17:00:00", end: "2026-05-01T19:00:00", location: "111 Brick Lane, Richmond VA"},
-  4: { title: "Fundraising Gala", time: "6 pm", start: "2026-05-04T18:00:00", end: "2026-05-04T20:00:00", location: "111 Brick Lane, Richmond VA"},
-  7: { title: "Wetland Restoration", time: "10 am", start: "2026-05-07T10:00:00", end: "2026-05-07T12:00:00", location: "7532 Lake Drive, Richmond VA"},
-  10: { title: "Community Meeting", time: "7 pm", start: "2026-05-10T19:00:00", end: "2026-05-10T20:00:00", location: "111 Brick Lane, Richmond VA"},
-  12: { title: "5k Run", time: "8 am", start: "2026-05-12T08:00:00", end: "2026-05-12T10:00:00", location: "9004 Main Road, Richmond VA"},
-  16: { title: "Tree Planting", time: "12 pm", start: "2026-05-16T12:00:00", end: "2026-05-16T14:00:00", location: "4587 Warren Drive, Richmond VA"},
-  20: { title: "Documentary Screening", time: "6 pm", start: "2026-05-20T18:00:00", end: "2026-05-20T20:00:00", location: "111 Brick Lane, Richmond VA"},
-  25: { title: "Beach Cleanup", time: "10 am", start: "2026-05-25T10:00:00", end: "2026-05-25T12:00:00", location: "1489 Holland Road, Virginia Beach VA"},
-  28: { title: "Guest Speaker", time: "7 pm", start: "2026-05-28T19:00:00", end: "2026-05-28T20:00:00", location: "111 Brick Lane, Richmond VA" }
+    1: { title: "Volunteer Training", time: "5 pm", start: "17:00:00", end: "19:00:00", location: "111 Brick Lane, Richmond VA"},
+    4: { title: "Fundraising Gala", time: "6 pm", start: "18:00:00", end: "20:00:00", location: "111 Brick Lane, Richmond VA"},
+    7: { title: "Wetland Restoration", time: "10 am", start: "10:00:00", end: "12:00:00", location: "7532 Lake Drive, Richmond VA"},
+    10: { title: "Community Meeting", time: "7 pm", start: "19:00:00", end: "20:00:00", location: "111 Brick Lane, Richmond VA"},
+    12: { title: "5k Run", time: "8 am", start: "08:00:00", end: "10:00:00", location: "9004 Main Road, Richmond VA"},
+    16: { title: "Tree Planting", time: "12 pm", start: "12:00:00", end: "14:00:00", location: "4587 Warren Drive, Richmond VA"},
+    20: { title: "Documentary Screening", time: "6 pm", start: "18:00:00", end: "20:00:00", location: "111 Brick Lane, Richmond VA"},
+    25: { title: "Beach Cleanup", time: "10 am", start: "10:00:00", end: "12:00:00", location: "1489 Holland Road, Virginia Beach VA"},
+    28: { title: "Guest Speaker", time: "7 pm", start: "19:00:00", end: "20:00:00", location: "111 Brick Lane, Richmond VA" }
 };
+
 
 //runs the createCalendar function for both the mobile and desktop version
 var mobile = document.getElementById("mobile-calendar");
@@ -111,7 +112,7 @@ function calDays(calDate) {
         var event = dayEvent[i];
         var eventHTML = "";
         if (event) {
-            eventHTML = `<p><a href='#' data-date="${i}" class='calendar'> ${event.title}</a></p><p class='time'>${event.time}</p>`
+            eventHTML = `<p><a href='#' data-date="${i}" class='calendar'> ${event.title}</a></p><p class='time'>${event.time}</p>`;
         }
         /* an active id is added to the current date */
         if (i === today) {
@@ -152,3 +153,4 @@ function calDaysMobile(calDate) {
     } 
     return rowHTML; 
 }
+

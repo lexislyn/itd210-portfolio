@@ -1,4 +1,3 @@
-
 /* This section creates a countdown timer on 
 the donation page. */
 

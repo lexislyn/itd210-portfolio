@@ -1,4 +1,7 @@
-       /*script for modal */
+        /*script for modal */
+        var thisDay = new Date();
+        var thisMonth = thisDay.getMonth();
+        var thisYear = thisDay.getFullYear();
 
         /* getting all the elements we need */
         var modal = document.getElementById("modal");
@@ -7,6 +10,9 @@
         var formView = document.getElementById("form-view");
         var submitView = document.getElementById("submit-view")
         var calendarButton = document.getElementById("calendar-file");
+
+        console.log("Calendar button:", calendarButton);
+        console.log("Event data:", dayEvent);
 
         // When the user clicks on a link in the calendar, open the modal
         for (var i = 0; i < links.length; i++){
@@ -73,6 +79,20 @@
             formView.style.display = "none";
             submitView.style.display = "block";
         });
+
+        function makeEventDate(day, time) {
+            var time_split = time.split(":");
+            var hours = time_split[0];
+            var minutes = time_split[1];
+    
+            return new Date(
+                thisYear,
+                thisMonth,
+                Number(day),
+                Number(hours),
+                Number(minutes)
+            );
+        }
 
         // When the button is clicked, generate and download the ICS file
         calendarButton.addEventListener("click", function() {
@@ -151,8 +171,8 @@ END:VTIMEZONE
 BEGIN:VEVENT
 UID:${Date.now()}@example.com
 DTSTAMP:${toICS(new Date())}
-DTSTART;TZID=America/New_York:${toICS(event.start)}
-DTEND;TZID=America/New_York:${toICS(event.end)}
+DTSTART;TZID=America/New_York:${toICS(makeEventDate(dayIndex, event.start))}
+DTEND;TZID=America/New_York:${toICS(makeEventDate(dayIndex, event.end))}
 SUMMARY:${clean(event.title)}
 LOCATION:${clean(event.location)}
 STATUS:CONFIRMED
